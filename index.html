@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PhotoFlow – обработка на продуктови снимки</title>
+  <meta name="description" content="Десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони за платформи." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">PhotoFlow</a>
+      <nav class="nav">
+        <a href="#features">Функции</a>
+        <a href="#gallery">Видео/Снимки</a>
+        <a href="#download">Демо</a>
+        <a href="#license">Лиценз</a>
+        <a href="#reviews">Препоръки</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Готови продуктови снимки за онлайн продажби – за секунди.</h1>
+          <p class="lead">
+            Качваш снимка → чисти фона → кропва и центрира → експортва готови файлове според платформа/клиент.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" id="downloadBtn"
+               href="https://github.com/OWNER/REPO/releases/latest/download/ASSET_NAME.exe">
+              Свали демо (Windows)
+            </a>
+            <a class="btn" href="#license">Заяви платен лиценз</a>
+          </div>
+
+          <ul class="bullets">
+            <li>Консистентен кроп и център за целия каталог</li>
+            <li>Експорт в PNG/JPG/WebP + размери/пропорции по шаблони</li>
+            <li>Подходящо за онлайн магазини, маркетплейси, агенции и студиа</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="badge">Покажи, не обяснявай</div>
+          <p class="muted">Сложи 1 силен before/after кадър или GIF.</p>
+          <div class="placeholder">assets/before-after.jpg</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Основни функции</h2>
+        <div class="grid3">
+          <div class="card">
+            <h3>Премахване на фон</h3>
+            <p>Чист фон за продуктови снимки, без ръчни маски и Photoshop.</p>
+          </div>
+          <div class="card">
+            <h3>Кроп + центриране</h3>
+            <p>Еднакъв “look” в каталога – продуктът стои еднакво във всички кадри.</p>
+          </div>
+          <div class="card">
+            <h3>Експорт по шаблони</h3>
+            <p>Готови файлове за качване: формати, размери и настройки според платформа.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section alt">
+      <div class="container">
+        <h2>Видео и снимки</h2>
+
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="PhotoFlow Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="gallery">
+          <img src="assets/screenshot-1.jpg" alt="Screenshot 1" />
+          <img src="assets/screenshot-2.jpg" alt="Screenshot 2" />
+          <img src="assets/screenshot-3.jpg" alt="Screenshot 3" />
+          <img src="assets/screenshot-4.jpg" alt="Screenshot 4" />
+        </div>
+
+        <p class="muted small">
+          Съвет: качи видеото в YouTube (може Unlisted) и сложи embed линк тук.
+        </p>
+      </div>
+    </section>
+
+    <section id="download" class="section">
+      <div class="container">
+        <h2>Демо версия</h2>
+        <p class="muted">Свали демо и тествай обработката върху твоите продукти.</p>
+        <a class="btn primary"
+           href="https://github.com/OWNER/REPO/releases/latest/download/ASSET_NAME.exe">
+          Свали демо от GitHub Releases
+        </a>
+        <p class="muted small">Ако линкът дава 404, значи името на файла (ASSET_NAME.exe) не съвпада.</p>
+      </div>
+    </section>
+
+    <section id="license" class="section alt">
+      <div class="container">
+        <h2>Заяви платен лиценз</h2>
+        <p class="muted">Попълни формата и ще ти върна отговор с вариант за лиценз и инструкции.</p>
+
+        <form class="form"
+              action="https://formspree.io/f/FORMSPREE_ID"
+              method="POST">
+          <div class="grid2">
+            <label>Име <input name="name" required /></label>
+            <label>Имейл <input name="email" type="email" required /></label>
+          </div>
+
+          <div class="grid2">
+            <label>Фирма / бранд <input name="company" /></label>
+            <label>Колко снимки/месец? <input name="volume" placeholder="пример: 500" /></label>
+          </div>
+
+          <label>Какво ти трябва?
+            <textarea name="message" rows="5" placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"></textarea>
+          </label>
+
+          <button class="btn primary" type="submit">Изпрати заявка</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="reviews" class="section">
+      <div class="container">
+        <h2>Препоръки</h2>
+
+        <div class="grid3">
+          <div class="card">
+            <p>“Ще добавим реални отзиви след първите клиенти.”</p>
+            <p class="muted small">— Име, фирма</p>
+          </div>
+          <div class="card">
+            <p>“Бърза обработка и консистентни снимки за каталога.”</p>
+            <p class="muted small">— Име, фирма</p>
+          </div>
+          <div class="card">
+            <p>“Спести ни часове ръчна работа всяка седмица.”</p>
+            <p class="muted small">— Име, фирма</p>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h3>Остави отзив (за одобрение)</h3>
+        <p class="muted">Изпраща се към нас и после го добавяме ръчно на сайта (без публичен спам).</p>
+
+        <form class="form"
+              action="https://formspree.io/f/FORMSPREE_ID"
+              method="POST">
+          <input type="hidden" name="type" value="review" />
+          <div class="grid2">
+            <label>Име <input name="review_name" required /></label>
+            <label>Имейл <input name="review_email" type="email" required /></label>
+          </div>
+          <label>Отзив <textarea name="review_text" rows="4" required></textarea></label>
+          <button class="btn" type="submit">Изпрати отзив</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section foot">
+      <div class="container footer">
+        <div class="muted small">© <span id="y"></span> PhotoFlow</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
