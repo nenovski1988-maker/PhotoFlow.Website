@@ -555,6 +555,36 @@
       }
 
       setLang(getDefaultLang());
+        // Track successful submits via local thanks pages (works on free plans too)
+  function wireForm(form, redirectUrl){
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try{
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if(res.ok){
+          window.location.href = redirectUrl;
+        }else{
+          alert("Не успях да изпратя формата. Пробвай пак след малко.");
+        }
+      }catch{
+        alert("Проблем с връзката. Пробвай пак след малко.");
+      }
+    });
+  }
+
+  document.querySelectorAll("form.form").forEach(f => {
+    const type = f.querySelector('input[name="type"]')?.value;
+    if(type === "license") wireForm(f, "/thanks.html");
+    if(type === "review") wireForm(f, "/thanks-review.html");
+  });
+
     </script>
   </main>
 </body>
