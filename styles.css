@@ -179,8 +179,8 @@ input:focus, textarea:focus{border-color: rgba(36,209,127,0.55)}
 }
 
 .logo{
-  width:34px;
-  height:34px;
+  width:28px;
+  height:28px;
   object-fit:contain;
   display:block;
 }
