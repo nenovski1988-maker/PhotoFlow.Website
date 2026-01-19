@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thanks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="section">
+    <div class="container">
+      <div class="card">
+        <h2 class="lang-bg">Отзивът е изпратен ✅</h2>
+        <h2 class="lang-en">Review sent ✅</h2>
+        <p class="muted lang-bg">Благодаря! След преглед ще го добавя на сайта.</p>
+        <p class="muted lang-en">Thank you! After review, I’ll publish it on the site.</p>
+        <p style="margin-top:14px"><a class="btn primary" href="/">OK</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const lang = localStorage.getItem("lang") || ((navigator.language||"").toLowerCase().startsWith("bg") ? "bg" : "en");
+    document.documentElement.lang = lang;
+  </script>
+</body>
+</html>
