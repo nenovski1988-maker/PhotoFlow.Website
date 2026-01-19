@@ -530,8 +530,8 @@ body::before{
   background-image: url("assets/bg.png");
   background-repeat: no-repeat;
   background-position: center 110px; /* малко под topbar-а */
-  background-size: 900px auto;       /* пипаш тук ако искаш */
-  opacity: 0.25;                     /* 25% */
+  background-size: 1400px auto;       /* пипаш тук ако искаш */
+  opacity: 0.12;                     /* 25% */
   filter: blur(0px);
 }
 
