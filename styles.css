@@ -549,5 +549,23 @@ body > *{
     opacity: 0.18;
   }
 }
+body{ position: relative; }
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: url("assets/bg.png") no-repeat center 110px;
+  background-size: 900px auto;
+  opacity: 0.25;
+}
+
+body > *{
+  position: relative;
+  z-index: 1;
+}
+
 
 
