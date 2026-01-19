@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thanks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="section">
+    <div class="container">
+      <div class="card">
+        <h2 class="lang-bg">Заявката е изпратена ✅</h2>
+        <h2 class="lang-en">Request sent ✅</h2>
+        <p class="muted lang-bg">Ще ти върна отговор по имейл възможно най-бързо.</p>
+        <p class="muted lang-en">I’ll reply by email as soon as possible.</p>
+        <p style="margin-top:14px"><a class="btn primary" href="/">OK</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const lang = localStorage.getItem("lang") || ((navigator.language||"").toLowerCase().startsWith("bg") ? "bg" : "en");
+    document.documentElement.lang = lang;
+  </script>
+</body>
+</html>
