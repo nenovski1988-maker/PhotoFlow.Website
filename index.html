@@ -21,9 +21,9 @@
   <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
 
   <span class="lang-switch">
-    <button type="button" id="btnBG" class="lang-btn">BG</button>
-    <button type="button" id="btnEN" class="lang-btn">EN</button>
-  </span>
+  <button type="button" id="langToggle" class="lang-btn">EN</button>
+</span>
+
 </nav>
 
     </div>
@@ -427,6 +427,9 @@
 
       document.getElementById("btnBG").classList.toggle("active", lang === "bg");
       document.getElementById("btnEN").classList.toggle("active", lang === "en");
+      const next = (lang === "bg") ? "en" : "bg";
+document.getElementById("langToggle").textContent = next.toUpperCase();
+
     }
 
     document.getElementById("btnBG").addEventListener("click", () => setLang("bg"));
@@ -435,6 +438,11 @@
     const saved = localStorage.getItem("lang");
     const auto = (navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : "en";
     setLang(saved || auto);
+    document.getElementById("langToggle").addEventListener("click", () => {
+  const current = localStorage.getItem("lang") || ((navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : "en");
+  setLang(current === "bg" ? "en" : "bg");
+});
+
   </script>
 </main>
 
