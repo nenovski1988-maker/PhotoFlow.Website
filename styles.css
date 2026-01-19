@@ -515,5 +515,39 @@ input:focus, textarea:focus{
 /* Logo: keep it compact */
 .logo{ width: 28px; height: 28px; }
 
+/* Watermark background (logo image) */
+body{
+  position: relative;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: url("assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: center 110px; /* малко под topbar-а */
+  background-size: 900px auto;       /* пипаш тук ако искаш */
+  opacity: 0.25;                     /* 25% */
+  filter: blur(0px);
+}
+
+/* keep all content above the watermark */
+body > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* responsive tweak */
+@media (max-width: 720px){
+  body::before{
+    background-size: 70vw auto;
+    background-position: center 90px;
+    opacity: 0.18;
+  }
+}
 
 
