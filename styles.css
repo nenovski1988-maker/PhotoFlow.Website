@@ -171,4 +171,18 @@ input:focus, textarea:focus{border-color: rgba(36,209,127,0.55)}
   border-color: rgba(36,209,127,0.55);
   color: var(--accent);
 }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.logo{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  display:block;
+}
+
 
