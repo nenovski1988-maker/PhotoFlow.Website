@@ -329,6 +329,152 @@ input:focus, textarea:focus{
   color: var(--accent);
   border-radius: 999px;
 }
+/* ==============================
+   PhotoFlow Desktop UI Skin
+   (black background + green panels + green borders)
+   Paste at END of styles.css
+   ============================== */
+
+:root{
+  --bg0:#000000;
+  --bg1:#050607;
+
+  --text:#eaf2ff;
+  --muted:#a7b7cc;
+
+  --accent:#24d17f;          /* bright green */
+  --accentBorder: rgba(36,209,127,.35);
+  --accentBorder2: rgba(36,209,127,.55);
+  --accentGlow: rgba(36,209,127,.10);
+
+  --panelTop: rgba(14, 46, 24, .88);
+  --panelBot: rgba(6, 10, 8, .94);
+
+  --panelLine: rgba(36,209,127,.32);
+  --line: rgba(255,255,255,.06);
+
+  --radius: 18px;
+  --radiusSm: 10px;
+
+  --focus: #4aa3ff;          /* WPF-like focus blue */
+  --focusGlow: rgba(74,163,255,.18);
+}
+
+/* Background like the app */
+body{
+  background:
+    radial-gradient(900px 600px at 30% -10%, rgba(36,209,127,.08), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+/* Topbar: flat, dark, with subtle line */
+.topbar{
+  backdrop-filter: none;
+  background: rgba(0,0,0,.92);
+  border-bottom: 1px solid rgba(36,209,127,.20);
+}
+
+.topbar-inner{ min-height: 62px; }
+
+/* Links: app-like */
+.nav a{
+  color: rgba(234,242,255,.85);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.nav a:hover{
+  background: rgba(36,209,127,.06);
+  border: 1px solid rgba(36,209,127,.18);
+}
+
+/* Language button: small, like toolbar */
+.lang-btn{
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(36,209,127,.25);
+  background: rgba(8,12,10,.55);
+  color: var(--text);
+}
+.lang-btn:hover{
+  border-color: rgba(36,209,127,.45);
+  background: rgba(12,18,14,.65);
+}
+
+/* Panels (cards/forms) like WPF groupboxes */
+.card, .hero-card, .form{
+  background: linear-gradient(180deg, var(--panelTop), var(--panelBot));
+  border: 2px solid var(--panelLine);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.60) inset,
+    0 20px 60px rgba(0,0,0,.55),
+    0 0 25px rgba(36,209,127,.06);
+}
+
+/* Make alternating sections not “gray blocks” */
+.section,
+.section.alt{
+  background: transparent;
+  border: none;
+}
+
+/* Headings spacing like app */
+h1, h2, h3{ letter-spacing: .2px; }
+.muted{ color: var(--muted); }
+
+/* Inputs: dark fields with blue focus (like your textbox focus) */
+input, textarea{
+  background: rgba(22,30,30,.70);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radiusSm);
+  color: var(--text);
+}
+input:focus, textarea:focus{
+  border-color: var(--focus);
+  box-shadow: 0 0 0 5px var(--focusGlow);
+  outline: none;
+}
+
+/* Buttons: green gradient like app buttons */
+.btn{
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(20,28,26,.65);
+  color: var(--text);
+}
+.btn:hover{
+  background: rgba(26,34,32,.75);
+  border-color: rgba(255,255,255,.18);
+}
+
+.btn.primary{
+  border: 1px solid rgba(36,209,127,.55);
+  background: linear-gradient(180deg, rgba(10,80,44,.85), rgba(6,38,22,.85));
+  box-shadow: 0 0 0 6px rgba(36,209,127,.06);
+}
+.btn.primary:hover{
+  border-color: rgba(36,209,127,.85);
+  box-shadow: 0 0 0 8px rgba(36,209,127,.08);
+}
+
+/* Little badge */
+.badge{
+  border: 1px solid rgba(36,209,127,.45);
+  background: rgba(36,209,127,.08);
+  color: var(--accent);
+  border-radius: 10px;
+}
+
+/* Separators */
+.sep{
+  background: rgba(36,209,127,.18);
+  height: 1px;
+}
+
+/* Logo: keep it compact */
+.logo{ width: 28px; height: 28px; }
 
 
 
