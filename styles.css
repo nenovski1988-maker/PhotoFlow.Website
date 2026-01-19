@@ -566,6 +566,9 @@ body > *{
   position: relative;
   z-index: 1;
 }
+/* Show BG/EN blocks depending on current language */
+html[lang="bg"] .lang-en { display: none !important; }
+html[lang="en"] .lang-bg { display: none !important; }
 
 
 
