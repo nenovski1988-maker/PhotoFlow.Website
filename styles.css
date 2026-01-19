@@ -569,6 +569,18 @@ body > *{
 /* Show BG/EN blocks depending on current language */
 html[lang="bg"] .lang-en { display: none !important; }
 html[lang="en"] .lang-bg { display: none !important; }
+.flowbar{
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(36,209,127,.35);
+  background: rgba(10,18,14,.55);
+  box-shadow: 0 0 18px rgba(36,209,127,.06) inset;
+  font-size: 14px;
+  line-height: 1.25;
+  max-width: 980px;
+}
+
 
 
 
