@@ -145,3 +145,30 @@ input:focus, textarea:focus{border-color: rgba(36,209,127,0.55)}
   .gallery{grid-template-columns: repeat(2, 1fr)}
   h1{font-size:34px}
 }
+.lang-switch{
+  display:inline-flex;
+  gap:6px;
+  align-items:center;
+  margin-left:10px;
+}
+
+.lang-btn{
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--muted);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.lang-btn:hover{
+  border-color:#2b3f58;
+  color:var(--text);
+}
+
+.lang-btn.active{
+  border-color: rgba(36,209,127,0.55);
+  color: var(--accent);
+}
+
