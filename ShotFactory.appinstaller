@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AppInstaller
-  xmlns="http://schemas.microsoft.com/appx/appinstaller/2021"
+  xmlns="http://schemas.microsoft.com/appx/appinstaller/2018"
   Version="2.0.15.1"
   Uri="https://photoflow-website.pages.dev/ShotFactory.appinstaller">
 
@@ -8,6 +8,7 @@
     Name="0b9861d4-da2b-4fd8-93f7-be1f88989c8d"
     Publisher="CN=PhotoFlowTest"
     Version="2.0.15.1"
+    ProcessorArchitecture="x64"
     Uri="https://github.com/nenovski1988-maker/PhotoFlow.Desktop/releases/latest/download/ShotFactory_x64.msixbundle" />
 
   <UpdateSettings>
