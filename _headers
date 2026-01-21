@@ -1,0 +1,5 @@
+/ShotFactory.appinstaller
+  Content-Type: application/appinstaller+xml
+
+/assets/ShotFactory.cer
+  Content-Type: application/x-x509-ca-cert
