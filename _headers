@@ -1,5 +1,3 @@
 /ShotFactory.appinstaller
-  Content-Type: application/appinstaller+xml
-
-/assets/ShotFactory.cer
-  Content-Type: application/x-x509-ca-cert
+  Content-Type: application/appinstaller
+  X-Content-Type-Options: nosniff
