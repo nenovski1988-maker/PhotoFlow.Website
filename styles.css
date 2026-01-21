@@ -614,6 +614,12 @@ html[lang="en"] .lang-bg { display: none !important; }
   .flowchips .arrow{ display:none; }
   .flowchips{ gap: 8px; }
 }
+.brand-tag{
+  margin-left: 10px;
+  font-size: 12px;
+  opacity: .75;
+  font-weight: 500;
+}
 
 
 
