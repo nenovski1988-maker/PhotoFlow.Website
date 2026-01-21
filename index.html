@@ -4,24 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
-  <meta name="description" content="Десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони за платформи." />
+  <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
   <link rel="stylesheet" href="/styles.css?v=1" />
-
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#top" aria-label="ShotFactroy">
-  <img src="assets/logo.png" alt="PhotoFlow logo" class="logo" />
-  <span>ShotFactory</span>
-</a>
-
+      <a class="brand" href="#top" aria-label="ShotFactory">
+        <img src="/assets/logo.png" alt="ShotFactory logo" class="logo" />
+        <span>ShotFactory</span>
+      </a>
 
       <nav class="nav">
         <a href="#features" data-i18n="nav_features">Функции</a>
         <a href="#how" data-i18n="nav_how">Как работи</a>
         <a href="#download" data-i18n="nav_demo">Демо</a>
+
         <a href="#install" class="lang-bg">Инсталация</a>
         <a href="#install" class="lang-en">Install</a>
 
@@ -31,9 +30,9 @@
         <a href="#license" data-i18n="nav_license">Лиценз</a>
         <a href="#faq" data-i18n="nav_faq">Въпроси</a>
         <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
+
         <a href="#privacy" class="lang-bg">Поверителност</a>
         <a href="#privacy" class="lang-en">Privacy</a>
-
 
         <span class="lang-switch">
           <button type="button" id="langToggle" class="lang-btn">EN</button>
@@ -53,9 +52,7 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn primary"
-               href="/download.html"
-               data-i18n="cta_download">
+            <a class="btn primary" href="#download" data-i18n="cta_download">
               Свали демо (Windows)
             </a>
             <a class="btn" href="#license" data-i18n="cta_license">Заяви платен лиценз</a>
@@ -98,10 +95,6 @@
             <p data-i18n="f3_body">PNG/JPG/WebP, размери/пропорции и качество според нуждите на магазина.</p>
           </div>
         </div>
-
-
-
-
       </div>
     </section>
 
@@ -122,66 +115,113 @@
             <h3 data-i18n="h3_title">3) Експорт</h3>
             <p data-i18n="h3_body">Получаваш готови изображения за качване в магазин/платформа.</p>
           </div>
-          <p class="muted small lang-bg" style="margin-top:12px">
-  Бележка: Workflow-ът е оптимизиран за работа “по артикули” (barcode/име) и автоматично подреждане в Workspace.
-</p>
-<p class="muted small lang-en" style="margin-top:12px">
-  Note: This workflow is optimized for barcode/SKU-based product sessions and automatic organization inside Workspace.
-</p>
+        </div>
 
+        <p class="muted small lang-bg" style="margin-top:12px">
+          Бележка: Workflow-ът е оптимизиран за работа “по артикули” (barcode/име) и автоматично подреждане в Workspace.
+        </p>
+        <p class="muted small lang-en" style="margin-top:12px">
+          Note: This workflow is optimized for barcode/SKU-based product sessions and automatic organization inside Workspace.
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ FIXED: Proper Demo/Download section with container -->
+    <section id="download" class="section">
+      <div class="container">
+        <h2 data-i18n="demo_title">Демо версия</h2>
+        <p class="muted" data-i18n="demo_body">
+          Свали демо и тествай върху твоите продукти. Ако качеството ти хареса — заявяваш лиценз и активираш.
+        </p>
+
+        <div class="cta-row" style="margin-top:14px">
+          <a class="btn" href="/assets/ShotFactory.cer" data-i18n="demo_install_cert">
+            1) Инсталирай сертификат (само веднъж)
+          </a>
+
+          <a class="btn primary" href="/ShotFactory.appinstaller" data-i18n="demo_install_app">
+            2) Инсталирай / Обнови (препоръчително)
+          </a>
+        </div>
+
+        <p class="muted small" data-i18n="demo_cert_hint" style="margin-top:10px">
+          Ако Windows пита къде да инсталира сертификата: Current User → Trusted People.
+        </p>
+
+        <p class="muted small" data-i18n="demo_note" style="margin-top:6px">
+          Windows 10/11 • x64 • Step 1: .cer • Step 2: .appinstaller
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ UPDATED install section to match the new flow (no zip) -->
+    <section id="install" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Инсталация (Windows)</h2>
+        <h2 class="lang-en">Installation (Windows)</h2>
+
+        <div class="card">
+          <ol class="lang-bg">
+            <li>Свали сертификата: <a href="/assets/ShotFactory.cer">ShotFactory.cer</a></li>
+            <li>Отвори файла → <strong>Install Certificate</strong> → <strong>Current User</strong> → <strong>Place all certificates…</strong> → <strong>Trusted People</strong> → Finish.</li>
+            <li>После отвори: <a href="/ShotFactory.appinstaller"><strong>ShotFactory.appinstaller</strong></a> и натисни Install.</li>
+            <li>За ъпдейти: отваряш пак <strong>.appinstaller</strong> (или Windows ще предложи update).</li>
+          </ol>
+
+          <ol class="lang-en">
+            <li>Download the certificate: <a href="/assets/ShotFactory.cer">ShotFactory.cer</a></li>
+            <li>Open it → <strong>Install Certificate</strong> → <strong>Current User</strong> → <strong>Place all certificates…</strong> → <strong>Trusted People</strong> → Finish.</li>
+            <li>Then open: <a href="/ShotFactory.appinstaller"><strong>ShotFactory.appinstaller</strong></a> and click Install.</li>
+            <li>For updates: open the <strong>.appinstaller</strong> again (or Windows will prompt an update).</li>
+          </ol>
+
+          <p class="muted small lang-bg" style="margin-top:12px">
+            Ако видиш грешка за Publisher/Certificate — пиши ми и ще ти дам точните стъпки за твоя Windows.
+          </p>
+          <p class="muted small lang-en" style="margin-top:12px">
+            If you see a Publisher/Certificate error — message me and I’ll guide you for your Windows setup.
+          </p>
         </div>
       </div>
-  
-
     </section>
 
-    <section id="download" class="section">
-      <div class="cta-row">
-  <a class="btn" href="/assets/ShotFactory.cer">
-    1) Install certificate (one time)
-  </a>
+    <!-- ✅ MOVED OUT: Contact is its own section (not inside Reviews) -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Контакт</h2>
+        <h2 class="lang-en">Contact</h2>
 
-  <a class="btn primary" href="/ShotFactory.appinstaller">
-    2) Install / Update (recommended)
-  </a>
-</div>
+        <div class="grid3">
+          <div class="card">
+            <h3 class="lang-bg">Имейл</h3>
+            <h3 class="lang-en">Email</h3>
 
-<p class="muted small" style="margin-top:10px">
-  If Windows asks where to install the certificate: Current User → Trusted People.
-</p>
+            <p class="muted lang-bg">Пиши директно, ако имаш въпроси или проблем с инсталация/лиценз.</p>
+            <p class="muted lang-en">Email me directly for questions or install/license issues.</p>
 
+            <p style="margin-top:12px">
+              <a class="btn" href="mailto:nenovski1988@gmail.com">nenovski1988@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Време за отговор</h3>
+            <h3 class="lang-en">Response time</h3>
+
+            <p class="muted lang-bg">Обикновено отговарям до 24 часа в работни дни.</p>
+            <p class="muted lang-en">Usually within 24 hours on business days.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Демо и лиценз</h3>
+            <h3 class="lang-en">Demo & licensing</h3>
+
+            <p class="muted lang-bg">Демо: бутоните в секция “Демо”. Лиценз: заявка през “Заяви платен лиценз”.</p>
+            <p class="muted lang-en">Demo: use the buttons in the “Demo” section. License: use “Request a paid license”.</p>
+          </div>
+        </div>
       </div>
     </section>
-    <section id="install" class="section">
-  <div class="container">
-    <h2 class="lang-bg">Инсталация (Windows)</h2>
-    <h2 class="lang-en">Installation (Windows)</h2>
-
-    <div class="card">
-      <ol class="lang-bg">
-  <li>Свали <strong>.zip</strong> от бутона “Свали демо”.</li>
-  <li>Разархивирай ZIP-а (Extract All).</li>
-  <li>Вътре има инструкции и сертификат за инсталация + инсталатор/пакет.</li>
-</ol>
-
-
-     <ol class="lang-en">
-  <li>Download the <strong>.zip</strong> from the “Download demo” button.</li>
-  <li>Extract the ZIP (Extract All).</li>
-  <li>Inside you’ll find instructions + the certificate and the installer/package.</li>
-</ol>
-
-
-      <p class="muted small lang-bg" style="margin-top:12px">
-        Ако видиш грешка за сертификат/издател (Publisher) — пиши ми и ще ти дам правилните стъпки за твоя Windows.
-      </p>
-      <p class="muted small lang-en" style="margin-top:12px">
-        If you see a certificate/publisher error — message me and I’ll guide you for your Windows setup.
-      </p>
-    </div>
-  </div>
-</section>
-
 
     <section id="license" class="section alt">
       <div class="container">
@@ -190,9 +230,7 @@
           Попълни формата и ще ти върна отговор с вариант за лиценз и инструкции.
         </p>
 
-        <form class="form"
-              action="https://formspree.io/f/meeegvzj"
-              method="POST">
+        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
           <input type="hidden" name="type" value="license" />
 
           <div class="grid2">
@@ -217,8 +255,8 @@
 
           <label><span data-i18n="form_need_lbl">Какво ти трябва?</span>
             <textarea name="message" rows="5"
-                      placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
-                      data-i18n-placeholder="form_need_ph"></textarea>
+              placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
+              data-i18n-placeholder="form_need_ph"></textarea>
           </label>
 
           <button class="btn primary" type="submit" data-i18n="form_send">Изпрати заявка</button>
@@ -248,33 +286,34 @@
         </div>
       </div>
     </section>
+
     <section id="privacy" class="section">
-  <div class="container">
-    <h2 class="lang-bg">Поверителност и данни</h2>
-    <h2 class="lang-en">Privacy & data</h2>
+      <div class="container">
+        <h2 class="lang-bg">Поверителност и данни</h2>
+        <h2 class="lang-en">Privacy & data</h2>
 
-    <div class="card">
-      <ul class="lang-bg">
-        <li><strong>Десктоп приложението</strong> обработва снимките локално на твоя компютър.</li>
-        <li><strong>Сайтът</strong> събира само данните, които попълваш във формите (заявка за лиценз / отзив).</li>
-        <li>Формите се изпращат чрез <strong>Formspree</strong> към имейла ти.</li>
-      </ul>
+        <div class="card">
+          <ul class="lang-bg">
+            <li><strong>Десктоп приложението</strong> обработва снимките локално на твоя компютър.</li>
+            <li><strong>Сайтът</strong> събира само данните, които попълваш във формите (заявка за лиценз / отзив).</li>
+            <li>Формите се изпращат чрез <strong>Formspree</strong> към имейла ти.</li>
+          </ul>
 
-      <ul class="lang-en">
-        <li><strong>The desktop app</strong> processes images locally on your computer.</li>
-        <li><strong>The website</strong> collects only the data you submit in the forms (license request / review).</li>
-        <li>Forms are delivered via <strong>Formspree</strong> to your email.</li>
-      </ul>
+          <ul class="lang-en">
+            <li><strong>The desktop app</strong> processes images locally on your computer.</li>
+            <li><strong>The website</strong> collects only the data you submit in the forms (license request / review).</li>
+            <li>Forms are delivered via <strong>Formspree</strong> to your email.</li>
+          </ul>
 
-      <p class="muted small lang-bg" style="margin-top:12px">
-        Ако искаш да премахнем Formspree и да минава всичко през твой имейл/сървър – може, но е следващ етап.
-      </p>
-      <p class="muted small lang-en" style="margin-top:12px">
-        If you want to remove Formspree and use your own mail/server flow — we can do that later.
-      </p>
-    </div>
-  </div>
-</section>
+          <p class="muted small lang-bg" style="margin-top:12px">
+            Ако искаш да премахнем Formspree и да минава всичко през твой имейл/сървър – може, но е следващ етап.
+          </p>
+          <p class="muted small lang-en" style="margin-top:12px">
+            If you want to remove Formspree and use your own mail/server flow — we can do that later.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section id="reviews" class="section alt">
       <div class="container">
@@ -294,52 +333,13 @@
             <p class="muted small" data-i18n="r3_by">— Име, фирма</p>
           </div>
         </div>
-        <section id="contact" class="section">
-  <div class="container">
-    <h2 class="lang-bg">Контакт</h2>
-    <h2 class="lang-en">Contact</h2>
-
-    <div class="grid3">
-      <div class="card">
-        <h3 class="lang-bg">Имейл</h3>
-        <h3 class="lang-en">Email</h3>
-
-        <p class="muted lang-bg">Пиши директно, ако имаш въпроси или проблем с инсталация/лиценз.</p>
-        <p class="muted lang-en">Email me directly for questions or install/license issues.</p>
-
-        <!-- Смени email-а с твоя -->
-        <p style="margin-top:12px">
-          <a class="btn" href="mailto:YOUR_EMAIL_HERE">nenovski1988@gmail.com</a>
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="lang-bg">Време за отговор</h3>
-        <h3 class="lang-en">Response time</h3>
-
-        <p class="muted lang-bg">Обикновено отговарям до 24 часа в работни дни.</p>
-        <p class="muted lang-en">Usually within 24 hours on business days.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="lang-bg">Демо и лиценз</h3>
-        <h3 class="lang-en">Demo & licensing</h3>
-
-        <p class="muted lang-bg">Демо: сваляне от сайта. Лиценз: заявка през формата “Заяви платен лиценз”.</p>
-        <p class="muted lang-en">Demo: download from the site. License: use the “Request a paid license” form.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
         <hr class="sep" />
 
         <h3 data-i18n="review_form_title">Остави отзив (за одобрение)</h3>
         <p class="muted" data-i18n="review_form_body">Изпраща се към нас и после го добавяме ръчно на сайта (без публичен спам).</p>
 
-        <form class="form"
-              action="https://formspree.io/f/meeegvzj"
-              method="POST">
+        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
           <input type="hidden" name="type" value="review" />
 
           <div class="grid2">
@@ -398,25 +398,20 @@
           f3_title: "Експорт по шаблони",
           f3_body: "PNG/JPG/WebP, размери/пропорции и качество според нуждите на магазина.",
 
-          privacy_title: "Поверителност",
-          privacy_body: "Десктоп версията работи локално на компютъра ти. Това е важно за магазини с чувствителни каталози и снимки.",
-
           how_title: "Автоматизацията в 3 стъпки",
-
           h1_title: "Вход/Изход с папки",
           h1_body: "Настрой Incoming (къде подаваш снимки) и Workspace (къде излизат готовите файлове). Работи папково — без ръчно местене и хаос.",
-
           h2_title: "Организация по продукт",
           h2_body: "Въвеждаш barcode/име на артикула → ShotFactory създава папка със същото име в Workspace и подрежда обработените снимки вътре. Всяко ново име = нова папка.",
-
           h3_title: "Контрол през Preview",
           h3_body: "При подадена снимка Preview се отваря автоматично. Избираш профил за обработка от падащо меню и го запазваш за сесията или само за текущия артикул. Preview може да се отвори и от thumbnail-ите в главния прозорец.",
 
-
           demo_title: "Демо версия",
           demo_body: "Свали демо и тествай върху твоите продукти. Ако качеството ти хареса — заявяваш лиценз и активираш.",
-          demo_cta: "Свали демо",
-          demo_note: "Windows 10/11 • x64 • файл: .zip (включва сертификат)",
+          demo_install_cert: "1) Инсталирай сертификат (само веднъж)",
+          demo_install_app: "2) Инсталирай / Обнови (препоръчително)",
+          demo_cert_hint: "Ако Windows пита къде да инсталира сертификата: Current User → Trusted People.",
+          demo_note: "Windows 10/11 • x64 • Стъпка 1: .cer • Стъпка 2: .appinstaller",
 
           license_title: "Заяви платен лиценз",
           license_body: "Попълни формата и ще ти върна отговор с вариант за лиценз и инструкции.",
@@ -480,25 +475,20 @@
           f3_title: "Template exports",
           f3_body: "PNG/JPG/WebP, sizes/ratios and quality based on your store needs.",
 
-          privacy_title: "Privacy",
-          privacy_body: "The desktop version runs locally on your computer — important for sensitive catalogs and photos.",
-
           how_title: "Automation in 3 steps",
-
           h1_title: "Folder-based workflow",
           h1_body: "Set Incoming (where you drop photos) and Workspace (where final files go). It’s folder-driven — no manual sorting chaos.",
-
           h2_title: "Organized per product",
           h2_body: "Enter a barcode/SKU name → ShotFactory creates a folder with the same name in Workspace and places processed images inside. Each new name = a new folder.",
-
           h3_title: "Control via Preview",
           h3_body: "When a photo is submitted, Preview opens automatically. Choose a processing profile from a dropdown and apply it for the whole session or only the current product. You can also open Preview from the thumbnails in the main window.",
 
-
           demo_title: "Demo version",
           demo_body: "Download the demo and test it on your products. If the quality fits — request a license and activate.",
-          demo_cta: "Download demo",
-          demo_note: "Windows 10/11 • x64 • file: .zip (includes certificate)",
+          demo_install_cert: "1) Install certificate (one time)",
+          demo_install_app: "2) Install / Update (recommended)",
+          demo_cert_hint: "If Windows asks where to install the certificate: Current User → Trusted People.",
+          demo_note: "Windows 10/11 • x64 • Step 1: .cer • Step 2: .appinstaller",
 
           license_title: "Request a paid license",
           license_body: "Fill the form and I’ll reply with a license option and clear instructions.",
@@ -571,39 +561,37 @@
       }
 
       setLang(getDefaultLang());
-        // Track successful submits via local thanks pages (works on free plans too)
-  function wireForm(form, redirectUrl){
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
 
-      try{
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
+      // Track successful submits via local thanks pages (works on free plans too)
+      function wireForm(form, redirectUrl){
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const data = new FormData(form);
+
+          try{
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: { "Accept": "application/json" }
+            });
+
+            if(res.ok){
+              window.location.href = redirectUrl;
+            }else{
+              alert("Не успях да изпратя формата. Пробвай пак след малко.");
+            }
+          }catch{
+            alert("Проблем с връзката. Пробвай пак след малко.");
+          }
         });
-
-        if(res.ok){
-          window.location.href = redirectUrl;
-        }else{
-          alert("Не успях да изпратя формата. Пробвай пак след малко.");
-        }
-      }catch{
-        alert("Проблем с връзката. Пробвай пак след малко.");
       }
-    });
-  }
 
-  document.querySelectorAll("form.form").forEach(f => {
-    const type = f.querySelector('input[name="type"]')?.value;
-    if(type === "license") wireForm(f, "/thanks.html");
-    if(type === "review") wireForm(f, "/thanks-review.html");
-  });
-
+      document.querySelectorAll("form.form").forEach(f => {
+        const type = f.querySelector('input[name="type"]')?.value;
+        if(type === "license") wireForm(f, "/thanks.html");
+        if(type === "review") wireForm(f, "/thanks-review.html");
+      });
     </script>
   </main>
 </body>
 </html>
-
-
