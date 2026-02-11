@@ -9,9 +9,6 @@
 </head>
 
 <body>
-
-
-
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#top" aria-label="ShotFactory">
@@ -33,6 +30,9 @@
         <a href="#license" data-i18n="nav_license">Лиценз</a>
         <a href="#faq" data-i18n="nav_faq">Въпроси</a>
         <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
+
+        <a href="#tips" class="lang-bg">Полезни съвети</a>
+        <a href="#tips" class="lang-en">Tips</a>
 
         <a href="#privacy" class="lang-bg">Поверителност</a>
         <a href="#privacy" class="lang-en">Privacy</a>
@@ -70,9 +70,7 @@
 
         <div class="hero-card">
           <div class="badge" data-i18n="hero_badge">Бърза проверка</div>
-          <p class="muted" data-i18n="hero_card">
-            video/screenshots
-          </p>
+          <p class="muted" data-i18n="hero_card">Demo video/shots</p>
           <div class="placeholder" data-i18n="hero_placeholder">VIDEO / SCREENSHOTS (coming soon)</div>
         </div>
       </div>
@@ -129,7 +127,148 @@
       </div>
     </section>
 
-    
+    <!-- ✅ NEW: TIPS SECTION -->
+    <section id="tips" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Полезни съвети</h2>
+        <h2 class="lang-en">Tips</h2>
+
+        <div class="grid3">
+          <div class="card">
+            <h3 class="lang-bg">1) Автоматично подаване от камерата</h3>
+            <h3 class="lang-en">1) Auto-ingest from your camera</h3>
+
+            <p class="lang-bg">
+              Ако снимаш “на живо” (tether / трансфер), настрой програмата за трансфер да записва директно в папката
+              <strong>Incoming</strong>. Така ShotFactory ще засича новите кадри и ще ги обработва веднага след заснемането.
+            </p>
+            <p class="lang-en">
+              If you shoot tethered / via transfer, set your transfer app to save directly into the
+              <strong>Incoming</strong> folder. ShotFactory will detect new images and process them right after capture.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">2) Работиш с вече заснети снимки</h3>
+            <h3 class="lang-en">2) Working with already-shot images</h3>
+
+            <p class="lang-bg">
+              Първо създай/избери и именувай папката (или въведи barcode/SKU) за текущия продукт, и чак тогава
+              копирай снимките в <strong>Incoming</strong>. Така кадрите ще се подредят правилно още от първата обработка.
+            </p>
+            <p class="lang-en">
+              First create/select and name the folder (or enter the barcode/SKU) for the current product, and only then
+              copy images into <strong>Incoming</strong>. This keeps everything organized from the very first processed image.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">3) Мини-серии за по-малко грешки</h3>
+            <h3 class="lang-en">3) Small batches = fewer mistakes</h3>
+
+            <p class="lang-bg">
+              Подавай кадрите на серии (например 5–10 снимки), провери резултата, и после продължи. Така хващаш
+              грешен профил/фон още в началото, вместо след 200 кадъра.
+            </p>
+            <p class="lang-en">
+              Feed images in small batches (e.g. 5–10), check the result, then continue. You’ll catch a wrong preset/background
+              early—before you process 200 images.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h3 class="lang-bg">Съвети от клиенти</h3>
+          <h3 class="lang-en">Customer tips</h3>
+
+          <p class="muted lang-bg">
+            Тук ще добавяме полезни трикове, изпратени от реални потребители на ShotFactory (след одобрение).
+          </p>
+          <p class="muted lang-en">
+            Here we’ll feature useful tips sent by real ShotFactory users (after approval).
+          </p>
+
+          <div class="grid3" style="margin-top:12px">
+            <div class="card">
+              <p class="lang-bg">“(Очакваме първите клиентски съвети…)”</p>
+              <p class="lang-en">“(Waiting for the first customer tips…)”</p>
+              <p class="muted small lang-bg">— клиент</p>
+              <p class="muted small lang-en">— customer</p>
+            </div>
+            <div class="card">
+              <p class="lang-bg">“(Твоят съвет може да е тук.)”</p>
+              <p class="lang-en">“(Your tip can be featured here.)”</p>
+              <p class="muted small lang-bg">— клиент</p>
+              <p class="muted small lang-en">— customer</p>
+            </div>
+            <div class="card">
+              <p class="lang-bg">“(Изпрати трик и ще го добавим с име/фирма.)”</p>
+              <p class="lang-en">“(Send a trick and we’ll add it with your name/company.)”</p>
+              <p class="muted small lang-bg">— клиент</p>
+              <p class="muted small lang-en">— customer</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h3 class="lang-bg">Сподели твоя съвет</h3>
+            <h3 class="lang-en">Share your tip</h3>
+
+            <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+              <input type="hidden" name="type" value="tip" />
+
+              <div class="grid2">
+                <label>
+                  <span class="lang-bg">Име</span>
+                  <span class="lang-en">Name</span>
+                  <input name="tip_name" required />
+                </label>
+
+                <label>
+                  <span class="lang-bg">Имейл</span>
+                  <span class="lang-en">Email</span>
+                  <input name="tip_email" type="email" required />
+                </label>
+              </div>
+
+              <div class="grid2">
+                <label>
+                  <span class="lang-bg">Фирма (по желание)</span>
+                  <span class="lang-en">Company (optional)</span>
+                  <input name="tip_company" />
+                </label>
+
+                <label>
+                  <span class="lang-bg">Тема (по желание)</span>
+                  <span class="lang-en">Topic (optional)</span>
+                  <input name="tip_topic" placeholder="incoming / presets / workflow…" />
+                </label>
+              </div>
+
+              <label>
+                <span class="lang-bg">Твоят съвет</span>
+                <span class="lang-en">Your tip</span>
+                <textarea name="tip_text" rows="4" required
+                  placeholder="Опиши накратко какво работи добре при теб…"></textarea>
+              </label>
+
+              <button class="btn" type="submit">
+                <span class="lang-bg">Изпрати съвет</span>
+                <span class="lang-en">Send tip</span>
+              </button>
+
+              <p class="muted small lang-bg" style="margin-top:10px">
+                Изпратените съвети се публикуват само след одобрение (без спам).
+              </p>
+              <p class="muted small lang-en" style="margin-top:10px">
+                Tips are published only after approval (no spam).
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ FIXED: DOWNLOAD SECTION (properly closed) -->
     <section id="download" class="section">
       <div class="container">
         <h2 data-i18n="demo_title">Демо версия</h2>
@@ -137,17 +276,44 @@
           Свали демо и тествай върху твоите продукти. Ако качеството ти хареса — заявяваш лиценз и активираш.
         </p>
 
-        
-
+        <div class="cta-row" style="margin-top:14px">
           <a class="btn primary" href="/download.html">
-   Install / Update (recommended)
-</a>
+            <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
+            <span class="lang-en">Download / Install (Windows x64)</span>
+          </a>
+        </div>
 
+        <p class="muted small lang-bg" style="margin-top:10px">
+          Съвет: ако браузърът свали файла, просто го отвори и натисни Install.
+        </p>
+        <p class="muted small lang-en" style="margin-top:10px">
+          Tip: if your browser downloads the file, just open it and click Install.
+        </p>
+      </div>
+    </section>
 
-        
-    
+    <!-- ✅ ADDED: INSTALL SECTION (your nav links need it) -->
+    <section id="install" class="section alt">
+      <div class="container">
+        <h2 class="lang-bg">Инсталация (Windows)</h2>
+        <h2 class="lang-en">Installation (Windows)</h2>
 
-    
+        <div class="card">
+          <ol class="lang-bg">
+            <li>Натисни бутона <strong>Свали / Инсталирай</strong> в секция “Демо версия”.</li>
+            <li>Отвори сваления файл и натисни <strong>Install</strong>.</li>
+            <li>При нова версия: отваряш пак същия бутон и инсталацията ще предложи обновяване.</li>
+          </ol>
+
+          <ol class="lang-en">
+            <li>Click <strong>Download / Install</strong> in the “Demo version” section.</li>
+            <li>Open the downloaded file and click <strong>Install</strong>.</li>
+            <li>For updates: use the same button again — Windows will offer an update.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section">
       <div class="container">
         <h2 class="lang-bg">Контакт</h2>
@@ -178,8 +344,8 @@
             <h3 class="lang-bg">Демо и лиценз</h3>
             <h3 class="lang-en">Demo & licensing</h3>
 
-            <p class="muted lang-bg">Демо: бутоните в секция “Демо”. Лиценз: заявка през “Заяви платен лиценз”.</p>
-            <p class="muted lang-en">Demo: use the buttons in the “Demo” section. License: use “Request a paid license”.</p>
+            <p class="muted lang-bg">Демо: бутонът в секция “Демо”. Лиценз: заявка през “Заяви платен лиценз”.</p>
+            <p class="muted lang-en">Demo: use the button in the “Demo” section. License: use “Request a paid license”.</p>
           </div>
         </div>
       </div>
@@ -257,17 +423,15 @@
         <div class="card">
           <ul class="lang-bg">
             <li><strong>Десктоп приложението</strong> обработва снимките локално на твоя компютър.</li>
-            <li><strong>Сайтът</strong> събира само данните, които попълваш във формите (заявка за лиценз / отзив).</li>
+            <li><strong>Сайтът</strong> събира само данните, които попълваш във формите (заявка за лиценз / отзив / съвет).</li>
             <li>Формите се изпращат чрез <strong>Formspree</strong> към имейла ти.</li>
           </ul>
 
           <ul class="lang-en">
             <li><strong>The desktop app</strong> processes images locally on your computer.</li>
-            <li><strong>The website</strong> collects only the data you submit in the forms (license request / review).</li>
+            <li><strong>The website</strong> collects only the data you submit in the forms (license request / review / tip).</li>
             <li>Forms are delivered via <strong>Formspree</strong> to your email.</li>
           </ul>
-
-         
         </div>
       </div>
     </section>
@@ -365,10 +529,6 @@
 
           demo_title: "Демо версия",
           demo_body: "Свали демо и тествай върху твоите продукти. Ако качеството ти хареса — заявяваш лиценз и активираш.",
-          demo_install_cert: "1) Инсталирай сертификат (само веднъж)",
-          demo_install_app: "2) Инсталирай / Обнови (препоръчително)",
-          demo_cert_hint: "Ако Windows пита къде да инсталира сертификата: Current User → Trusted People.",
-          demo_note: "Windows 10/11 • x64 • Стъпка 1: .cer • Стъпка 2: .appinstaller",
 
           license_title: "Заяви платен лиценз",
           license_body: "Попълни формата и ще ти върна отговор с вариант за лиценз и инструкции.",
@@ -421,7 +581,7 @@
           hero_b2: "Export presets (formats, resolutions, quality)",
           hero_b3: "Runs locally on your PC (your photos are not uploaded)",
           hero_badge: "Quick check",
-          hero_card: "Demo Video/Shots",
+          hero_card: "Demo video/shots",
           hero_placeholder: "VIDEO / SCREENSHOTS (coming soon)",
 
           features_title: "Core features",
@@ -442,10 +602,6 @@
 
           demo_title: "Demo version",
           demo_body: "Download the demo and test it on your products. If the quality fits — request a license and activate.",
-          demo_install_cert: "1) Install certificate (one time)",
-          demo_install_app: "2) Install / Update (recommended)",
-          demo_cert_hint: "If Windows asks where to install the certificate: Current User → Trusted People.",
-          demo_note: "Windows 10/11 • x64 • Step 1: .cer • Step 2: .appinstaller",
 
           license_title: "Request a paid license",
           license_body: "Fill the form and I’ll reply with a license option and clear instructions.",
@@ -519,7 +675,6 @@
 
       setLang(getDefaultLang());
 
-      // Track successful submits via local thanks pages (works on free plans too)
       function wireForm(form, redirectUrl){
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -547,6 +702,7 @@
         const type = f.querySelector('input[name="type"]')?.value;
         if(type === "license") wireForm(f, "/thanks.html");
         if(type === "review") wireForm(f, "/thanks-review.html");
+        if(type === "tip") wireForm(f, "/thanks.html");
       });
     </script>
   </main>
