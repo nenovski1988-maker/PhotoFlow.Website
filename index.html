@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=light-dark-1" />
+  <link rel="stylesheet" href="/styles.css?v=lean-license-a1" />
 </head>
 
 <body>
@@ -59,7 +59,7 @@
 
           <div class="cta-row">
             <a class="btn primary" href="#download" data-i18n="cta_download">Свали демо (Windows)</a>
-            <a class="btn" href="#license" data-i18n="cta_license">Заяви платен лиценз</a>
+            <a class="btn" href="#license" data-i18n="cta_license">Заяви цена</a>
           </div>
 
           <ul class="bullets">
@@ -194,9 +194,9 @@
 
               <div class="grid2">
                 <label>
-                  <span class="lang-bg">Име</span>
-                  <span class="lang-en">Name</span>
-                  <input name="tip_name" required />
+                  <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
+                  <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+                  <input name="tip_name" />
                 </label>
 
                 <label>
@@ -208,14 +208,14 @@
 
               <div class="grid2">
                 <label>
-                  <span class="lang-bg">Фирма (по желание)</span>
-                  <span class="lang-en">Company (optional)</span>
+                  <span class="lang-bg">Фирма <span class="muted small">(по желание)</span></span>
+                  <span class="lang-en">Company <span class="muted small">(optional)</span></span>
                   <input name="tip_company" />
                 </label>
 
                 <label>
-                  <span class="lang-bg">Тема (по желание)</span>
-                  <span class="lang-en">Topic (optional)</span>
+                  <span class="lang-bg">Тема <span class="muted small">(по желание)</span></span>
+                  <span class="lang-en">Topic <span class="muted small">(optional)</span></span>
                   <input name="tip_topic" placeholder="incoming / presets / workflow…" />
                 </label>
               </div>
@@ -245,7 +245,7 @@
       <div class="container">
         <h2 data-i18n="demo_title">Демо версия</h2>
         <p class="muted" data-i18n="demo_body">
-          Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата за заявка по-долу.
+          Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте кратката заявка по-долу.
         </p>
 
         <div class="cta-row" style="margin-top:14px">
@@ -282,7 +282,7 @@
       </div>
     </section>
 
-    <!-- REVIEWS (moved ABOVE license) -->
+    <!-- REVIEWS -->
     <section id="reviews" class="section alt">
       <div class="container">
         <h2 data-i18n="reviews_title">Отзиви и препоръки</h2>
@@ -353,49 +353,60 @@
       </div>
     </section>
 
-    <!-- LICENSE -->
+    <!-- LICENSE (LEAN A) -->
     <section id="license" class="section alt">
       <div class="container">
-        <h2 data-i18n="license_title">Заяви платен лиценз</h2>
+        <h2 data-i18n="license_title">Заявка за лиценз и цена</h2>
         <p class="muted" data-i18n="license_body">
-          Изпратете данните за заявка. Ще получите отговор с условия за лиценз и следващи стъпки.
+          Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.
         </p>
 
         <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
           <input type="hidden" name="type" value="license" />
 
           <div class="grid2">
-            <label><span data-i18n="form_name_lbl">Име</span>
-              <input name="name" required />
+            <label>
+              <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+              <input name="name" />
             </label>
 
-            <label><span data-i18n="form_email_lbl">Имейл</span>
+            <label>
+              <span data-i18n="form_email_lbl">Имейл</span>
               <input name="email" type="email" required />
             </label>
           </div>
 
           <div class="grid2">
-            <label><span data-i18n="form_company_lbl">Фирма / бранд</span>
+            <label>
+              <span class="lang-bg">Фирма / бранд <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">Company / brand <span class="muted small">(optional)</span></span>
               <input name="company" />
             </label>
 
-            <label><span data-i18n="form_volume_lbl">Колко снимки/месец?</span>
+            <label>
+              <span class="lang-bg">Колко снимки/месец? <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">How many photos/month? <span class="muted small">(optional)</span></span>
               <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
             </label>
           </div>
 
-          <label><span data-i18n="form_need_lbl">Какво ти трябва?</span>
-            <textarea name="message" rows="5"
+          <label>
+            <span data-i18n="form_need_lbl">Какво ти трябва?</span>
+            <textarea name="message" rows="5" required
               placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
               data-i18n-placeholder="form_need_ph"></textarea>
           </label>
 
-          <button class="btn primary" type="submit" data-i18n="form_send">Изпрати заявка</button>
+          <button class="btn primary" type="submit" data-i18n="form_send">Заяви цена</button>
+
+          <p class="muted small lang-bg" style="margin-top:10px">Няма автоматични имейли. Отговаряме лично.</p>
+          <p class="muted small lang-en" style="margin-top:10px">No automated emails. You’ll get a personal reply.</p>
         </form>
       </div>
     </section>
 
-    <!-- CONTACT (moved near bottom) -->
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
         <h2 class="lang-bg">Контакт</h2>
@@ -426,7 +437,7 @@
       </div>
     </section>
 
-    <!-- PRIVACY (near footer) -->
+    <!-- PRIVACY -->
     <section id="privacy" class="section">
       <div class="container">
         <h2 class="lang-bg">Поверителност и данни</h2>
@@ -470,7 +481,7 @@
           hero_title: "Автоматична обработка на продуктови снимки – готови за качване.",
           hero_lead: "ShotFactory е десктоп приложение, което премахва фона, кропва и центрира продукта и експортира готови файлове според платформа/клиент.",
           cta_download: "Свали демо (Windows)",
-          cta_license: "Заяви платен лиценз",
+          cta_license: "Заяви цена",
           hero_b1: "Еднаква визия в целия каталог (кроп + център + размери)",
           hero_b2: "Експорт по готови пресети (формати, резолюции, качество)",
           hero_b3: "Работи локално на твоя компютър (снимките не се качват онлайн)",
@@ -495,18 +506,15 @@
           h3_body: "Получаваш готови изображения за качване в магазин/платформа.",
 
           demo_title: "Демо версия",
-          demo_body: "Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата за заявка по-долу.",
+          demo_body: "Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте кратката заявка по-долу.",
 
-          license_title: "Заяви платен лиценз",
-          license_body: "Изпратете данните за заявка. Ще получите отговор с условия за лиценз и следващи стъпки.",
-          form_name_lbl: "Име",
+          license_title: "Заявка за лиценз и цена",
+          license_body: "Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.",
           form_email_lbl: "Имейл",
-          form_company_lbl: "Фирма / бранд",
-          form_volume_lbl: "Колко снимки/месец?",
           form_volume_ph: "пример: 500",
           form_need_lbl: "Какво ти трябва?",
           form_need_ph: "Платформи, формати, специфики (стъкло, бижута и т.н.)",
-          form_send: "Изпрати заявка",
+          form_send: "Заяви цена",
 
           faq_title: "Често задавани въпроси",
           q1: "Работи ли със стъкло и лъскави предмети?",
@@ -536,14 +544,14 @@
           nav_features: "Features",
           nav_how: "How it works",
           nav_demo: "Demo",
-          nav_license: "License",
+          nav_license: "Pricing",
           nav_faq: "FAQ",
           nav_reviews: "Reviews",
 
           hero_title: "Automated product photo processing — ready to upload.",
           hero_lead: "ShotFactory is a desktop app that removes the background, crops and centers the product, and exports platform-ready files based on your presets.",
           cta_download: "Download demo (Windows)",
-          cta_license: "Request a paid license",
+          cta_license: "Request pricing",
           hero_b1: "Consistent catalog look (crop + center + sizes)",
           hero_b2: "Export presets (formats, resolutions, quality)",
           hero_b3: "Runs locally on your PC (your photos are not uploaded)",
@@ -568,18 +576,15 @@
           h3_body: "Get ready-to-upload images for your store/platform.",
 
           demo_title: "Demo version",
-          demo_body: "Download the demo and test it on real products. For licensing, use the request form below.",
+          demo_body: "Download the demo and test it on real products. For licensing, use the short request below.",
 
-          license_title: "Request a paid license",
-          license_body: "Submit the request details. You will receive a reply with licensing terms and next steps.",
-          form_name_lbl: "Name",
+          license_title: "Request pricing",
+          license_body: "Describe what you need. You’ll receive a reply with pricing and next steps.",
           form_email_lbl: "Email",
-          form_company_lbl: "Company / brand",
-          form_volume_lbl: "How many photos/month?",
           form_volume_ph: "e.g. 500",
           form_need_lbl: "What do you need?",
           form_need_ph: "Platforms, formats, edge cases (glass, jewelry, etc.)",
-          form_send: "Send request",
+          form_send: "Request pricing",
 
           faq_title: "FAQ",
           q1: "Does it work for glass and reflective items?",
@@ -658,7 +663,7 @@
         const saved = localStorage.getItem("theme");
         if(saved === "dark" || saved === "light") return saved;
         if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
-        return "dark"; // default: dark
+        return "dark";
       }
 
       const themeBtn = document.getElementById("themeToggle");
@@ -703,5 +708,12 @@
       });
     </script>
   </main>
+
+  <style>
+    /* Small layout helper for Contact rows (safe to keep inline) */
+    .contact-list{ display:flex; flex-direction:column; gap:12px; margin-top:12px; }
+    .contact-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .contact-row .muted{ flex:1; min-width: 220px; }
+  </style>
 </body>
 </html>
