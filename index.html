@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=1" />
+  <link rel="stylesheet" href="/styles.css?v=light-dark-1" />
 </head>
 
 <body>
@@ -19,33 +19,35 @@
       <nav class="nav">
         <a href="#features" data-i18n="nav_features">Функции</a>
         <a href="#how" data-i18n="nav_how">Как работи</a>
+
+        <a href="#tips" class="lang-bg">Полезни съвети</a>
+        <a href="#tips" class="lang-en">Tips</a>
+
         <a href="#download" data-i18n="nav_demo">Демо</a>
 
         <a href="#install" class="lang-bg">Инсталация</a>
         <a href="#install" class="lang-en">Install</a>
 
+        <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
+        <a href="#faq" data-i18n="nav_faq">Въпроси</a>
+        <a href="#license" data-i18n="nav_license">Лиценз</a>
+
         <a href="#contact" class="lang-bg">Контакт</a>
         <a href="#contact" class="lang-en">Contact</a>
-
-        <a href="#license" data-i18n="nav_license">Лиценз</a>
-        <a href="#faq" data-i18n="nav_faq">Въпроси</a>
-        <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
-
-        <a href="#tips" class="lang-bg">Полезни съвети</a>
-        <a href="#tips" class="lang-en">Tips</a>
 
         <a href="#privacy" class="lang-bg">Поверителност</a>
         <a href="#privacy" class="lang-en">Privacy</a>
 
         <span class="lang-switch">
-  <button type="button" id="themeToggle" class="lang-btn" aria-label="Toggle theme">☀️</button>
-  <button type="button" id="langToggle" class="lang-btn">EN</button>
-</span>
+          <button type="button" id="themeToggle" class="lang-btn" aria-label="Toggle theme">☀️</button>
+          <button type="button" id="langToggle" class="lang-btn">EN</button>
+        </span>
       </nav>
     </div>
   </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -56,9 +58,7 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="#download" data-i18n="cta_download">
-              Свали демо (Windows)
-            </a>
+            <a class="btn primary" href="#download" data-i18n="cta_download">Свали демо (Windows)</a>
             <a class="btn" href="#license" data-i18n="cta_license">Заяви платен лиценз</a>
           </div>
 
@@ -77,6 +77,7 @@
       </div>
     </section>
 
+    <!-- FEATURES -->
     <section id="features" class="section">
       <div class="container">
         <h2 data-i18n="features_title">Основни функции</h2>
@@ -100,6 +101,7 @@
       </div>
     </section>
 
+    <!-- HOW -->
     <section id="how" class="section alt">
       <div class="container">
         <h2 data-i18n="how_title">Как работи</h2>
@@ -128,7 +130,7 @@
       </div>
     </section>
 
-    <!-- ✅ TIPS SECTION -->
+    <!-- TIPS -->
     <section id="tips" class="section">
       <div class="container">
         <h2 class="lang-bg">Полезни съвети</h2>
@@ -180,33 +182,8 @@
           <h3 class="lang-bg">Съвети от клиенти</h3>
           <h3 class="lang-en">Customer tips</h3>
 
-          <p class="muted lang-bg">
-            Подбрани практики от потребители на ShotFactory (публикуват се след преглед).
-          </p>
-          <p class="muted lang-en">
-            Selected practices from ShotFactory users (published after review).
-          </p>
-
-          <div class="grid3" style="margin-top:12px">
-            <div class="card">
-              <p class="lang-bg">“(Очакваме първите предложения.)”</p>
-              <p class="lang-en">“(Waiting for the first submissions.)”</p>
-              <p class="muted small lang-bg">— клиент</p>
-              <p class="muted small lang-en">— customer</p>
-            </div>
-            <div class="card">
-              <p class="lang-bg">“(Вашият съвет може да бъде добавен.)”</p>
-              <p class="lang-en">“(Your tip can be featured.)”</p>
-              <p class="muted small lang-bg">— клиент</p>
-              <p class="muted small lang-en">— customer</p>
-            </div>
-            <div class="card">
-              <p class="lang-bg">“(Изпратете предложение с име/фирма по избор.)”</p>
-              <p class="lang-en">“(Submit a tip with optional name/company.)”</p>
-              <p class="muted small lang-bg">— клиент</p>
-              <p class="muted small lang-en">— customer</p>
-            </div>
-          </div>
+          <p class="muted lang-bg">Подбрани практики от потребители на ShotFactory (публикуват се след преглед).</p>
+          <p class="muted lang-en">Selected practices from ShotFactory users (published after review).</p>
 
           <div class="card" style="margin-top:14px">
             <h3 class="lang-bg">Изпрати съвет</h3>
@@ -255,24 +232,20 @@
                 <span class="lang-en">Submit</span>
               </button>
 
-              <p class="muted small lang-bg" style="margin-top:10px">
-                Публикуване след преглед. Спам съдържание не се допуска.
-              </p>
-              <p class="muted small lang-en" style="margin-top:10px">
-                Published after review. Spam submissions are rejected.
-              </p>
+              <p class="muted small lang-bg" style="margin-top:10px">Публикуване след преглед. Спам съдържание не се допуска.</p>
+              <p class="muted small lang-en" style="margin-top:10px">Published after review. Spam submissions are rejected.</p>
             </form>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ✅ DOWNLOAD SECTION -->
+    <!-- DOWNLOAD -->
     <section id="download" class="section">
       <div class="container">
         <h2 data-i18n="demo_title">Демо версия</h2>
         <p class="muted" data-i18n="demo_body">
-          Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата по-долу.
+          Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата за заявка по-долу.
         </p>
 
         <div class="cta-row" style="margin-top:14px">
@@ -282,16 +255,12 @@
           </a>
         </div>
 
-        <p class="muted small lang-bg" style="margin-top:10px">
-          Ако файлът се изтегли, отворете го и изберете Install.
-        </p>
-        <p class="muted small lang-en" style="margin-top:10px">
-          If the file downloads, open it and click Install.
-        </p>
+        <p class="muted small lang-bg" style="margin-top:10px">Ако файлът се изтегли, отворете го и изберете Install.</p>
+        <p class="muted small lang-en" style="margin-top:10px">If the file downloads, open it and click Install.</p>
       </div>
     </section>
 
-    <!-- ✅ INSTALL SECTION -->
+    <!-- INSTALL -->
     <section id="install" class="section alt">
       <div class="container">
         <h2 class="lang-bg">Инсталация (Windows)</h2>
@@ -313,122 +282,7 @@
       </div>
     </section>
 
-    <!-- ✅ CONTACT SECTION: single card -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="lang-bg">Контакт</h2>
-        <h2 class="lang-en">Contact</h2>
-
-        <div class="card">
-          <h3 class="lang-bg">Имейл</h3>
-          <h3 class="lang-en">Email</h3>
-
-          <div class="contact-list">
-            <div class="contact-row">
-              <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
-              <div class="muted">
-                <span class="lang-bg">Инсталация • лиценз • бъгове</span>
-                <span class="lang-en">Install • licensing • bugs</span>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
-              <div class="muted">
-                <span class="lang-bg">Общи въпроси • партньорства • запитвания</span>
-                <span class="lang-en">General • partnerships • inquiries</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="license" class="section alt">
-      <div class="container">
-        <h2 data-i18n="license_title">Заяви платен лиценз</h2>
-        <p class="muted" data-i18n="license_body">
-          Изпратете данните за заявка. Ще получите отговор с условия за лиценз и следващи стъпки.
-        </p>
-
-        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-          <input type="hidden" name="type" value="license" />
-
-          <div class="grid2">
-            <label><span data-i18n="form_name_lbl">Име</span>
-              <input name="name" required />
-            </label>
-
-            <label><span data-i18n="form_email_lbl">Имейл</span>
-              <input name="email" type="email" required />
-            </label>
-          </div>
-
-          <div class="grid2">
-            <label><span data-i18n="form_company_lbl">Фирма / бранд</span>
-              <input name="company" />
-            </label>
-
-            <label><span data-i18n="form_volume_lbl">Колко снимки/месец?</span>
-              <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
-            </label>
-          </div>
-
-          <label><span data-i18n="form_need_lbl">Какво ти трябва?</span>
-            <textarea name="message" rows="5"
-              placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
-              data-i18n-placeholder="form_need_ph"></textarea>
-          </label>
-
-          <button class="btn primary" type="submit" data-i18n="form_send">Изпрати заявка</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <div class="container">
-        <h2 data-i18n="faq_title">Често задавани въпроси</h2>
-
-        <div class="grid3">
-          <div class="card">
-            <h3 data-i18n="q1">Работи ли със стъкло и лъскави предмети?</h3>
-            <p data-i18n="a1">Зависи от снимката. Демото е предназначено за тест с най-трудните продукти.</p>
-          </div>
-
-          <div class="card">
-            <h3 data-i18n="q2">Качват ли се снимките онлайн?</h3>
-            <p data-i18n="a2">Десктоп версията работи локално на вашия компютър.</p>
-          </div>
-
-          <div class="card">
-            <h3 data-i18n="q3">Как става лицензирането?</h3>
-            <p data-i18n="a3">Заявка → отговор с условия и инструкции → активиране.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="privacy" class="section">
-      <div class="container">
-        <h2 class="lang-bg">Поверителност и данни</h2>
-        <h2 class="lang-en">Privacy & data</h2>
-
-        <div class="card">
-          <ul class="lang-bg">
-            <li><strong>Десктоп приложението</strong> обработва снимките локално на вашия компютър.</li>
-            <li><strong>Сайтът</strong> събира само данните, които въвеждате във формите (заявка за лиценз / отзив / съвет).</li>
-            <li>Формите се изпращат чрез <strong>Formspree</strong> към <strong>info@getshotfactory.com</strong>.</li>
-          </ul>
-
-          <ul class="lang-en">
-            <li><strong>The desktop app</strong> processes images locally on your computer.</li>
-            <li><strong>The website</strong> collects only the data you submit in the forms (license request / review / tip).</li>
-            <li>Forms are delivered via <strong>Formspree</strong> to <strong>info@getshotfactory.com</strong>.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
+    <!-- REVIEWS (moved ABOVE license) -->
     <section id="reviews" class="section alt">
       <div class="container">
         <h2 data-i18n="reviews_title">Отзиви и препоръки</h2>
@@ -475,6 +329,126 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 data-i18n="faq_title">Често задавани въпроси</h2>
+
+        <div class="grid3">
+          <div class="card">
+            <h3 data-i18n="q1">Работи ли със стъкло и лъскави предмети?</h3>
+            <p data-i18n="a1">Зависи от снимката. Демото е предназначено за тест с най-трудните продукти.</p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="q2">Качват ли се снимките онлайн?</h3>
+            <p data-i18n="a2">Десктоп версията работи локално на вашия компютър.</p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="q3">Как става лицензирането?</h3>
+            <p data-i18n="a3">Заявка → отговор с условия и инструкции → активиране.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LICENSE -->
+    <section id="license" class="section alt">
+      <div class="container">
+        <h2 data-i18n="license_title">Заяви платен лиценз</h2>
+        <p class="muted" data-i18n="license_body">
+          Изпратете данните за заявка. Ще получите отговор с условия за лиценз и следващи стъпки.
+        </p>
+
+        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+          <input type="hidden" name="type" value="license" />
+
+          <div class="grid2">
+            <label><span data-i18n="form_name_lbl">Име</span>
+              <input name="name" required />
+            </label>
+
+            <label><span data-i18n="form_email_lbl">Имейл</span>
+              <input name="email" type="email" required />
+            </label>
+          </div>
+
+          <div class="grid2">
+            <label><span data-i18n="form_company_lbl">Фирма / бранд</span>
+              <input name="company" />
+            </label>
+
+            <label><span data-i18n="form_volume_lbl">Колко снимки/месец?</span>
+              <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
+            </label>
+          </div>
+
+          <label><span data-i18n="form_need_lbl">Какво ти трябва?</span>
+            <textarea name="message" rows="5"
+              placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
+              data-i18n-placeholder="form_need_ph"></textarea>
+          </label>
+
+          <button class="btn primary" type="submit" data-i18n="form_send">Изпрати заявка</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT (moved near bottom) -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Контакт</h2>
+        <h2 class="lang-en">Contact</h2>
+
+        <div class="card">
+          <h3 class="lang-bg">Имейл</h3>
+          <h3 class="lang-en">Email</h3>
+
+          <div class="contact-list">
+            <div class="contact-row">
+              <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
+              <div class="muted">
+                <span class="lang-bg">Инсталация • лиценз • бъгове</span>
+                <span class="lang-en">Install • licensing • bugs</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
+              <div class="muted">
+                <span class="lang-bg">Общи въпроси • партньорства • запитвания</span>
+                <span class="lang-en">General • partnerships • inquiries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY (near footer) -->
+    <section id="privacy" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Поверителност и данни</h2>
+        <h2 class="lang-en">Privacy & data</h2>
+
+        <div class="card">
+          <ul class="lang-bg">
+            <li><strong>Десктоп приложението</strong> обработва снимките локално на вашия компютър.</li>
+            <li><strong>Сайтът</strong> събира само данните, които въвеждате във формите (заявка за лиценз / отзив / съвет).</li>
+            <li>Формите се изпращат чрез <strong>Formspree</strong> към <strong>info@getshotfactory.com</strong>.</li>
+          </ul>
+
+          <ul class="lang-en">
+            <li><strong>The desktop app</strong> processes images locally on your computer.</li>
+            <li><strong>The website</strong> collects only the data you submit in the forms (license request / review / tip).</li>
+            <li>Forms are delivered via <strong>Formspree</strong> to <strong>info@getshotfactory.com</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <section class="section foot">
       <div class="container footer">
         <div class="muted small">© <span id="y"></span> ShotFactory</div>
@@ -512,16 +486,16 @@
           f3_title: "Експорт по шаблони",
           f3_body: "PNG/JPG/WebP, размери/пропорции и качество според нуждите на магазина.",
 
-          how_title: "Автоматизацията в 3 стъпки",
-          h1_title: "Вход/Изход с папки",
-          h1_body: "Настрой Incoming (къде подаваш снимки) и Workspace (къде излизат готовите файлове). Работи папково — без ръчно местене и хаос.",
-          h2_title: "Организация по продукт",
-          h2_body: "Въвеждаш barcode/име на артикула → ShotFactory създава папка със същото име в Workspace и подрежда обработените снимки вътре. Всяко ново име = нова папка.",
-          h3_title: "Контрол през Preview",
-          h3_body: "При подадена снимка Preview се отваря автоматично. Избираш профил за обработка от падащо меню и го запазваш за сесията или само за текущия артикул. Preview може да се отвори и от thumbnail-ите в главния прозорец.",
+          how_title: "Как работи",
+          h1_title: "1) Добавяш снимка",
+          h1_body: "Избираш продуктова снимка за обработка.",
+          h2_title: "2) Избираш профил",
+          h2_body: "Настройки за формат/размер/фон според платформата или клиента.",
+          h3_title: "3) Експорт",
+          h3_body: "Получаваш готови изображения за качване в магазин/платформа.",
 
           demo_title: "Демо версия",
-          demo_body: "Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата по-долу.",
+          demo_body: "Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте формата за заявка по-долу.",
 
           license_title: "Заяви платен лиценз",
           license_body: "Изпратете данните за заявка. Ще получите отговор с условия за лиценз и следващи стъпки.",
@@ -585,13 +559,13 @@
           f3_title: "Template exports",
           f3_body: "PNG/JPG/WebP, sizes/ratios and quality based on your store needs.",
 
-          how_title: "Automation in 3 steps",
-          h1_title: "Folder-based workflow",
-          h1_body: "Set Incoming (where you drop photos) and Workspace (where final files go). It’s folder-driven — no manual sorting chaos.",
-          h2_title: "Organized per product",
-          h2_body: "Enter a barcode/SKU name → ShotFactory creates a folder with the same name in Workspace and places processed images inside. Each new name = a new folder.",
-          h3_title: "Control via Preview",
-          h3_body: "When a photo is submitted, Preview opens automatically. Choose a processing profile from a dropdown and apply it for the whole session or only the current product. You can also open Preview from the thumbnails in the main window.",
+          how_title: "How it works",
+          h1_title: "1) Add a photo",
+          h1_body: "Select a product photo to process.",
+          h2_title: "2) Choose a profile",
+          h2_body: "Format/size/background settings based on platform or client.",
+          h3_title: "3) Export",
+          h3_body: "Get ready-to-upload images for your store/platform.",
 
           demo_title: "Demo version",
           demo_body: "Download the demo and test it on real products. For licensing, use the request form below.",
@@ -658,9 +632,9 @@
         return nav.startsWith("bg") ? "bg" : "en";
       }
 
-      const btn = document.getElementById("langToggle");
-      if (btn) {
-        btn.addEventListener("click", () => {
+      const langBtn = document.getElementById("langToggle");
+      if (langBtn) {
+        langBtn.addEventListener("click", () => {
           const current = localStorage.getItem("lang") || getDefaultLang();
           setLang(current === "bg" ? "en" : "bg");
         });
@@ -668,6 +642,36 @@
 
       setLang(getDefaultLang());
 
+      // Theme toggle
+      function applyTheme(theme){
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+
+        const btn = document.getElementById("themeToggle");
+        if(btn){
+          btn.textContent = (theme === "dark") ? "☀️" : "🌙";
+          btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
+        }
+      }
+
+      function getDefaultTheme(){
+        const saved = localStorage.getItem("theme");
+        if(saved === "dark" || saved === "light") return saved;
+        if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
+        return "dark"; // default: dark
+      }
+
+      const themeBtn = document.getElementById("themeToggle");
+      if(themeBtn){
+        themeBtn.addEventListener("click", () => {
+          const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      }
+
+      applyTheme(getDefaultTheme());
+
+      // Form wiring
       function wireForm(form, redirectUrl){
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -697,35 +701,6 @@
         if(type === "review") wireForm(f, "/thanks-review.html");
         if(type === "tip") wireForm(f, "/thanks.html");
       });
-      function applyTheme(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-
-    const btn = document.getElementById("themeToggle");
-    if(btn){
-      btn.textContent = (theme === "dark") ? "☀️" : "🌙";
-      btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
-    }
-  }
-
-  function getDefaultTheme(){
-    const saved = localStorage.getItem("theme");
-    if(saved === "dark" || saved === "light") return saved;
-
-    // ако няма избор — вземи системната тема
-    if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
-    return "light";
-  }
-
-  const themeBtn = document.getElementById("themeToggle");
-  if(themeBtn){
-    themeBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
-      applyTheme(current === "dark" ? "light" : "dark");
-    });
-  }
-
-  applyTheme(getDefaultTheme());
     </script>
   </main>
 </body>
