@@ -5,3 +5,8 @@
 /assets/*.cer
   Content-Type: application/x-x509-ca-cert
   Cache-Control: no-store
+/ShotFactory.appinstaller
+  Content-Type: application/appinstaller
+  Content-Disposition: attachment
+  X-Content-Type-Options: nosniff
+  Cache-Control: no-store
