@@ -69,14 +69,15 @@
           </ul>
         </div>
 
-        <div class="hero-card">
+       <div class="hero-card">
   <div class="badge" data-i18n="hero_badge">Бърза проверка</div>
   <p class="muted" data-i18n="hero_card">Demo video/shots</p>
 
-  <video autoplay muted loop playsinline style="width:100%; border-radius:10px;">
+  <video id="heroVideo" autoplay muted loop playsinline style="width:100%; border-radius:10px;">
     <source src="video/Timeline 1.mp4" type="video/mp4">
   </video>
 
+  <button class="video-expand-btn" onclick="openFullscreenVideo()">Full screen</button>
 </div>
     </section>
 
