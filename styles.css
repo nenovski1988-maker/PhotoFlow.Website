@@ -388,3 +388,18 @@ html[lang="en"] .lang-bg { display: none !important; }
   h1{ font-size:34px; }
   :root{ --wmSize: 70vw; }
 }
+.video-expand-btn {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: 1px solid #d8dee4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.video-expand-btn:hover {
+  background: #f8fafc;
+}
