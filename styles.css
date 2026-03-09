@@ -367,6 +367,11 @@ input:focus, textarea:focus{
   display: flex;
   justify-content: center;
 }
+.reviews-actions{
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
 
 /* ---------- Modal ---------- */
 .modal{
