@@ -372,7 +372,7 @@ input:focus, textarea:focus{
 .modal{
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 9999;
   background: rgba(0,0,0,.58);
   display: flex;
   align-items: center;
@@ -380,7 +380,7 @@ input:focus, textarea:focus{
   padding: 24px;
 }
 .modal.hidden{
-  display: none;
+  display: none !important;
 }
 .modal-content{
   width: min(900px, 100%);
@@ -395,7 +395,7 @@ input:focus, textarea:focus{
 }
 .modal-header{
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:space-between;
   gap:12px;
   margin-bottom:8px;
@@ -413,6 +413,7 @@ input:focus, textarea:focus{
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
+  flex: 0 0 auto;
 }
 .modal-close:hover{
   background: var(--btnHoverBg);
