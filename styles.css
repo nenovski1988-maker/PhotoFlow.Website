@@ -361,12 +361,8 @@ input:focus, textarea:focus{
   flex-wrap:wrap;
 }
 
-/* ---------- Tips ---------- */
-.tips-actions{
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-}
+/* ---------- Tips / Reviews actions ---------- */
+.tips-actions,
 .reviews-actions{
   margin-top: 18px;
   display: flex;
@@ -397,6 +393,7 @@ input:focus, textarea:focus{
   box-shadow: var(--shadowSm);
   padding: 18px;
   position: relative;
+  z-index: 10000;
 }
 .modal-header{
   display:flex;
