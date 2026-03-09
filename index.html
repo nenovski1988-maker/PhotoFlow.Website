@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=lean-license-a1" />
+  <link rel="stylesheet" href="/styles.css?v=lean-license-a2" />
 </head>
 
 <body>
@@ -69,11 +69,12 @@
           </ul>
         </div>
 
-       <div class="hero-card">
-  <video id="heroVideo" autoplay muted loop playsinline controls style="width:100%; border-radius:10px;">
-    <source src="video/shotfactory-demo-web.mp4" type="video/mp4">
-  </video>
-</div>
+        <div class="hero-card">
+          <video id="heroVideo" autoplay muted loop playsinline controls style="width:100%; border-radius:10px; display:block;">
+            <source src="video/shotfactory-demo-web.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
     </section>
 
     <!-- FEATURES -->
@@ -177,120 +178,65 @@
           </div>
         </div>
 
-        <div style="margin-top:18px">
-          <h3 class="lang-bg">Съвети от клиенти</h3>
-          <h3 class="lang-en">Customer tips</h3>
-
-          <p class="muted lang-bg">Подбрани практики от потребители на ShotFactory (публикуват се след преглед).</p>
-          <p class="muted lang-en">Selected practices from ShotFactory users (published after review).</p>
-
-          <div class="card" style="margin-top:14px">
-            <h3 class="lang-bg">Изпрати съвет</h3>
-            <h3 class="lang-en">Submit a tip</h3>
-
-            <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-              <input type="hidden" name="type" value="tip" />
-
-              <div class="grid2">
-                <label>
-                  <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
-                  <span class="lang-en">Name <span class="muted small">(optional)</span></span>
-                  <input name="tip_name" />
-                </label>
-
-                <label>
-                  <span class="lang-bg">Имейл</span>
-                  <span class="lang-en">Email</span>
-                  <input name="tip_email" type="email" required />
-                </label>
-              </div>
-
-              <div class="grid2">
-                <label>
-                  <span class="lang-bg">Фирма <span class="muted small">(по желание)</span></span>
-                  <span class="lang-en">Company <span class="muted small">(optional)</span></span>
-                  <input name="tip_company" />
-                </label>
-
-                <label>
-                  <span class="lang-bg">Тема <span class="muted small">(по желание)</span></span>
-                  <span class="lang-en">Topic <span class="muted small">(optional)</span></span>
-                  <input name="tip_topic" placeholder="incoming / presets / workflow…" />
-                </label>
-              </div>
-
-              <label>
-                <span class="lang-bg">Съвет</span>
-                <span class="lang-en">Tip</span>
-                <textarea name="tip_text" rows="4" required
-                  placeholder="Кратко описание на практиката/настройката…"></textarea>
-              </label>
-
-              <button class="btn" type="submit">
-                <span class="lang-bg">Изпрати</span>
-                <span class="lang-en">Submit</span>
-              </button>
-
-              <p class="muted small lang-bg" style="margin-top:10px">Публикуване след преглед. Спам съдържание не се допуска.</p>
-              <p class="muted small lang-en" style="margin-top:10px">Published after review. Spam submissions are rejected.</p>
-            </form>
-          </div>
+        <div class="tips-actions">
+          <button class="btn primary lang-bg" type="button" onclick="openTipModal()">Изпрати съвет</button>
+          <button class="btn primary lang-en" type="button" onclick="openTipModal()">Submit a tip</button>
         </div>
       </div>
     </section>
 
     <!-- DOWNLOAD -->
-   <section id="download" class="section">
-  <div class="container">
-    <h2 class="lang-bg">Демо версия</h2>
-    <h2 class="lang-en">Demo version</h2>
+    <section id="download" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Демо версия</h2>
+        <h2 class="lang-en">Demo version</h2>
 
-    <div class="card">
-      <p class="muted lang-bg">
-        Свали демо и тествай върху реални продукти. За лицензиране използвай кратката заявка по-долу.
-      </p>
-      <p class="muted lang-en">
-        Download the demo and test it on real products. For licensing, use the short request below.
-      </p>
+        <div class="card">
+          <p class="muted lang-bg">
+            Свали демо и тествай върху реални продукти. За лицензиране използвай кратката заявка по-долу.
+          </p>
+          <p class="muted lang-en">
+            Download the demo and test it on real products. For licensing, use the short request below.
+          </p>
 
-      <div class="cta-row" style="margin-top:14px">
-        <a class="btn primary" href="/download.html">
-          <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
-          <span class="lang-en">Download / Install (Windows x64)</span>
-        </a>
+          <div class="cta-row" style="margin-top:14px">
+            <a class="btn primary" href="/download.html">
+              <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
+              <span class="lang-en">Download / Install (Windows x64)</span>
+            </a>
+          </div>
+
+          <p class="muted small lang-bg" style="margin-top:10px">
+            Ако файлът се изтегли, отвори го и натисни Install.
+          </p>
+          <p class="muted small lang-en" style="margin-top:10px">
+            If the file downloads, open it and click Install.
+          </p>
+        </div>
       </div>
-
-      <p class="muted small lang-bg" style="margin-top:10px">
-        Ако файлът се изтегли, отвори го и натисни Install.
-      </p>
-      <p class="muted small lang-en" style="margin-top:10px">
-        If the file downloads, open it and click Install.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- INSTALL -->
     <section id="install" class="section alt">
-  <div class="container">
-    <h2 class="lang-bg">Инсталация (Windows)</h2>
-    <h2 class="lang-en">Installation (Windows)</h2>
+      <div class="container">
+        <h2 class="lang-bg">Инсталация (Windows)</h2>
+        <h2 class="lang-en">Installation (Windows)</h2>
 
-    <div class="card">
-      <ol class="lang-bg">
-        <li>Натисни бутона <strong>Свали / Инсталирай</strong> в секция “Демо версия”.</li>
-        <li>Отвори сваления файл и натисни <strong>Install</strong>.</li>
-        <li>При нова версия: отвори пак същия бутон — Windows ще предложи обновяване.</li>
-      </ol>
+        <div class="card">
+          <ol class="lang-bg">
+            <li>Натисни бутона <strong>Свали / Инсталирай</strong> в секция “Демо версия”.</li>
+            <li>Отвори сваления файл и натисни <strong>Install</strong>.</li>
+            <li>При нова версия: отвори пак същия бутон — Windows ще предложи обновяване.</li>
+          </ol>
 
-      <ol class="lang-en">
-        <li>Click <strong>Download / Install</strong> in the “Demo version” section.</li>
-        <li>Open the downloaded file and click <strong>Install</strong>.</li>
-        <li>For updates: use the same button again — Windows will offer an update.</li>
-      </ol>
-    </div>
-  </div>
-</section>
+          <ol class="lang-en">
+            <li>Click <strong>Download / Install</strong> in the “Demo version” section.</li>
+            <li>Open the downloaded file and click <strong>Install</strong>.</li>
+            <li>For updates: use the same button again — Windows will offer an update.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
     <!-- REVIEWS -->
     <section id="reviews" class="section alt">
@@ -363,7 +309,7 @@
       </div>
     </section>
 
-    <!-- LICENSE (LEAN A) -->
+    <!-- LICENSE -->
     <section id="license" class="section alt">
       <div class="container">
         <h2 data-i18n="license_title">Заявка за лиценз и цена</h2>
@@ -475,6 +421,68 @@
         <div class="muted small">© <span id="y"></span> ShotFactory</div>
       </div>
     </section>
+
+    <!-- TIP MODAL -->
+    <div id="tipModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="lang-bg">Изпрати съвет</h3>
+          <h3 class="lang-en">Submit a tip</h3>
+          <button class="modal-close" type="button" onclick="closeTipModal()" aria-label="Close">×</button>
+        </div>
+
+        <p class="muted lang-bg">Сподели полезна практика, настройка или workflow за потребителите на ShotFactory.</p>
+        <p class="muted lang-en">Share a useful workflow, setup or processing tip for ShotFactory users.</p>
+
+        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+          <input type="hidden" name="type" value="tip" />
+
+          <div class="grid2">
+            <label>
+              <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+              <input name="tip_name" />
+            </label>
+
+            <label>
+              <span class="lang-bg">Имейл</span>
+              <span class="lang-en">Email</span>
+              <input name="tip_email" type="email" required />
+            </label>
+          </div>
+
+          <div class="grid2">
+            <label>
+              <span class="lang-bg">Фирма <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">Company <span class="muted small">(optional)</span></span>
+              <input name="tip_company" />
+            </label>
+
+            <label>
+              <span class="lang-bg">Тема <span class="muted small">(по желание)</span></span>
+              <span class="lang-en">Topic <span class="muted small">(optional)</span></span>
+              <input name="tip_topic" placeholder="incoming / presets / workflow…" />
+            </label>
+          </div>
+
+          <label>
+            <span class="lang-bg">Съвет</span>
+            <span class="lang-en">Tip</span>
+            <textarea name="tip_text" rows="4" required placeholder="Кратко описание на практиката/настройката…"></textarea>
+          </label>
+
+          <div class="modal-actions">
+            <button class="btn primary" type="submit">
+              <span class="lang-bg">Изпрати</span>
+              <span class="lang-en">Submit</span>
+            </button>
+          </div>
+
+          <p class="muted small lang-bg" style="margin-top:10px">Публикуване след преглед. Спам съдържание не се допуска.</p>
+          <p class="muted small lang-en" style="margin-top:10px">Published after review. Spam submissions are rejected.</p>
+        </form>
+      </div>
+    </div>
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
@@ -657,7 +665,6 @@
 
       setLang(getDefaultLang());
 
-      // Theme toggle
       function applyTheme(theme){
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
@@ -686,7 +693,33 @@
 
       applyTheme(getDefaultTheme());
 
-      // Form wiring
+      function openTipModal() {
+        const modal = document.getElementById("tipModal");
+        if (!modal) return;
+        modal.classList.remove("hidden");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeTipModal() {
+        const modal = document.getElementById("tipModal");
+        if (!modal) return;
+        modal.classList.add("hidden");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      const tipModal = document.getElementById("tipModal");
+      if (tipModal) {
+        tipModal.addEventListener("click", (e) => {
+          if (e.target === tipModal) closeTipModal();
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeTipModal();
+      });
+
       function wireForm(form, redirectUrl){
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -720,11 +753,9 @@
   </main>
 
   <style>
-    /* Small layout helper for Contact rows (safe to keep inline) */
     .contact-list{ display:flex; flex-direction:column; gap:12px; margin-top:12px; }
     .contact-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
     .contact-row .muted{ flex:1; min-width: 220px; }
   </style>
-  
 </body>
 </html>
