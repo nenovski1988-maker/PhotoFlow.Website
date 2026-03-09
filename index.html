@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=lean-license-a5" />
+  <link rel="stylesheet" href="/styles.css?v=lean-license-a6" />
 </head>
 
 <body>
@@ -30,7 +30,8 @@
 
         <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
         <a href="#faq" data-i18n="nav_faq">Въпроси</a>
-        <a href="#license" data-i18n="nav_license">Лиценз</a>
+
+        <button type="button" class="nav-link-btn" onclick="openLicenseModal()" data-i18n="nav_license">Лиценз</button>
 
         <a href="#contact" class="lang-bg">Контакт</a>
         <a href="#contact" class="lang-en">Contact</a>
@@ -193,10 +194,10 @@
 
         <div class="card">
           <p class="muted lang-bg">
-            Свали демо и тествай върху реални продукти. За лицензиране използвай кратката заявка по-долу.
+            Свали демо и тествай върху реални продукти. За лицензиране използвай бутона по-долу.
           </p>
           <p class="muted lang-en">
-            Download the demo and test it on real products. For licensing, use the short request below.
+            Download the demo and test it on real products. For licensing, use the button below.
           </p>
 
           <div class="cta-row" style="margin-top:14px">
@@ -287,21 +288,6 @@
             <h3 data-i18n="q3">Как става лицензирането?</h3>
             <p data-i18n="a3">Заявка → отговор с условия и инструкции → активиране.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LICENSE SECTION -->
-    <section id="license" class="section alt">
-      <div class="container">
-        <h2 data-i18n="license_title">Заявка за лиценз и цена</h2>
-        <p class="muted" data-i18n="license_body">
-          Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.
-        </p>
-
-        <div class="license-actions">
-          <button class="btn primary lang-bg" type="button" onclick="openLicenseModal()">Заяви цена</button>
-          <button class="btn primary lang-en" type="button" onclick="openLicenseModal()">Request pricing</button>
         </div>
       </div>
     </section>
@@ -575,8 +561,6 @@
         h3_title: "3) Експорт",
         h3_body: "Получаваш готови изображения за качване в магазин/платформа.",
 
-        license_title: "Заявка за лиценз и цена",
-        license_body: "Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.",
         form_email_lbl: "Имейл",
         form_volume_ph: "пример: 500",
         form_need_lbl: "Какво ти трябва?",
@@ -632,8 +616,6 @@
         h3_title: "3) Export",
         h3_body: "Get ready-to-upload images for your store/platform.",
 
-        license_title: "Request pricing",
-        license_body: "Describe what you need. You’ll receive a reply with pricing and next steps.",
         form_email_lbl: "Email",
         form_volume_ph: "e.g. 500",
         form_need_lbl: "What do you need?",
