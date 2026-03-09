@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=lean-license-a6" />
+  <link rel="stylesheet" href="/styles.css?v=lean-license-a7" />
 </head>
 
 <body>
@@ -16,7 +16,17 @@
         <span>ShotFactory</span>
       </a>
 
-      <nav class="nav">
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="siteNav">
+        ☰
+      </button>
+
+      <nav class="nav" id="siteNav">
         <a href="#features" data-i18n="nav_features">Функции</a>
         <a href="#how" data-i18n="nav_how">Как работи</a>
 
@@ -704,12 +714,43 @@
 
     applyTheme(getDefaultTheme());
 
+    function closeMobileMenu() {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if (!nav || !btn) return;
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if (!nav || !btn) return;
+
+      const isOpen = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.textContent = isOpen ? "✕" : "☰";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    if (menuToggle) {
+      menuToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    document.querySelectorAll("#siteNav a, #siteNav .nav-link-btn").forEach(el => {
+      el.addEventListener("click", () => {
+        if (window.innerWidth <= 900) closeMobileMenu();
+      });
+    });
+
     function openTipModal() {
       const modal = document.getElementById("tipModal");
       if (!modal) return;
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+      closeMobileMenu();
     }
 
     function closeTipModal() {
@@ -726,6 +767,7 @@
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+      closeMobileMenu();
     }
 
     function closeReviewModal() {
@@ -742,6 +784,7 @@
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+      closeMobileMenu();
     }
 
     function closeLicenseModal() {
@@ -778,6 +821,7 @@
         closeTipModal();
         closeReviewModal();
         closeLicenseModal();
+        closeMobileMenu();
       }
     });
 
