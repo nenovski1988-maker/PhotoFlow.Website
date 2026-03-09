@@ -238,52 +238,32 @@
       </div>
     </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews" class="section alt">
-      <div class="container">
-        <h2 data-i18n="reviews_title">Отзиви и препоръки</h2>
+   <!-- REVIEWS -->
+<section id="reviews" class="section alt">
+  <div class="container">
+    <h2 data-i18n="reviews_title">Отзиви и препоръки</h2>
 
-        <div class="grid3">
-          <div class="card">
-            <p data-i18n="r1">“След първите клиенти тук ще има реални отзиви.”</p>
-            <p class="muted small" data-i18n="r1_by">— Име, фирма</p>
-          </div>
-          <div class="card">
-            <p data-i18n="r2">“Текстът е примерен. Ще го заменим с реални препоръки.”</p>
-            <p class="muted small" data-i18n="r2_by">— Име, фирма</p>
-          </div>
-          <div class="card">
-            <p data-i18n="r3">“Фокус: качество • консистентност • скорост.”</p>
-            <p class="muted small" data-i18n="r3_by">— Име, фирма</p>
-          </div>
-        </div>
-
-        <hr class="sep" />
-
-        <h3 data-i18n="review_form_title">Остави отзив (за одобрение)</h3>
-        <p class="muted" data-i18n="review_form_body">Отзивът се изпраща към екипа и се публикува след преглед.</p>
-
-        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-          <input type="hidden" name="type" value="review" />
-
-          <div class="grid2">
-            <label><span data-i18n="review_name_lbl">Име</span>
-              <input name="review_name" required />
-            </label>
-
-            <label><span data-i18n="review_email_lbl">Имейл</span>
-              <input name="review_email" type="email" required />
-            </label>
-          </div>
-
-          <label><span data-i18n="review_text_lbl">Отзив</span>
-            <textarea name="review_text" rows="4" required></textarea>
-          </label>
-
-          <button class="btn" type="submit" data-i18n="review_send">Изпрати отзив</button>
-        </form>
+    <div class="grid3">
+      <div class="card">
+        <p data-i18n="r1">“След първите клиенти тук ще има реални отзиви.”</p>
+        <p class="muted small" data-i18n="r1_by">— Име, фирма</p>
       </div>
-    </section>
+      <div class="card">
+        <p data-i18n="r2">“Текстът е примерен. Ще го заменим с реални препоръки.”</p>
+        <p class="muted small" data-i18n="r2_by">— Име, фирма</p>
+      </div>
+      <div class="card">
+        <p data-i18n="r3">“Фокус: качество • консистентност • скорост.”</p>
+        <p class="muted small" data-i18n="r3_by">— Име, фирма</p>
+      </div>
+    </div>
+
+    <div class="reviews-actions">
+      <button class="btn primary lang-bg" type="button" onclick="openReviewModal()">Остави отзив</button>
+      <button class="btn primary lang-en" type="button" onclick="openReviewModal()">Leave a review</button>
+    </div>
+  </div>
+</section>
 
     <!-- FAQ -->
     <section id="faq" class="section">
@@ -486,7 +466,81 @@
       </form>
     </div>
   </div>
+<!-- REVIEW MODAL -->
+<div id="reviewModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h3 class="lang-bg">Остави отзив</h3>
+        <h3 class="lang-en">Leave a review</h3>
+      </div>
+      <button class="modal-close" type="button" onclick="closeReviewModal()" aria-label="Close">×</button>
+    </div>
 
+    <p class="muted lang-bg">Отзивът се изпраща към екипа и се публикува след преглед.</p>
+    <p class="muted lang-en">Your review is sent to the team and published after review.</p>
+
+    <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+      <input type="hidden" name="type" value="review" />
+
+      <div class="grid2">
+        <label>
+          <span class="lang-bg">Име</span>
+          <span class="lang-en">Name</span>
+          <input name="review_name" required />
+        </label>
+
+        <label>
+          <span class="lang-bg">Имейл</span>
+          <span class="lang-en">Email</span>
+          <input name="review_email" type="email" required />
+        </label>
+      </div>
+
+      <label>
+        <span class="lang-bg">Отзив</span>
+        <span class="lang-en">Review</span>
+        <textarea name="review_text" rows="4" required></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button class="btn primary" type="submit">
+          <span class="lang-bg">Изпрати отзив</span>
+          <span class="lang-en">Send review</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  function openReviewModal() {
+  const modal = document.getElementById("reviewModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeReviewModal() {
+  const modal = document.getElementById("reviewModal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+const reviewModal = document.getElementById("reviewModal");
+if (reviewModal) {
+  reviewModal.addEventListener("click", (e) => {
+    if (e.target === reviewModal) closeReviewModal();
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeTipModal();
+    closeReviewModal();
+  }
+});
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
