@@ -361,9 +361,10 @@ input:focus, textarea:focus{
   flex-wrap:wrap;
 }
 
-/* ---------- Tips / Reviews actions ---------- */
+/* ---------- Actions ---------- */
 .tips-actions,
-.reviews-actions{
+.reviews-actions,
+.license-actions{
   margin-top: 18px;
   display: flex;
   justify-content: center;
