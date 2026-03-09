@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ShotFactory – Scan, Drop, Done</title>
   <meta name="description" content="ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки: махане на фон, кроп, центриране и експорт по шаблони." />
-  <link rel="stylesheet" href="/styles.css?v=lean-license-a4" />
+  <link rel="stylesheet" href="/styles.css?v=lean-license-a5" />
 </head>
 
 <body>
@@ -59,7 +59,7 @@
 
           <div class="cta-row">
             <a class="btn primary" href="#download" data-i18n="cta_download">Свали демо (Windows)</a>
-            <a class="btn" href="#license" data-i18n="cta_license">Заяви цена</a>
+            <button class="btn" type="button" onclick="openLicenseModal()" data-i18n="cta_license">Заяви цена</button>
           </div>
 
           <ul class="bullets">
@@ -204,6 +204,8 @@
               <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
               <span class="lang-en">Download / Install (Windows x64)</span>
             </a>
+            <button class="btn lang-bg" type="button" onclick="openLicenseModal()">Заяви цена</button>
+            <button class="btn lang-en" type="button" onclick="openLicenseModal()">Request pricing</button>
           </div>
 
           <p class="muted small lang-bg" style="margin-top:10px">
@@ -289,7 +291,7 @@
       </div>
     </section>
 
-    <!-- LICENSE -->
+    <!-- LICENSE SECTION -->
     <section id="license" class="section alt">
       <div class="container">
         <h2 data-i18n="license_title">Заявка за лиценз и цена</h2>
@@ -297,48 +299,10 @@
           Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.
         </p>
 
-        <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-          <input type="hidden" name="type" value="license" />
-
-          <div class="grid2">
-            <label>
-              <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
-              <span class="lang-en">Name <span class="muted small">(optional)</span></span>
-              <input name="name" />
-            </label>
-
-            <label>
-              <span data-i18n="form_email_lbl">Имейл</span>
-              <input name="email" type="email" required />
-            </label>
-          </div>
-
-          <div class="grid2">
-            <label>
-              <span class="lang-bg">Фирма / бранд <span class="muted small">(по желание)</span></span>
-              <span class="lang-en">Company / brand <span class="muted small">(optional)</span></span>
-              <input name="company" />
-            </label>
-
-            <label>
-              <span class="lang-bg">Колко снимки/месец? <span class="muted small">(по желание)</span></span>
-              <span class="lang-en">How many photos/month? <span class="muted small">(optional)</span></span>
-              <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
-            </label>
-          </div>
-
-          <label>
-            <span data-i18n="form_need_lbl">Какво ти трябва?</span>
-            <textarea name="message" rows="5" required
-              placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
-              data-i18n-placeholder="form_need_ph"></textarea>
-          </label>
-
-          <button class="btn primary" type="submit" data-i18n="form_send">Заяви цена</button>
-
-          <p class="muted small lang-bg" style="margin-top:10px">Няма автоматични имейли. Отговаряме лично.</p>
-          <p class="muted small lang-en" style="margin-top:10px">No automated emails. You’ll get a personal reply.</p>
-        </form>
+        <div class="license-actions">
+          <button class="btn primary lang-bg" type="button" onclick="openLicenseModal()">Заяви цена</button>
+          <button class="btn primary lang-en" type="button" onclick="openLicenseModal()">Request pricing</button>
+        </div>
       </div>
     </section>
 
@@ -514,6 +478,67 @@
     </div>
   </div>
 
+  <!-- LICENSE MODAL -->
+  <div id="licenseModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 class="lang-bg">Заявка за лиценз и цена</h3>
+          <h3 class="lang-en">Request pricing</h3>
+        </div>
+        <button class="modal-close" type="button" onclick="closeLicenseModal()" aria-label="Close">×</button>
+      </div>
+
+      <p class="muted lang-bg">Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.</p>
+      <p class="muted lang-en">Describe what you need. You’ll receive a reply with pricing and next steps.</p>
+
+      <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+        <input type="hidden" name="type" value="license" />
+
+        <div class="grid2">
+          <label>
+            <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
+            <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+            <input name="name" />
+          </label>
+
+          <label>
+            <span data-i18n="form_email_lbl">Имейл</span>
+            <input name="email" type="email" required />
+          </label>
+        </div>
+
+        <div class="grid2">
+          <label>
+            <span class="lang-bg">Фирма / бранд <span class="muted small">(по желание)</span></span>
+            <span class="lang-en">Company / brand <span class="muted small">(optional)</span></span>
+            <input name="company" />
+          </label>
+
+          <label>
+            <span class="lang-bg">Колко снимки/месец? <span class="muted small">(по желание)</span></span>
+            <span class="lang-en">How many photos/month? <span class="muted small">(optional)</span></span>
+            <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
+          </label>
+        </div>
+
+        <label>
+          <span data-i18n="form_need_lbl">Какво ти трябва?</span>
+          <textarea name="message" rows="5" required
+            placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
+            data-i18n-placeholder="form_need_ph"></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button class="btn primary" type="submit" data-i18n="form_send">Заяви цена</button>
+        </div>
+
+        <p class="muted small lang-bg" style="margin-top:10px">Няма автоматични имейли. Отговаряме лично.</p>
+        <p class="muted small lang-en" style="margin-top:10px">No automated emails. You’ll get a personal reply.</p>
+      </form>
+    </div>
+  </div>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -533,9 +558,6 @@
         hero_b1: "Еднаква визия в целия каталог (кроп + център + размери)",
         hero_b2: "Експорт по готови пресети (формати, резолюции, качество)",
         hero_b3: "Работи локално на твоя компютър (снимките не се качват онлайн)",
-        hero_badge: "Бърза проверка",
-        hero_card: "Demo video/shots",
-        hero_placeholder: "VIDEO / SCREENSHOTS (coming soon)",
 
         features_title: "Основни функции",
         f1_title: "Премахване на фон",
@@ -552,9 +574,6 @@
         h2_body: "Настройки за формат/размер/фон според платформата или клиента.",
         h3_title: "3) Експорт",
         h3_body: "Получаваш готови изображения за качване в магазин/платформа.",
-
-        demo_title: "Демо версия",
-        demo_body: "Изтеглете демо версия и тествайте с реални продукти. За лицензиране използвайте кратката заявка по-долу.",
 
         license_title: "Заявка за лиценз и цена",
         license_body: "Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.",
@@ -579,13 +598,6 @@
         r2_by: "— Име, фирма",
         r3: "“Фокус: качество • консистентност • скорост.”",
         r3_by: "— Име, фирма",
-
-        review_form_title: "Остави отзив (за одобрение)",
-        review_form_body: "Отзивът се изпраща към екипа и се публикува след преглед.",
-        review_name_lbl: "Име",
-        review_email_lbl: "Имейл",
-        review_text_lbl: "Отзив",
-        review_send: "Изпрати отзив",
       },
 
       en: {
@@ -603,9 +615,6 @@
         hero_b1: "Consistent catalog look (crop + center + sizes)",
         hero_b2: "Export presets (formats, resolutions, quality)",
         hero_b3: "Runs locally on your PC (your photos are not uploaded)",
-        hero_badge: "Quick check",
-        hero_card: "Demo video/shots",
-        hero_placeholder: "VIDEO / SCREENSHOTS (coming soon)",
 
         features_title: "Core features",
         f1_title: "Background removal",
@@ -622,9 +631,6 @@
         h2_body: "Format/size/background settings based on platform or client.",
         h3_title: "3) Export",
         h3_body: "Get ready-to-upload images for your store/platform.",
-
-        demo_title: "Demo version",
-        demo_body: "Download the demo and test it on real products. For licensing, use the short request below.",
 
         license_title: "Request pricing",
         license_body: "Describe what you need. You’ll receive a reply with pricing and next steps.",
@@ -649,13 +655,6 @@
         r2_by: "— Name, company",
         r3: "“Focus: quality • consistency • speed.”",
         r3_by: "— Name, company",
-
-        review_form_title: "Leave a review (for approval)",
-        review_form_body: "Your review is sent to the team and published after review.",
-        review_name_lbl: "Name",
-        review_email_lbl: "Email",
-        review_text_lbl: "Review",
-        review_send: "Send review",
       }
     };
 
@@ -755,6 +754,22 @@
       document.body.classList.remove("modal-open");
     }
 
+    function openLicenseModal() {
+      const modal = document.getElementById("licenseModal");
+      if (!modal) return;
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeLicenseModal() {
+      const modal = document.getElementById("licenseModal");
+      if (!modal) return;
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
     const tipModal = document.getElementById("tipModal");
     if (tipModal) {
       tipModal.addEventListener("click", (e) => {
@@ -769,10 +784,18 @@
       });
     }
 
+    const licenseModal = document.getElementById("licenseModal");
+    if (licenseModal) {
+      licenseModal.addEventListener("click", (e) => {
+        if (e.target === licenseModal) closeLicenseModal();
+      });
+    }
+
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeTipModal();
         closeReviewModal();
+        closeLicenseModal();
       }
     });
 
