@@ -29,7 +29,7 @@
       <nav class="nav" id="siteNav">
         <a href="#how" data-i18n="nav_how">Как работи</a>
         <a href="#features" data-i18n="nav_features">Функции</a>
-        <a href="/download.html" data-i18n="nav_demo">Демо</a>
+        <a href="/download.html" data-i18n="nav_demo">Свали</a>
 
         <a href="/download.html#install" class="lang-bg">Инсталация</a>
         <a href="/download.html#install" class="lang-en">Install</a>
@@ -52,7 +52,7 @@
         <a href="/terms.html" class="lang-en">Terms</a>
 
         <span class="lang-switch">
-          <button type="button" id="themeToggle" class="lang-btn" aria-label="Toggle theme">☀️</button>
+          <button type="button" id="themeToggle" class="lang-btn" aria-label="Theme mode" title="Theme mode">🕒</button>
           <button type="button" id="langToggle" class="lang-btn">EN</button>
         </span>
       </nav>
@@ -71,7 +71,7 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="/download.html" data-i18n="cta_download">Свали демо (Windows)</a>
+            <a class="btn primary" href="/download.html" data-i18n="cta_download">Свали за Windows</a>
             <button class="btn" type="button" onclick="openLicenseModal()" data-i18n="cta_license">Заяви цена</button>
           </div>
 
@@ -595,6 +595,64 @@
       }
     };
 
+    function getThemePreference() {
+      const saved = localStorage.getItem("themePreference");
+      if (saved === "auto" || saved === "light" || saved === "dark") return saved;
+      return "auto";
+    }
+
+    function getTimeBasedTheme() {
+      const hour = new Date().getHours();
+      return (hour >= 7 && hour < 19) ? "light" : "dark";
+    }
+
+    function resolveTheme(preference) {
+      if (preference === "light" || preference === "dark") return preference;
+      return getTimeBasedTheme();
+    }
+
+    function getNextThemePreference(current) {
+      if (current === "auto") return "light";
+      if (current === "light") return "dark";
+      return "auto";
+    }
+
+    function updateThemeToggleUI() {
+      const btn = document.getElementById("themeToggle");
+      if (!btn) return;
+
+      const lang = document.documentElement.lang === "bg" ? "bg" : "en";
+      const preference = getThemePreference();
+      const actualTheme = resolveTheme(preference);
+
+      if (preference === "auto") {
+        btn.textContent = "🕒";
+        btn.title = lang === "bg"
+          ? `Тема: автоматично (${actualTheme === "dark" ? "тъмна" : "светла"})`
+          : `Theme: auto (${actualTheme})`;
+        btn.setAttribute("aria-label", btn.title);
+        return;
+      }
+
+      if (preference === "light") {
+        btn.textContent = "☀️";
+        btn.title = lang === "bg" ? "Тема: светла" : "Theme: light";
+        btn.setAttribute("aria-label", btn.title);
+        return;
+      }
+
+      btn.textContent = "🌙";
+      btn.title = lang === "bg" ? "Тема: тъмна" : "Theme: dark";
+      btn.setAttribute("aria-label", btn.title);
+    }
+
+    function applyThemePreference(preference) {
+      const actualTheme = resolveTheme(preference);
+      document.documentElement.setAttribute("data-theme", actualTheme);
+      localStorage.setItem("themePreference", preference);
+      updateThemeToggleUI();
+    }
+
     function setLang(lang) {
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
@@ -612,6 +670,8 @@
       const next = (lang === "bg") ? "en" : "bg";
       const btn = document.getElementById("langToggle");
       if (btn) btn.textContent = next.toUpperCase();
+
+      updateThemeToggleUI();
     }
 
     function getDefaultLang() {
@@ -630,61 +690,29 @@
     }
 
     setLang(getDefaultLang());
+    applyThemePreference(getThemePreference());
 
-   function getTimeBasedTheme() {
-  const hour = new Date().getHours();
-  return (hour >= 7 && hour < 19) ? "light" : "dark";
-}
+    const themeBtn = document.getElementById("themeToggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const current = getThemePreference();
+        const next = getNextThemePreference(current);
+        applyThemePreference(next);
+      });
+    }
 
-function applyTheme(theme){
-  document.documentElement.setAttribute("data-theme", theme);
+    setInterval(() => {
+      if (getThemePreference() !== "auto") return;
 
-  const btn = document.getElementById("themeToggle");
-  if(btn){
-    btn.textContent = (theme === "dark") ? "☀️" : "🌙";
-    btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
-  }
-}
+      const currentApplied = document.documentElement.getAttribute("data-theme");
+      const autoTheme = getTimeBasedTheme();
 
-function getDefaultTheme(){
-  const mode = localStorage.getItem("themeMode");
-  const savedTheme = localStorage.getItem("theme");
+      if (currentApplied !== autoTheme) {
+        document.documentElement.setAttribute("data-theme", autoTheme);
+      }
 
-  if (mode === "manual" && (savedTheme === "dark" || savedTheme === "light")) {
-    return savedTheme;
-  }
-
-  return getTimeBasedTheme();
-}
-
-const themeBtn = document.getElementById("themeToggle");
-if(themeBtn){
-  themeBtn.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
-    const next = current === "dark" ? "light" : "dark";
-
-    localStorage.setItem("themeMode", "manual");
-    localStorage.setItem("theme", next);
-
-    applyTheme(next);
-  });
-}
-
-applyTheme(getDefaultTheme());
-
-setInterval(() => {
-  const mode = localStorage.getItem("themeMode");
-  if (mode === "manual") return;
-
-  const autoTheme = getTimeBasedTheme();
-  const current = document.documentElement.getAttribute("data-theme");
-
-  if (current !== autoTheme) {
-    applyTheme(autoTheme);
-  }
-}, 60000);
-
-    applyTheme(getDefaultTheme());
+      updateThemeToggleUI();
+    }, 60000);
 
     function closeMobileMenu() {
       const nav = document.getElementById("siteNav");
