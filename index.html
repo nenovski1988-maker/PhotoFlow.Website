@@ -631,31 +631,58 @@
 
     setLang(getDefaultLang());
 
-    function applyTheme(theme){
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
+   function getTimeBasedTheme() {
+  const hour = new Date().getHours();
+  return (hour >= 7 && hour < 19) ? "light" : "dark";
+}
 
-      const btn = document.getElementById("themeToggle");
-      if(btn){
-        btn.textContent = (theme === "dark") ? "☀️" : "🌙";
-        btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
-      }
-    }
+function applyTheme(theme){
+  document.documentElement.setAttribute("data-theme", theme);
 
-    function getDefaultTheme(){
-      const saved = localStorage.getItem("theme");
-      if(saved === "dark" || saved === "light") return saved;
-      if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
-      return "dark";
-    }
+  const btn = document.getElementById("themeToggle");
+  if(btn){
+    btn.textContent = (theme === "dark") ? "☀️" : "🌙";
+    btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
+  }
+}
 
-    const themeBtn = document.getElementById("themeToggle");
-    if(themeBtn){
-      themeBtn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
-        applyTheme(current === "dark" ? "light" : "dark");
-      });
-    }
+function getDefaultTheme(){
+  const mode = localStorage.getItem("themeMode");
+  const savedTheme = localStorage.getItem("theme");
+
+  if (mode === "manual" && (savedTheme === "dark" || savedTheme === "light")) {
+    return savedTheme;
+  }
+
+  return getTimeBasedTheme();
+}
+
+const themeBtn = document.getElementById("themeToggle");
+if(themeBtn){
+  themeBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
+    const next = current === "dark" ? "light" : "dark";
+
+    localStorage.setItem("themeMode", "manual");
+    localStorage.setItem("theme", next);
+
+    applyTheme(next);
+  });
+}
+
+applyTheme(getDefaultTheme());
+
+setInterval(() => {
+  const mode = localStorage.getItem("themeMode");
+  if (mode === "manual") return;
+
+  const autoTheme = getTimeBasedTheme();
+  const current = document.documentElement.getAttribute("data-theme");
+
+  if (current !== autoTheme) {
+    applyTheme(autoTheme);
+  }
+}, 60000);
 
     applyTheme(getDefaultTheme());
 
