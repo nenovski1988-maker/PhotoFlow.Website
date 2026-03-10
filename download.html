@@ -57,7 +57,7 @@
         <a href="/terms.html" class="lang-en">Terms</a>
 
         <span class="lang-switch">
-          <button type="button" id="themeToggle" class="lang-btn" aria-label="Toggle theme">☀️</button>
+          <button type="button" id="themeToggle" class="lang-btn" aria-label="Theme mode" title="Theme mode">🕒</button>
           <button type="button" id="langToggle" class="lang-btn">EN</button>
         </span>
       </nav>
@@ -429,17 +429,12 @@
         <label>
           <span class="lang-bg">Какво ти трябва?</span>
           <span class="lang-en">What do you need?</span>
-          <textarea
-            name="message"
-            rows="5"
-            required
-            class="lang-bg"
-            placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"></textarea>
-          <textarea
-            name="message_en"
-            rows="5"
-            class="lang-en"
-            placeholder="Platforms, formats, edge cases (glass, jewelry, etc.)"></textarea>
+          <textarea name="message" rows="5" required
+            placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
+            class="lang-bg"></textarea>
+          <textarea name="message_en" rows="5"
+            placeholder="Platforms, formats, edge cases (glass, jewelry, etc.)"
+            class="lang-en"></textarea>
         </label>
 
         <div class="modal-actions">
@@ -465,6 +460,8 @@
       const next = (lang === "bg") ? "en" : "bg";
       const btn = document.getElementById("langToggle");
       if (btn) btn.textContent = next.toUpperCase();
+
+      updateThemeToggleUI();
     }
 
     function getDefaultLang() {
@@ -472,6 +469,64 @@
       if (saved === "bg" || saved === "en") return saved;
       const nav = (navigator.language || "").toLowerCase();
       return nav.startsWith("bg") ? "bg" : "en";
+    }
+
+    function getThemePreference() {
+      const saved = localStorage.getItem("themePreference");
+      if (saved === "auto" || saved === "light" || saved === "dark") return saved;
+      return "auto";
+    }
+
+    function getTimeBasedTheme() {
+      const hour = new Date().getHours();
+      return (hour >= 7 && hour < 19) ? "light" : "dark";
+    }
+
+    function resolveTheme(preference) {
+      if (preference === "light" || preference === "dark") return preference;
+      return getTimeBasedTheme();
+    }
+
+    function getNextThemePreference(current) {
+      if (current === "auto") return "light";
+      if (current === "light") return "dark";
+      return "auto";
+    }
+
+    function updateThemeToggleUI() {
+      const btn = document.getElementById("themeToggle");
+      if (!btn) return;
+
+      const lang = document.documentElement.lang === "bg" ? "bg" : "en";
+      const preference = getThemePreference();
+      const actualTheme = resolveTheme(preference);
+
+      if (preference === "auto") {
+        btn.textContent = "🕒";
+        btn.title = lang === "bg"
+          ? `Тема: автоматично (${actualTheme === "dark" ? "тъмна" : "светла"})`
+          : `Theme: auto (${actualTheme})`;
+        btn.setAttribute("aria-label", btn.title);
+        return;
+      }
+
+      if (preference === "light") {
+        btn.textContent = "☀️";
+        btn.title = lang === "bg" ? "Тема: светла" : "Theme: light";
+        btn.setAttribute("aria-label", btn.title);
+        return;
+      }
+
+      btn.textContent = "🌙";
+      btn.title = lang === "bg" ? "Тема: тъмна" : "Theme: dark";
+      btn.setAttribute("aria-label", btn.title);
+    }
+
+    function applyThemePreference(preference) {
+      const actualTheme = resolveTheme(preference);
+      document.documentElement.setAttribute("data-theme", actualTheme);
+      localStorage.setItem("themePreference", preference);
+      updateThemeToggleUI();
     }
 
     const langBtn = document.getElementById("langToggle");
@@ -483,34 +538,29 @@
     }
 
     setLang(getDefaultLang());
-
-    function applyTheme(theme){
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
-
-      const btn = document.getElementById("themeToggle");
-      if(btn){
-        btn.textContent = (theme === "dark") ? "☀️" : "🌙";
-        btn.title = (theme === "dark") ? "Light theme" : "Dark theme";
-      }
-    }
-
-    function getDefaultTheme(){
-      const saved = localStorage.getItem("theme");
-      if(saved === "dark" || saved === "light") return saved;
-      if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
-      return "dark";
-    }
+    applyThemePreference(getThemePreference());
 
     const themeBtn = document.getElementById("themeToggle");
-    if(themeBtn){
+    if (themeBtn) {
       themeBtn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme") || getDefaultTheme();
-        applyTheme(current === "dark" ? "light" : "dark");
+        const current = getThemePreference();
+        const next = getNextThemePreference(current);
+        applyThemePreference(next);
       });
     }
 
-    applyTheme(getDefaultTheme());
+    setInterval(() => {
+      if (getThemePreference() !== "auto") return;
+
+      const currentApplied = document.documentElement.getAttribute("data-theme");
+      const autoTheme = getTimeBasedTheme();
+
+      if (currentApplied !== autoTheme) {
+        document.documentElement.setAttribute("data-theme", autoTheme);
+      }
+
+      updateThemeToggleUI();
+    }, 60000);
 
     function closeMobileMenu() {
       const nav = document.getElementById("siteNav");
