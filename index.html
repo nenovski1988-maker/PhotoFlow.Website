@@ -27,16 +27,15 @@
       </button>
 
       <nav class="nav" id="siteNav">
-        <a href="#features" data-i18n="nav_features">Функции</a>
         <a href="#how" data-i18n="nav_how">Как работи</a>
-
-        <a href="#tips" class="lang-bg">Полезни съвети</a>
-        <a href="#tips" class="lang-en">Tips</a>
-
+        <a href="#features" data-i18n="nav_features">Функции</a>
         <a href="#download" data-i18n="nav_demo">Демо</a>
 
         <a href="#install" class="lang-bg">Инсталация</a>
         <a href="#install" class="lang-en">Install</a>
+
+        <a href="#tips" class="lang-bg">Полезни съвети</a>
+        <a href="#tips" class="lang-en">Tips</a>
 
         <a href="#reviews" data-i18n="nav_reviews">Отзиви</a>
         <a href="#faq" data-i18n="nav_faq">Въпроси</a>
@@ -91,6 +90,37 @@
       </div>
     </section>
 
+    <!-- HOW -->
+    <section id="how" class="section alt">
+      <div class="container">
+        <h2 data-i18n="how_title">Как работи</h2>
+
+        <div class="grid3">
+          <div class="card">
+            <h3 data-i18n="h1_title">1) Добавяш снимка</h3>
+            <p data-i18n="h1_body">Избираш продуктова снимка за обработка.</p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="h2_title">2) Избираш профил</h3>
+            <p data-i18n="h2_body">Настройки за формат/размер/фон според платформата или клиента.</p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="h3_title">3) Експорт</h3>
+            <p data-i18n="h3_body">Получаваш готови изображения за качване в магазин/платформа.</p>
+          </div>
+        </div>
+
+        <p class="muted small lang-bg" style="margin-top:12px">
+          Бележка: Workflow-ът е оптимизиран за работа “по артикули” (barcode/име) и автоматично подреждане в Workspace.
+        </p>
+        <p class="muted small lang-en" style="margin-top:12px">
+          Note: This workflow is optimized for barcode/SKU-based product sessions and automatic organization inside Workspace.
+        </p>
+      </div>
+    </section>
+
     <!-- FEATURES -->
     <section id="features" class="section">
       <div class="container">
@@ -115,32 +145,59 @@
       </div>
     </section>
 
-    <!-- HOW -->
-    <section id="how" class="section alt">
+    <!-- DOWNLOAD -->
+    <section id="download" class="section">
       <div class="container">
-        <h2 data-i18n="how_title">Как работи</h2>
+        <h2 class="lang-bg">Демо версия</h2>
+        <h2 class="lang-en">Demo version</h2>
 
-        <div class="grid3">
-          <div class="card">
-            <h3 data-i18n="h1_title">1) Добавяш снимка</h3>
-            <p data-i18n="h1_body">Избираш продуктова снимка за обработка.</p>
+        <div class="card">
+          <p class="muted lang-bg">
+            Свали демо и тествай върху реални продукти. За лицензиране използвай бутона по-долу.
+          </p>
+          <p class="muted lang-en">
+            Download the demo and test it on real products. For licensing, use the button below.
+          </p>
+
+          <div class="cta-row" style="margin-top:14px">
+            <a class="btn primary" href="/download.html">
+              <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
+              <span class="lang-en">Download / Install (Windows x64)</span>
+            </a>
+
+            <button class="btn lang-bg" type="button" onclick="openLicenseModal()">Заяви цена</button>
+            <button class="btn lang-en" type="button" onclick="openLicenseModal()">Request pricing</button>
           </div>
-          <div class="card">
-            <h3 data-i18n="h2_title">2) Избираш профил</h3>
-            <p data-i18n="h2_body">Настройки за формат/размер/фон според платформата или клиента.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="h3_title">3) Експорт</h3>
-            <p data-i18n="h3_body">Получаваш готови изображения за качване в магазин/платформа.</p>
-          </div>
+
+          <p class="muted small lang-bg" style="margin-top:10px">
+            Ако файлът се изтегли, отвори го и натисни Install.
+          </p>
+          <p class="muted small lang-en" style="margin-top:10px">
+            If the file downloads, open it and click Install.
+          </p>
         </div>
+      </div>
+    </section>
 
-        <p class="muted small lang-bg" style="margin-top:12px">
-          Бележка: Workflow-ът е оптимизиран за работа “по артикули” (barcode/име) и автоматично подреждане в Workspace.
-        </p>
-        <p class="muted small lang-en" style="margin-top:12px">
-          Note: This workflow is optimized for barcode/SKU-based product sessions and automatic organization inside Workspace.
-        </p>
+    <!-- INSTALL -->
+    <section id="install" class="section alt">
+      <div class="container">
+        <h2 class="lang-bg">Инсталация (Windows)</h2>
+        <h2 class="lang-en">Installation (Windows)</h2>
+
+        <div class="card">
+          <ol class="lang-bg">
+            <li>Натисни бутона <strong>Свали / Инсталирай</strong> в секция “Демо версия”.</li>
+            <li>Отвори сваления файл и натисни <strong>Install</strong>.</li>
+            <li>При нова версия: отвори пак същия бутон — Windows ще предложи обновяване.</li>
+          </ol>
+
+          <ol class="lang-en">
+            <li>Click <strong>Download / Install</strong> in the “Demo version” section.</li>
+            <li>Open the downloaded file and click <strong>Install</strong>.</li>
+            <li>For updates: use the same button again — Windows will offer an update.</li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -199,78 +256,25 @@
       </div>
     </section>
 
-    <!-- DOWNLOAD -->
-    <section id="download" class="section">
-      <div class="container">
-        <h2 class="lang-bg">Демо версия</h2>
-        <h2 class="lang-en">Demo version</h2>
-
-        <div class="card">
-          <p class="muted lang-bg">
-            Свали демо и тествай върху реални продукти. За лицензиране използвай бутона по-долу.
-          </p>
-          <p class="muted lang-en">
-            Download the demo and test it on real products. For licensing, use the button below.
-          </p>
-
-          <div class="cta-row" style="margin-top:14px">
-            <a class="btn primary" href="/download.html">
-              <span class="lang-bg">Свали / Инсталирай (Windows x64)</span>
-              <span class="lang-en">Download / Install (Windows x64)</span>
-            </a>
-            <button class="btn lang-bg" type="button" onclick="openLicenseModal()">Заяви цена</button>
-            <button class="btn lang-en" type="button" onclick="openLicenseModal()">Request pricing</button>
-          </div>
-
-          <p class="muted small lang-bg" style="margin-top:10px">
-            Ако файлът се изтегли, отвори го и натисни Install.
-          </p>
-          <p class="muted small lang-en" style="margin-top:10px">
-            If the file downloads, open it and click Install.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- INSTALL -->
-    <section id="install" class="section alt">
-      <div class="container">
-        <h2 class="lang-bg">Инсталация (Windows)</h2>
-        <h2 class="lang-en">Installation (Windows)</h2>
-
-        <div class="card">
-          <ol class="lang-bg">
-            <li>Натисни бутона <strong>Свали / Инсталирай</strong> в секция “Демо версия”.</li>
-            <li>Отвори сваления файл и натисни <strong>Install</strong>.</li>
-            <li>При нова версия: отвори пак същия бутон — Windows ще предложи обновяване.</li>
-          </ol>
-
-          <ol class="lang-en">
-            <li>Click <strong>Download / Install</strong> in the “Demo version” section.</li>
-            <li>Open the downloaded file and click <strong>Install</strong>.</li>
-            <li>For updates: use the same button again — Windows will offer an update.</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
     <!-- REVIEWS -->
     <section id="reviews" class="section alt">
       <div class="container">
-        <h2 data-i18n="reviews_title">Отзиви и препоръки</h2>
+        <h2 data-i18n="reviews_title">Ранна обратна връзка</h2>
 
         <div class="grid3">
           <div class="card">
-            <p data-i18n="r1">“След първите клиенти тук ще има реални отзиви.”</p>
-            <p class="muted small" data-i18n="r1_by">— Име, фирма</p>
+            <p data-i18n="r1">Първите реални отзиви от trial потребители ще бъдат публикувани тук.</p>
+            <p class="muted small" data-i18n="r1_by">— Early feedback</p>
           </div>
+
           <div class="card">
-            <p data-i18n="r2">“Текстът е примерен. Ще го заменим с реални препоръки.”</p>
-            <p class="muted small" data-i18n="r2_by">— Име, фирма</p>
+            <p data-i18n="r2">Тествай демото с реални продукти и изпрати кратък отзив какво е работило добре и какво липсва.</p>
+            <p class="muted small" data-i18n="r2_by">— ShotFactory users</p>
           </div>
+
           <div class="card">
-            <p data-i18n="r3">“Фокус: качество • консистентност • скорост.”</p>
-            <p class="muted small" data-i18n="r3_by">— Име, фирма</p>
+            <p data-i18n="r3">Най-полезните мнения в момента са за качество на маската, консистентност и скорост на workflow-а.</p>
+            <p class="muted small" data-i18n="r3_by">— What matters most</p>
           </div>
         </div>
 
@@ -306,43 +310,43 @@
     </section>
 
     <!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2 class="lang-bg">Контакт</h2>
-    <h2 class="lang-en">Contact</h2>
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="lang-bg">Контакт</h2>
+        <h2 class="lang-en">Contact</h2>
 
-    <div class="card">
-      <h3 class="lang-bg">Имейл и профили</h3>
-      <h3 class="lang-en">Email and profiles</h3>
+        <div class="card">
+          <h3 class="lang-bg">Имейл и профили</h3>
+          <h3 class="lang-en">Email and profiles</h3>
 
-      <div class="contact-list">
-        <div class="contact-row">
-          <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
-          <div class="muted">
-            <span class="lang-bg">Инсталация • лиценз • бъгове</span>
-            <span class="lang-en">Install • licensing • bugs</span>
-          </div>
-        </div>
+          <div class="contact-list">
+            <div class="contact-row">
+              <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
+              <div class="muted">
+                <span class="lang-bg">Инсталация • лиценз • бъгове</span>
+                <span class="lang-en">Install • licensing • bugs</span>
+              </div>
+            </div>
 
-        <div class="contact-row">
-          <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
-          <div class="muted">
-            <span class="lang-bg">Общи въпроси • партньорства • запитвания</span>
-            <span class="lang-en">General • partnerships • inquiries</span>
-          </div>
-        </div>
+            <div class="contact-row">
+              <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
+              <div class="muted">
+                <span class="lang-bg">Общи въпроси • партньорства • запитвания</span>
+                <span class="lang-en">General • partnerships • inquiries</span>
+              </div>
+            </div>
 
-        <div class="contact-row">
-          <a class="btn" href="https://www.linkedin.com/in/%D0%BC%D0%B8%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2-%D0%BD%D0%B5%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8-866720324/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <div class="muted">
-            <span class="lang-bg">Профил на Мирослав Неновски</span>
-            <span class="lang-en">Miroslav Nenovski profile</span>
+            <div class="contact-row">
+              <a class="btn" href="https://www.linkedin.com/in/%D0%BC%D0%B8%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2-%D0%BD%D0%B5%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8-866720324/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <div class="muted">
+                <span class="lang-bg">Профил на Мирослав Неновски</span>
+                <span class="lang-en">Miroslav Nenovski profile</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- FOOTER -->
     <section class="section foot">
@@ -582,13 +586,13 @@
         q3: "Как става лицензирането?",
         a3: "Заявка → отговор с условия и инструкции → активиране.",
 
-        reviews_title: "Отзиви и препоръки",
-        r1: "“След първите клиенти тук ще има реални отзиви.”",
-        r1_by: "— Име, фирма",
-        r2: "“Текстът е примерен. Ще го заменим с реални препоръки.”",
-        r2_by: "— Име, фирма",
-        r3: "“Фокус: качество • консистентност • скорост.”",
-        r3_by: "— Име, фирма",
+        reviews_title: "Ранна обратна връзка",
+        r1: "Първите реални отзиви от trial потребители ще бъдат публикувани тук.",
+        r1_by: "— Early feedback",
+        r2: "Тествай демото с реални продукти и изпрати кратък отзив какво е работило добре и какво липсва.",
+        r2_by: "— ShotFactory users",
+        r3: "Най-полезните мнения в момента са за качество на маската, консистентност и скорост на workflow-а.",
+        r3_by: "— What matters most",
       },
 
       en: {
@@ -637,13 +641,13 @@
         q3: "How does licensing work?",
         a3: "Request → reply with terms and instructions → activation.",
 
-        reviews_title: "Reviews & recommendations",
-        r1: "“Real reviews will appear here after the first customers.”",
-        r1_by: "— Name, company",
-        r2: "“Placeholder text. We’ll replace it with real feedback.”",
-        r2_by: "— Name, company",
-        r3: "“Focus: quality • consistency • speed.”",
-        r3_by: "— Name, company",
+        reviews_title: "Early feedback",
+        r1: "The first real reviews from trial users will appear here.",
+        r1_by: "— Early feedback",
+        r2: "Test the demo on real products and send a short review about what worked well and what is still missing.",
+        r2_by: "— ShotFactory users",
+        r3: "The most useful feedback right now is about mask quality, consistency, and workflow speed.",
+        r3_by: "— What matters most",
       }
     };
 
