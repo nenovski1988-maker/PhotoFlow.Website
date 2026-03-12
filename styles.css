@@ -558,6 +558,15 @@ html[lang="en"] .lang-bg { display:none !important; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px){
+  body{
+    padding-top: 0;
+  }
+
+  .topbar{
+    position: sticky;
+    top: 0;
+  }
+
   .topbar-inner{
     position: relative;
   }
