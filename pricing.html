@@ -243,10 +243,10 @@
                 <span class="lang-bg">Пробвай trial</span>
                 <span class="lang-en">Try the trial</span>
               </a>
-              <a class="btn" href="mailto:support@getshotfactory.com?subject=ShotFactory%20Starter%20Plan">
-                <span class="lang-bg">Избирам Starter</span>
-                <span class="lang-en">Choose Starter</span>
-              </a>
+              <button class="btn" type="button" onclick="openPlanModal('Starter')">
+  <span class="lang-bg">Избирам Starter</span>
+  <span class="lang-en">Choose Starter</span>
+</button>
             </div>
           </div>
 
@@ -290,10 +290,10 @@
                 <span class="lang-bg">Пробвай trial</span>
                 <span class="lang-en">Try the trial</span>
               </a>
-              <a class="btn" href="mailto:support@getshotfactory.com?subject=ShotFactory%20Studio%20Plan">
-                <span class="lang-bg">Избирам Studio</span>
-                <span class="lang-en">Choose Studio</span>
-              </a>
+              <button class="btn" type="button" onclick="openPlanModal('Studio')">
+  <span class="lang-bg">Избирам Studio</span>
+  <span class="lang-en">Choose Studio</span>
+</button>
             </div>
           </div>
 
@@ -333,10 +333,10 @@
                 <span class="lang-bg">Пробвай trial</span>
                 <span class="lang-en">Try the trial</span>
               </a>
-              <a class="btn" href="mailto:info@getshotfactory.com?subject=ShotFactory%20Custom%20Plan">
-                <span class="lang-bg">Свържи се с нас</span>
-                <span class="lang-en">Contact us</span>
-              </a>
+              <button class="btn" type="button" onclick="openPlanModal('Custom')">
+  <span class="lang-bg">Свържи се с нас</span>
+  <span class="lang-en">Contact us</span>
+</button>
             </div>
           </div>
         </div>
@@ -432,7 +432,69 @@
       </div>
     </section>
   </main>
+<div id="planModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h3 class="lang-bg">Заявка за план</h3>
+        <h3 class="lang-en">Plan request</h3>
+      </div>
+      <button class="modal-close" type="button" onclick="closePlanModal()" aria-label="Close">×</button>
+    </div>
 
+    <p class="muted lang-bg">Избраният план ще бъде попълнен автоматично. Изпрати кратка заявка и ще получиш отговор по имейл.</p>
+    <p class="muted lang-en">The selected plan is filled in automatically. Send a short request and you’ll receive a reply by email.</p>
+
+    <form id="planForm" class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+      <input type="hidden" name="type" value="plan_request" />
+      <input type="hidden" name="selected_plan" id="selectedPlanInput" value="" />
+
+      <div class="form-grid-2">
+        <label>
+          <span class="lang-bg">Име</span>
+          <span class="lang-en">Name</span>
+          <input name="name" />
+        </label>
+
+        <label>
+          <span class="lang-bg">Имейл</span>
+          <span class="lang-en">Email</span>
+          <input name="email" type="email" required />
+        </label>
+      </div>
+
+      <div class="form-grid-2" style="margin-top:14px;">
+        <label>
+          <span class="lang-bg">Фирма / бранд</span>
+          <span class="lang-en">Company / brand</span>
+          <input name="company" />
+        </label>
+
+        <label>
+          <span class="lang-bg">Избран план</span>
+          <span class="lang-en">Selected plan</span>
+          <input id="selectedPlanView" type="text" readonly />
+        </label>
+      </div>
+
+      <label style="margin-top:14px;">
+        <span class="lang-bg">Кратко описание</span>
+        <span class="lang-en">Short description</span>
+        <textarea name="message" rows="5" required placeholder="Опиши накратко какъв е workflow-ът ти и как смяташ да използваш ShotFactory."></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button class="btn primary" type="submit">
+          <span class="lang-bg">Изпрати заявка</span>
+          <span class="lang-en">Send request</span>
+        </button>
+      </div>
+
+      <p class="muted small lang-bg" style="margin-top:12px;">Ще получиш отговор по имейл. Ако предпочиташ, можеш да пишеш и директно на support@getshotfactory.com.</p>
+      <p class="muted small lang-en" style="margin-top:12px;">You’ll receive a reply by email. If you prefer, you can also write directly to support@getshotfactory.com.</p>
+    </form>
+  </div>
+</div>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -457,9 +519,75 @@
         setLang(current === "bg" ? "en" : "bg");
       });
     }
+const planModal = document.getElementById("planModal");
+if(planModal){
+  planModal.addEventListener("click", (e) => {
+    if(e.target === planModal) closePlanModal();
+  });
+}
 
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape"){
+    closePlanModal();
+    closeMobileMenu();
+  }
+});
+
+function wireForm(form, redirectUrl){
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try{
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { "Accept": "application/json" }
+      });
+
+      if(res.ok){
+        window.location.href = redirectUrl;
+      }else{
+        alert(document.documentElement.lang === "bg"
+          ? "Неуспешно изпращане. Опитайте отново."
+          : "Sending failed. Please try again.");
+      }
+    }catch{
+      alert(document.documentElement.lang === "bg"
+        ? "Проблем с връзката. Опитайте отново."
+        : "Connection problem. Please try again.");
+    }
+  });
+}
+
+const planForm = document.getElementById("planForm");
+if(planForm){
+  wireForm(planForm, "/thanks.html");
+}
     setLang(getDefaultLang());
+function openPlanModal(plan){
+  const modal = document.getElementById("planModal");
+  const input = document.getElementById("selectedPlanInput");
+  const view = document.getElementById("selectedPlanView");
 
+  if(!modal || !input || !view) return;
+
+  input.value = plan || "";
+  view.value = plan || "";
+
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  closeMobileMenu();
+}
+
+function closePlanModal(){
+  const modal = document.getElementById("planModal");
+  if(!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
     function closeMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
