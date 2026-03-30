@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>ShotFactory – Pricing / Цени</title>
+  <meta name="description" content="Планове и цени за ShotFactory в евро. Ясни условия, Windows desktop app, 14-дневен trial." />
+  <link rel="stylesheet" href="/styles.css?v=pricing-light-01" />
+  <style>
+    .pricing-hero{
+      padding:46px 0 24px;
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .pricing-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .pricing-card.recommended{
+      border-color:#b9dac8;
+      box-shadow:0 22px 55px rgba(18,32,56,.12);
+    }
+
+    .pricing-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#f4fbf7,#e8f5ee);
+      border:1px solid var(--accent-line);
+      color:var(--text);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .pricing-name{
+      margin:0 0 8px;
+      font-size:24px;
+      line-height:1.15;
+    }
+
+    .pricing-for{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .pricing-price{
+      display:flex;
+      align-items:flex-end;
+      gap:8px;
+      margin:0 0 16px;
+    }
+
+    .pricing-price .value{
+      font-size:46px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-1px;
+      color:var(--text);
+    }
+
+    .pricing-price .suffix{
+      color:var(--muted);
+      font-weight:600;
+      margin-bottom:5px;
+    }
+
+    .pricing-list{
+      margin:0;
+      padding-left:20px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .pricing-list li strong{
+      color:var(--text);
+    }
+
+    .pricing-actions{
+      margin-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .pricing-note{
+      margin-top:26px;
+      padding:18px;
+      border:1px solid var(--accent-line);
+      border-radius:18px;
+      background:linear-gradient(180deg,#ffffff,#f6fbf8);
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .pricing-mini-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    @media (max-width:1100px){
+      .pricing-grid,
+      .pricing-mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/index.html#top" aria-label="ShotFactory">
+        <img src="/assets/logo.png" alt="ShotFactory logo" class="logo" />
+        <span>ShotFactory</span>
+      </a>
+
+      <button type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="siteNav">☰</button>
+
+      <nav class="nav" id="siteNav">
+        <a href="/index.html#top" class="lang-bg">Начало</a>
+        <a href="/index.html#top" class="lang-en">Home</a>
+
+        <a href="/download.html" class="lang-bg">Свали</a>
+        <a href="/download.html" class="lang-en">Download</a>
+
+        <a href="/pricing.html" class="lang-bg">Цени</a>
+        <a href="/pricing.html" class="lang-en">Pricing</a>
+
+        <a href="/index.html#faq" class="lang-bg">Въпроси</a>
+        <a href="/index.html#faq" class="lang-en">FAQ</a>
+
+        <a href="/index.html#contact" class="lang-bg">Контакт</a>
+        <a href="/index.html#contact" class="lang-en">Contact</a>
+
+        <span class="lang-switch">
+          <button type="button" id="langToggle" class="lang-btn">EN</button>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="pricing-hero">
+      <div class="container">
+        <div class="badge-row">
+          <span class="badge lang-bg">Цени в евро</span>
+          <span class="badge lang-en">Prices in EUR</span>
+
+          <span class="badge lang-bg">Windows desktop app</span>
+          <span class="badge lang-en">Windows desktop app</span>
+
+          <span class="badge lang-bg">14-дневен trial</span>
+          <span class="badge lang-en">14-day trial</span>
+        </div>
+
+        <h1 class="section-head lang-bg" style="margin-bottom:14px;">Планове и цени за ShotFactory</h1>
+        <h1 class="section-head lang-en" style="margin-bottom:14px;">ShotFactory plans and pricing</h1>
+
+        <p class="section-lead lang-bg">
+          Ясни планове без скрити условия. ShotFactory се предлага като Windows desktop приложение с 14-дневен trial. Платената версия е за реална работа без watermark на export-ите.
+        </p>
+        <p class="section-lead lang-en">
+          Clear plans without hidden conditions. ShotFactory is offered as a Windows desktop app with a 14-day trial. The paid version is intended for real production use without watermarks on exported images.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="card pricing-card">
+            <h2 class="pricing-name lang-bg">Starter</h2>
+            <h2 class="pricing-name lang-en">Starter</h2>
+
+            <p class="pricing-for lang-bg">За самостоятелен оператор, малък онлайн магазин или ранна реална употреба.</p>
+            <p class="pricing-for lang-en">For a solo operator, a small online store, or early real-world use.</p>
+
+            <div class="pricing-price">
+              <span class="value">49 €</span>
+              <span class="suffix lang-bg">/ месец</span>
+              <span class="suffix lang-en">/ month</span>
+            </div>
+
+            <ul class="pricing-list lang-bg">
+              <li><strong>Пълна функционалност</strong> на приложението</li>
+              <li><strong>Без watermark</strong> на export-ите</li>
+              <li><strong>Windows desktop app</strong> с локален workflow</li>
+              <li><strong>Стандартна имейл поддръжка</strong></li>
+              <li><strong>Подходящо за старт</strong> и първи реални процеси</li>
+            </ul>
+
+            <ul class="pricing-list lang-en">
+              <li><strong>Full application functionality</strong></li>
+              <li><strong>No watermark</strong> on exports</li>
+              <li><strong>Windows desktop app</strong> with a local workflow</li>
+              <li><strong>Standard email support</strong></li>
+              <li><strong>Suitable for getting started</strong> with real work</li>
+            </ul>
+
+            <div class="pricing-actions">
+              <a class="btn primary" href="/download.html">
+                <span class="lang-bg">Пробвай trial</span>
+                <span class="lang-en">Try the trial</span>
+              </a>
+              <a class="btn" href="mailto:support@getshotfactory.com?subject=ShotFactory%20Starter%20Plan">
+                <span class="lang-bg">Избирам Starter</span>
+                <span class="lang-en">Choose Starter</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card pricing-card recommended">
+            <div class="pricing-badge lang-bg">Препоръчано</div>
+            <div class="pricing-badge lang-en">Recommended</div>
+
+            <h2 class="pricing-name lang-bg">Studio</h2>
+            <h2 class="pricing-name lang-en">Studio</h2>
+
+            <p class="pricing-for lang-bg">За по-редовен workflow, каталожна работа и по-висок дневен обем.</p>
+            <p class="pricing-for lang-en">For more regular workflows, catalog production, and higher daily volume.</p>
+
+            <div class="pricing-price">
+              <span class="value">89 €</span>
+              <span class="suffix lang-bg">/ месец</span>
+              <span class="suffix lang-en">/ month</span>
+            </div>
+
+            <ul class="pricing-list lang-bg">
+              <li><strong>Всичко от Starter</strong></li>
+              <li><strong>По-подходящо за студио</strong> или постоянен e-commerce workflow</li>
+              <li><strong>Приоритетна имейл поддръжка</strong></li>
+              <li><strong>Помощ при първоначален setup</strong> и workflow насоки</li>
+              <li><strong>По-добър избор</strong> ако ShotFactory е част от ежедневна работа</li>
+            </ul>
+
+            <ul class="pricing-list lang-en">
+              <li><strong>Everything in Starter</strong></li>
+              <li><strong>Better suited for a studio</strong> or a regular e-commerce workflow</li>
+              <li><strong>Priority email support</strong></li>
+              <li><strong>Help with initial setup</strong> and workflow guidance</li>
+              <li><strong>A better fit</strong> if ShotFactory is part of daily work</li>
+            </ul>
+
+            <div class="pricing-actions">
+              <a class="btn primary" href="/download.html">
+                <span class="lang-bg">Пробвай trial</span>
+                <span class="lang-en">Try the trial</span>
+              </a>
+              <a class="btn" href="mailto:support@getshotfactory.com?subject=ShotFactory%20Studio%20Plan">
+                <span class="lang-bg">Избирам Studio</span>
+                <span class="lang-en">Choose Studio</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card pricing-card">
+            <h2 class="pricing-name lang-bg">Business</h2>
+            <h2 class="pricing-name lang-en">Business</h2>
+
+            <p class="pricing-for lang-bg">За по-голям екип, по-интензивно използване и по-близка комуникация.</p>
+            <p class="pricing-for lang-en">For a larger team, heavier use, and closer communication.</p>
+
+            <div class="pricing-price">
+              <span class="value">149 €</span>
+              <span class="suffix lang-bg">/ месец</span>
+              <span class="suffix lang-en">/ month</span>
+            </div>
+
+            <ul class="pricing-list lang-bg">
+              <li><strong>Всичко от Studio</strong></li>
+              <li><strong>По-бърза директна комуникация</strong></li>
+              <li><strong>Помощ за workflow review</strong></li>
+              <li><strong>Подходящо за екипи</strong> с по-сериозна натовареност</li>
+              <li><strong>По-добра база</strong> за бъдещо team развитие</li>
+            </ul>
+
+            <ul class="pricing-list lang-en">
+              <li><strong>Everything in Studio</strong></li>
+              <li><strong>Faster direct communication</strong></li>
+              <li><strong>Help with workflow review</strong></li>
+              <li><strong>Suitable for teams</strong> with heavier usage</li>
+              <li><strong>A stronger base</strong> for future team growth</li>
+            </ul>
+
+            <div class="pricing-actions">
+              <a class="btn primary" href="/download.html">
+                <span class="lang-bg">Пробвай trial</span>
+                <span class="lang-en">Try the trial</span>
+              </a>
+              <a class="btn" href="mailto:info@getshotfactory.com?subject=ShotFactory%20Business%20Plan">
+                <span class="lang-bg">Избирам Business</span>
+                <span class="lang-en">Choose Business</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-note lang-bg">
+          <strong style="color:var(--text);">Важно:</strong>
+          trial версията е за реален тест с твои собствени снимки. Платените планове са без watermark на export-ите. Ако искаш да започнеш, най-добрият подход е първо да пробваш trial-а, а после да избереш план.
+        </div>
+        <div class="pricing-note lang-en">
+          <strong style="color:var(--text);">Important:</strong>
+          the trial is intended for real testing with your own images. Paid plans remove the watermark from exports. If you want to get started, the best path is to test the trial first and then choose a plan.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-head lang-bg">Какво включва всеки платен план</h2>
+        <h2 class="section-head lang-en">What every paid plan includes</h2>
+
+        <div class="pricing-mini-grid">
+          <div class="card">
+            <h3 class="lang-bg">Локален workflow</h3>
+            <h3 class="lang-en">Local workflow</h3>
+            <p class="lang-bg">Основната работа се извършва локално на Windows компютъра ти. Снимките не се качват автоматично онлайн.</p>
+            <p class="lang-en">The core workflow runs locally on your Windows machine. Photos are not automatically uploaded online.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Реална production употреба</h3>
+            <h3 class="lang-en">Real production use</h3>
+            <p class="lang-bg">Платената версия е за реална работа без watermark на export-ите.</p>
+            <p class="lang-en">The paid version is for real production use without watermarks on exported files.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Ясни условия</h3>
+            <h3 class="lang-en">Clear terms</h3>
+            <p class="lang-bg">Няма скрити функции зад trial-а. Първо пробваш, после решаваш дали ShotFactory е подходящ за твоя workflow.</p>
+            <p class="lang-en">There are no hidden features behind the trial. First you test, then you decide whether ShotFactory fits your workflow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-head lang-bg">Често задавани въпроси</h2>
+        <h2 class="section-head lang-en">Frequently asked questions</h2>
+
+        <div class="faq-grid">
+          <div class="card">
+            <h3 class="lang-bg">Има ли trial?</h3>
+            <h3 class="lang-en">Is there a trial?</h3>
+            <p class="lang-bg">Да. Има 14-дневен trial с watermark на export-ите.</p>
+            <p class="lang-en">Yes. There is a 14-day trial with watermarked exports.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Това месечни планове ли са?</h3>
+            <h3 class="lang-en">Are these monthly plans?</h3>
+            <p class="lang-bg">Да. Показаните тук цени са месечни и са в евро.</p>
+            <p class="lang-en">Yes. The prices shown here are monthly and listed in EUR.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Как да започна?</h3>
+            <h3 class="lang-en">How do I get started?</h3>
+            <p class="lang-bg">Най-добре е първо да пробваш trial-а. След това ни пиши кой план избираш.</p>
+            <p class="lang-en">The best way to start is to try the trial first. After that, email us with the plan you want.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Какво става ако не съм сигурен кой план е за мен?</h3>
+            <h3 class="lang-en">What if I’m not sure which plan fits me?</h3>
+            <p class="lang-bg">Пиши на support@getshotfactory.com с кратко описание на workflow-а си и ще получиш директен отговор.</p>
+            <p class="lang-en">Email support@getshotfactory.com with a short description of your workflow and you’ll get a direct answer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-wrap">
+      <div class="container footer">
+        <div>© <span id="year"></span> ShotFactory</div>
+        <div class="footer-links">
+          <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
+          <a href="/privacy.html" class="lang-en">Privacy Policy</a>
+
+          <a href="/terms.html" class="lang-bg">Общи условия</a>
+          <a href="/terms.html" class="lang-en">Terms</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function setLang(lang){
+      document.documentElement.lang = lang;
+      localStorage.setItem("lang", lang);
+      const btn = document.getElementById("langToggle");
+      if(btn){ btn.textContent = lang === "bg" ? "EN" : "BG"; }
+    }
+
+    function getDefaultLang(){
+      const saved = localStorage.getItem("lang");
+      if(saved === "bg" || saved === "en") return saved;
+      const navLang = (navigator.language || "").toLowerCase();
+      return navLang.startsWith("bg") ? "bg" : "en";
+    }
+
+    const langBtn = document.getElementById("langToggle");
+    if(langBtn){
+      langBtn.addEventListener("click", () => {
+        const current = document.documentElement.lang === "bg" ? "bg" : "en";
+        setLang(current === "bg" ? "en" : "bg");
+      });
+    }
+
+    setLang(getDefaultLang());
+
+    function closeMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+
+    function toggleMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      const isOpen = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.textContent = isOpen ? "✕" : "☰";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    if(menuToggle){
+      menuToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    document.querySelectorAll("#siteNav a").forEach(el => {
+      el.addEventListener("click", () => {
+        if(window.innerWidth <= 900) closeMobileMenu();
+      });
+    });
+  </script>
+</body>
+</html>
