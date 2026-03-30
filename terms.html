@@ -2,27 +2,108 @@
 <html lang="bg">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Terms / Общи условия</title>
-  <link rel="stylesheet" href="/styles.css?v=legal-bilingual-1" />
+  <meta name="description" content="Общи условия за използване на сайта getshotfactory.com и софтуера ShotFactory." />
+  <link rel="stylesheet" href="/styles.css?v=legal-light-01" />
+  <style>
+    .legal-hero{ padding:42px 0 20px; }
+    .legal-shell{
+      background:linear-gradient(180deg,#ffffff,#f8fbfd);
+      border:1px solid var(--accent-line);
+      border-radius:28px;
+      box-shadow:var(--shadow-lg);
+      padding:28px;
+    }
+    .legal-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 18px;
+    }
+    .legal-meta .badge{ box-shadow:none; }
+    .legal-intro{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.65;
+      margin:0;
+      max-width:900px;
+    }
+    .legal-content{
+      margin-top:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow-md);
+    }
+    .legal-content h2{
+      margin:28px 0 10px;
+      font-size:26px;
+      line-height:1.2;
+      letter-spacing:-.4px;
+      color:var(--text);
+    }
+    .legal-content h2:first-of-type{ margin-top:0; }
+    .legal-content p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+    }
+    .legal-content ul{
+      margin:0 0 16px 0;
+      padding-left:22px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+    .legal-content li{ margin-bottom:4px; }
+    .legal-content strong{ color:var(--text); }
+    .legal-contact{
+      margin-top:20px;
+      padding:18px;
+      border:1px solid var(--accent-line);
+      border-radius:18px;
+      background:linear-gradient(180deg,#ffffff,#f6fbf8);
+    }
+    .legal-contact p:last-child{ margin-bottom:0; }
+    @media (max-width:900px){
+      .legal-shell, .legal-content{ padding:20px; }
+      .legal-content h2{ font-size:22px; }
+      .legal-intro{ font-size:17px; }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/" aria-label="ShotFactory">
+      <a class="brand" href="/index.html#top" aria-label="ShotFactory">
         <img src="/assets/logo.png" alt="ShotFactory logo" class="logo" />
         <span>ShotFactory</span>
       </a>
 
-      <nav class="nav">
-        <a href="/" class="lang-bg">Начало</a>
-        <a href="/" class="lang-en">Home</a>
+      <button type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="siteNav">☰</button>
+
+      <nav class="nav" id="siteNav">
+        <a href="/index.html#top" class="lang-bg">Начало</a>
+        <a href="/index.html#top" class="lang-en">Home</a>
+
+        <a href="/download.html" class="lang-bg">Свали</a>
+        <a href="/download.html" class="lang-en">Download</a>
 
         <a href="/privacy.html" class="lang-bg">Поверителност</a>
         <a href="/privacy.html" class="lang-en">Privacy</a>
 
         <a href="/terms.html" class="lang-bg">Общи условия</a>
         <a href="/terms.html" class="lang-en">Terms</a>
+
+        <a href="/index.html#contact" class="lang-bg">Контакт</a>
+        <a href="/index.html#contact" class="lang-en">Contact</a>
 
         <span class="lang-switch">
           <button type="button" id="langToggle" class="lang-btn">EN</button>
@@ -32,210 +113,244 @@
   </header>
 
   <main>
-    <section class="section">
+    <section class="legal-hero">
       <div class="container">
-        <div class="card">
-          <h1 class="lang-bg">Общи условия за използване</h1>
-          <h1 class="lang-en">Terms of Use</h1>
+        <div class="legal-shell">
+          <div class="legal-meta">
+            <span class="badge lang-bg">Юридическа информация</span>
+            <span class="badge lang-en">Legal information</span>
 
-          <p class="lang-bg">
-            Настоящите условия уреждат използването на сайта <strong>getshotfactory.com</strong>
-            и софтуера <strong>ShotFactory</strong>.
+            <span class="badge lang-bg">Last updated: 30 Mar 2026</span>
+            <span class="badge lang-en">Last updated: 30 Mar 2026</span>
+          </div>
+
+          <h1 class="section-head lang-bg" style="margin-bottom:14px;">Общи условия за използване</h1>
+          <h1 class="section-head lang-en" style="margin-bottom:14px;">Terms of Use</h1>
+
+          <p class="legal-intro lang-bg">
+            Тази страница урежда използването на сайта <strong>getshotfactory.com</strong> и софтуера <strong>ShotFactory</strong>. Целта е условията да са ясни, разбираеми и без излишен шум.
           </p>
-          <p class="lang-en">
-            These terms govern the use of <strong>getshotfactory.com</strong>
-            and the <strong>ShotFactory</strong> software.
-          </p>
-
-          <h2 class="lang-bg">1. Собственик</h2>
-          <h2 class="lang-en">1. Owner</h2>
-
-          <p class="lang-bg">Сайтът и софтуерът ShotFactory се управляват от:</p>
-          <p class="lang-en">The ShotFactory website and software are operated by:</p>
-
-          <p>
-            <strong>Мирослав Неновски / Miroslav Nenovski</strong><br>
-            гр. София, жк. Овча Купел 2, блок 8Б<br>
-            Sofia, Ovcha Kupel 2, block 8B<br>
-            Email: nenovski1988@gmail.com
+          <p class="legal-intro lang-en">
+            This page governs the use of <strong>getshotfactory.com</strong> and the <strong>ShotFactory</strong> software. The goal is to keep the terms clear, understandable, and free from unnecessary noise.
           </p>
 
-          <h2 class="lang-bg">2. Описание на услугата</h2>
-          <h2 class="lang-en">2. Description of the service</h2>
+          <div class="legal-content">
+            <h2 class="lang-bg">1. Собственик и оператор</h2>
+            <h2 class="lang-en">1. Owner and operator</h2>
 
-          <p class="lang-bg">
-            ShotFactory е десктоп приложение за автоматична обработка на продуктови снимки,
-            включително премахване на фон, кропване, центриране и експорт на изображения.
-          </p>
-          <p class="lang-en">
-            ShotFactory is a desktop application for automated product photo processing,
-            including background removal, cropping, centering and image export.
-          </p>
+            <p class="lang-bg">Сайтът и софтуерът ShotFactory се управляват от:</p>
+            <p class="lang-en">The ShotFactory website and software are operated by:</p>
 
-          <h2 class="lang-bg">3. Демо версия</h2>
-          <h2 class="lang-en">3. Demo version</h2>
+            <p>
+              <strong>Мирослав Неновски / Miroslav Nenovski</strong><br>
+              гр. София, жк. Овча Купел 2, блок 8Б<br>
+              Sofia, Ovcha Kupel 2, block 8B<br>
+              Email: <strong>nenovski1988@gmail.com</strong>
+            </p>
 
-          <p class="lang-bg">
-            Демо версията на ShotFactory представлява пълната функционалност на програмата
-            за ограничен период от <strong>14 дни</strong>.
-          </p>
-          <p class="lang-en">
-            The ShotFactory demo version provides the full functionality of the software
-            for a limited period of <strong>14 days</strong>.
-          </p>
+            <h2 class="lang-bg">2. Какво представлява ShotFactory</h2>
+            <h2 class="lang-en">2. What ShotFactory is</h2>
 
-          <p class="lang-bg">
-            По време на демо периода потребителят може да използва всички функции,
-            за да прецени дали софтуерът е подходящ за неговата работа.
-          </p>
-          <p class="lang-en">
-            During the demo period, the user may access all features
-            to evaluate whether the software is suitable for their work.
-          </p>
+            <p class="lang-bg">
+              ShotFactory е Windows desktop приложение за автоматизиране на повтаряеми задачи при обработка на продуктови снимки, включително премахване на фон, crop, центриране и export на изображения.
+            </p>
+            <p class="lang-en">
+              ShotFactory is a Windows desktop application designed to automate repeatable product photo processing tasks, including background removal, crop, centering, and image export.
+            </p>
 
-          <p class="lang-bg">
-            Изображенията, експортирани в демо режима, съдържат <strong>воден знак</strong>.
-          </p>
-          <p class="lang-en">
-            Images exported in demo mode contain a <strong>watermark</strong>.
-          </p>
+            <h2 class="lang-bg">3. Демо / trial версия</h2>
+            <h2 class="lang-en">3. Demo / trial version</h2>
 
-          <h2 class="lang-bg">4. Лицензиране</h2>
-          <h2 class="lang-en">4. Licensing</h2>
+            <p class="lang-bg">
+              ShotFactory предлага <strong>14-дневен пробен период</strong>, чиято цел е потребителят да провери дали приложението е подходящо за неговия реален workflow и setup.
+            </p>
+            <p class="lang-en">
+              ShotFactory offers a <strong>14-day trial period</strong> so that a user can evaluate whether the application fits their real workflow and setup.
+            </p>
 
-          <p class="lang-bg">
-            След изтичане на демо периода използването на програмата изисква валиден лиценз.
-          </p>
-          <p class="lang-en">
-            After the demo period expires, use of the software requires a valid license.
-          </p>
+            <p class="lang-bg">
+              По време на този период функционалността е достъпна за реален тест, но изображенията, експортирани в trial режим, съдържат <strong>watermark</strong>.
+            </p>
+            <p class="lang-en">
+              During this period, the functionality is available for real testing, but images exported in trial mode contain a <strong>watermark</strong>.
+            </p>
 
-          <p class="lang-bg">
-            Лицензът се предоставя след индивидуална заявка и потвърждение.
-          </p>
-          <p class="lang-en">
-            A license is provided after an individual inquiry and confirmation.
-          </p>
+            <h2 class="lang-bg">4. Лицензиране</h2>
+            <h2 class="lang-en">4. Licensing</h2>
 
-          <h2 class="lang-bg">5. Ограничения</h2>
-          <h2 class="lang-en">5. Restrictions</h2>
+            <p class="lang-bg">
+              След изтичане на trial периода използването на ShotFactory изисква валиден лиценз.
+            </p>
+            <p class="lang-en">
+              After the trial period expires, use of ShotFactory requires a valid license.
+            </p>
 
-          <p class="lang-bg">Без изрично разрешение не се допуска:</p>
-          <p class="lang-en">Without explicit permission, the following is not allowed:</p>
+            <p class="lang-bg">
+              Лицензът се предоставя след индивидуална заявка, потвърждение и уточняване на условията.
+            </p>
+            <p class="lang-en">
+              A license is provided after an individual inquiry, confirmation, and clarification of the applicable terms.
+            </p>
 
-          <ul class="lang-bg">
-            <li>reverse engineering на софтуера</li>
-            <li>декомпилиране или модификация</li>
-            <li>разпространение на софтуера</li>
-            <li>споделяне на лицензи</li>
-            <li>препродажба на лиценз без разрешение</li>
-          </ul>
+            <h2 class="lang-bg">5. Ограничения за използване</h2>
+            <h2 class="lang-en">5. Usage restrictions</h2>
 
-          <ul class="lang-en">
-            <li>reverse engineering of the software</li>
-            <li>decompiling or modifying the software</li>
-            <li>redistributing the software</li>
-            <li>sharing licenses</li>
-            <li>reselling a license without permission</li>
-          </ul>
+            <p class="lang-bg">Без изрично разрешение не се допуска:</p>
+            <p class="lang-en">Without explicit permission, the following is not allowed:</p>
 
-          <h2 class="lang-bg">6. Авторски права</h2>
-          <h2 class="lang-en">6. Intellectual property</h2>
+            <ul class="lang-bg">
+              <li>reverse engineering на софтуера</li>
+              <li>декомпилиране, модифициране или опит за извличане на вътрешната логика на приложението</li>
+              <li>разпространение на софтуера извън официално предоставените канали</li>
+              <li>споделяне на лиценз или неправомерно използване на лиценз от повече потребители от разрешеното</li>
+              <li>препродажба на лиценз без изрично разрешение</li>
+            </ul>
 
-          <p class="lang-bg">
-            Всички права върху сайта, софтуера, дизайна, логото и съдържанието на ShotFactory са запазени.
-          </p>
-          <p class="lang-en">
-            All rights to the website, software, design, logo and ShotFactory content are reserved.
-          </p>
+            <ul class="lang-en">
+              <li>reverse engineering of the software</li>
+              <li>decompiling, modifying, or attempting to extract the internal logic of the application</li>
+              <li>redistributing the software outside officially provided channels</li>
+              <li>sharing a license or using it improperly beyond the permitted number of users</li>
+              <li>reselling a license without explicit permission</li>
+            </ul>
 
-          <h2 class="lang-bg">7. Отговорност</h2>
-          <h2 class="lang-en">7. Liability</h2>
+            <h2 class="lang-bg">6. Интелектуална собственост</h2>
+            <h2 class="lang-en">6. Intellectual property</h2>
 
-          <p class="lang-bg">Софтуерът се предоставя „както е“.</p>
-          <p class="lang-en">The software is provided “as is”.</p>
+            <p class="lang-bg">
+              Всички права върху сайта, софтуера, дизайна, логото, текстовете и съдържанието, свързани с ShotFactory, са запазени.
+            </p>
+            <p class="lang-en">
+              All rights to the website, software, design, logo, text, and ShotFactory-related content are reserved.
+            </p>
 
-          <p class="lang-bg">
-            Не се гарантира съвместимост с всяка система, workflow или специфична фотографска техника.
-          </p>
-          <p class="lang-en">
-            Compatibility with every system, workflow or specific photography setup is not guaranteed.
-          </p>
+            <h2 class="lang-bg">7. Поддръжка и комуникация</h2>
+            <h2 class="lang-en">7. Support and communication</h2>
 
-          <p class="lang-bg">
-            Потребителят носи отговорност за начина, по който използва софтуера и обработва изображенията.
-          </p>
-          <p class="lang-en">
-            The user is responsible for how they use the software and process images.
-          </p>
+            <p class="lang-bg">
+              Поддръжка може да бъде предоставяна по имейл или чрез друга пряка комуникация. Наличието на trial или лиценз не означава автоматично неограничена персонална поддръжка, освен ако това не е изрично уговорено.
+            </p>
+            <p class="lang-en">
+              Support may be provided by email or through other direct communication. The existence of a trial or license does not automatically mean unlimited personal support unless explicitly agreed otherwise.
+            </p>
 
-          <h2 class="lang-bg">8. Промени в условията</h2>
-          <h2 class="lang-en">8. Changes to the terms</h2>
+            <h2 class="lang-bg">8. Отговорност</h2>
+            <h2 class="lang-en">8. Liability</h2>
 
-          <p class="lang-bg">
-            Тези условия могат да бъдат актуализирани при развитие на софтуера или услугата.
-          </p>
-          <p class="lang-en">
-            These terms may be updated as the software or service evolves.
-          </p>
+            <p class="lang-bg">Софтуерът се предоставя „както е“.</p>
+            <p class="lang-en">The software is provided “as is”.</p>
 
-          <h2 class="lang-bg">9. Контакт</h2>
-          <h2 class="lang-en">9. Contact</h2>
+            <p class="lang-bg">
+              Не се гарантира, че ShotFactory ще бъде подходящ за всяка система, всеки workflow, всеки тип продукт или всяка фотографска техника.
+            </p>
+            <p class="lang-en">
+              It is not guaranteed that ShotFactory will be suitable for every system, every workflow, every product type, or every photographic setup.
+            </p>
 
-          <p class="lang-bg">
-            За въпроси относно условията можете да се свържете на:
-            <strong>nenovski1988@gmail.com</strong>
-          </p>
-          <p class="lang-en">
-            For questions regarding these terms, you may contact:
-            <strong>nenovski1988@gmail.com</strong>
-          </p>
+            <p class="lang-bg">
+              Потребителят носи отговорност за начина, по който използва софтуера, организира файловете си и обработва изображенията си.
+            </p>
+            <p class="lang-en">
+              The user is responsible for how the software is used, how files are organized, and how images are processed.
+            </p>
+
+            <h2 class="lang-bg">9. Промени в условията</h2>
+            <h2 class="lang-en">9. Changes to the terms</h2>
+
+            <p class="lang-bg">
+              Тези условия могат да бъдат актуализирани, ако има промени в софтуера, trial режима, лицензирането или начина на предоставяне на услугата.
+            </p>
+            <p class="lang-en">
+              These terms may be updated if there are changes to the software, the trial mode, licensing, or the way the service is provided.
+            </p>
+
+            <div class="legal-contact">
+              <h2 class="lang-bg" style="margin-top:0;">10. Контакт</h2>
+              <h2 class="lang-en" style="margin-top:0;">10. Contact</h2>
+
+              <p class="lang-bg">
+                За въпроси относно тези условия можеш да се свържеш на:
+                <strong>nenovski1988@gmail.com</strong>
+              </p>
+              <p class="lang-en">
+                For questions regarding these terms, contact:
+                <strong>nenovski1988@gmail.com</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-wrap">
+      <div class="container footer">
+        <div>© <span id="year"></span> ShotFactory</div>
+        <div class="footer-links">
+          <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
+          <a href="/privacy.html" class="lang-en">Privacy Policy</a>
+
+          <a href="/terms.html" class="lang-bg">Общи условия</a>
+          <a href="/terms.html" class="lang-en">Terms</a>
         </div>
       </div>
     </section>
   </main>
 
-  <section class="section foot">
-    <div class="container footer footer-links">
-      <div class="muted small">© <span id="y"></span> ShotFactory</div>
-
-      <div class="footer-legal">
-        <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
-        <a href="/privacy.html" class="lang-en">Privacy Policy</a>
-
-        <a href="/terms.html" class="lang-bg">Общи условия</a>
-        <a href="/terms.html" class="lang-en">Terms</a>
-      </div>
-    </div>
-  </section>
-
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function setLang(lang) {
+    function setLang(lang){
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
-
       const btn = document.getElementById("langToggle");
-      if (btn) btn.textContent = lang === "bg" ? "EN" : "BG";
+      if(btn) btn.textContent = lang === "bg" ? "EN" : "BG";
     }
 
-    function getDefaultLang() {
+    function getDefaultLang(){
       const saved = localStorage.getItem("lang");
-      if (saved === "bg" || saved === "en") return saved;
-      const nav = (navigator.language || "").toLowerCase();
-      return nav.startsWith("bg") ? "bg" : "en";
+      if(saved === "bg" || saved === "en") return saved;
+      const navLang = (navigator.language || "").toLowerCase();
+      return navLang.startsWith("bg") ? "bg" : "en";
     }
 
     const langBtn = document.getElementById("langToggle");
-    if (langBtn) {
+    if(langBtn){
       langBtn.addEventListener("click", () => {
-        const current = document.documentElement.lang || getDefaultLang();
+        const current = document.documentElement.lang === "bg" ? "bg" : "en";
         setLang(current === "bg" ? "en" : "bg");
       });
     }
 
     setLang(getDefaultLang());
+
+    function closeMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+
+    function toggleMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      const isOpen = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.textContent = isOpen ? "✕" : "☰";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    if(menuToggle){
+      menuToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    document.querySelectorAll("#siteNav a").forEach(el => {
+      el.addEventListener("click", () => {
+        if(window.innerWidth <= 900) closeMobileMenu();
+      });
+    });
   </script>
 </body>
 </html>
