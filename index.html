@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Automated product photo processing for Windows</title>
-  <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки за e-commerce и каталожни екипи: премахване на фон, crop, центриране и експорт по готови формати." />
-  <link rel="stylesheet" href="/styles.css?v=trust-home-v2" />
+  <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
+  <link rel="stylesheet" href="/styles.css?v=light-trust-01" />
 </head>
 <body>
   <header class="topbar">
@@ -15,27 +15,38 @@
         <span>ShotFactory</span>
       </a>
 
-      <button
-        type="button"
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="siteNav">
-        ☰
-      </button>
+      <button type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="siteNav">☰</button>
 
       <nav class="nav" id="siteNav">
-        <a href="#how" data-i18n="nav_how">Как работи</a>
-        <a href="#benefits" data-i18n="nav_benefits">Защо ShotFactory</a>
-        <a href="#screens" data-i18n="nav_screens">Екрани</a>
-        <a href="#download" data-i18n="nav_download">Свали</a>
-        <a href="#faq" data-i18n="nav_faq">Въпроси</a>
-        <button type="button" class="nav-link-btn" onclick="openLicenseModal()" data-i18n="nav_pricing">Заяви цена</button>
-        <a href="#contact" data-i18n="nav_contact">Контакт</a>
+        <a href="#how" class="lang-bg">Как работи</a>
+        <a href="#how" class="lang-en">How it works</a>
+
+        <a href="#features" class="lang-bg">Функции</a>
+        <a href="#features" class="lang-en">Features</a>
+
+        <a href="#screens" class="lang-bg">Екрани</a>
+        <a href="#screens" class="lang-en">Screens</a>
+
+        <a href="/download.html" class="lang-bg">Свали</a>
+        <a href="/download.html" class="lang-en">Download</a>
+
+        <a href="#faq" class="lang-bg">Въпроси</a>
+        <a href="#faq" class="lang-en">FAQ</a>
+
+        <button type="button" class="nav-link-btn" onclick="openLicenseModal()">
+          <span class="lang-bg">Заяви цена</span>
+          <span class="lang-en">Request pricing</span>
+        </button>
+
+        <a href="#contact" class="lang-bg">Контакт</a>
+        <a href="#contact" class="lang-en">Contact</a>
 
         <span class="lang-switch">
-          <button type="button" id="themeToggle" class="lang-btn" aria-label="Theme mode" title="Theme mode">🕒</button>
           <button type="button" id="langToggle" class="lang-btn">EN</button>
         </span>
       </nav>
@@ -43,305 +54,425 @@
   </header>
 
   <main id="top">
-    <section class="hero hero-trust">
-      <div class="container hero-grid trust-hero-grid">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow" data-i18n="hero_eyebrow">Windows desktop app for product photo automation</div>
+          <div class="badge-row">
+            <span class="badge lang-bg">Windows desktop app</span>
+            <span class="badge lang-en">Windows desktop app</span>
 
-          <h1 data-i18n="hero_title">Автоматична обработка на продуктови снимки — готови за качване.</h1>
+            <span class="badge lang-bg">14-дневен trial</span>
+            <span class="badge lang-en">14-day trial</span>
 
-          <p class="lead" data-i18n="hero_lead">
-            ShotFactory е Windows desktop приложение за e-commerce и каталожни екипи, което премахва фона, crop-ва и центрира продукта и експортира готови файлове по зададени формати и размери.
+            <span class="badge lang-bg">Локална обработка</span>
+            <span class="badge lang-en">Local processing</span>
+          </div>
+
+          <h1 class="lang-bg">Автоматична обработка на продуктови снимки — готови за качване.</h1>
+          <h1 class="lang-en">Automated product photo processing — ready to upload.</h1>
+
+          <p class="lead lang-bg">
+            ShotFactory е Windows приложение за бизнеси и екипи, които обработват много продуктови снимки. Сканираш или въвеждаш код, снимаш или импортваш кадри, а приложението премахва фона, центрира продукта и експортира готови версии за магазин или каталог.
+          </p>
+          <p class="lead lang-en">
+            ShotFactory is a Windows desktop app for businesses and teams that process large volumes of product photos. Scan or enter a product code, capture or import photos, then let the app remove the background, center the subject, and export upload-ready versions for stores and catalogs.
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="/download.html" data-i18n="cta_download">Свали демо за Windows</a>
-            <a class="btn" href="#how" data-i18n="cta_how">Виж как работи</a>
+            <a class="btn primary" href="/download.html">
+              <span class="lang-bg">Свали демо за Windows</span>
+              <span class="lang-en">Download demo for Windows</span>
+            </a>
+
+            <a class="btn" href="#how">
+              <span class="lang-bg">Виж как работи</span>
+              <span class="lang-en">See how it works</span>
+            </a>
           </div>
 
-          <ul class="trust-bullets">
-            <li data-i18n="hero_b1">Работи локално на вашия компютър</li>
-            <li data-i18n="hero_b2">14-дневен пробен период с воден знак върху експортите</li>
-            <li data-i18n="hero_b3">Подходящо за high-volume продуктова фотография</li>
+          <ul class="bullets lang-bg">
+            <li>Еднакъв вид на каталога чрез crop, centering и export presets</li>
+            <li>Подходящо за high-volume product photography workflows</li>
+            <li>Снимките се обработват локално и не се качват автоматично онлайн</li>
+          </ul>
+
+          <ul class="bullets lang-en">
+            <li>A consistent catalog look through crop, centering, and export presets</li>
+            <li>Built for high-volume product photography workflows</li>
+            <li>Photos are processed locally and are not automatically uploaded anywhere</li>
           </ul>
         </div>
 
-        <div class="hero-showcase floating-card">
-          <div class="showcase-window">
-            <div class="showcase-bar">
-              <span></span><span></span><span></span>
+        <div class="hero-visual">
+          <div class="window-chrome">
+            <div class="window-bar"></div>
+            <div class="screenshot-placeholder">
+              <div class="placeholder-inner">
+                <span class="placeholder-title lang-bg">Тук ще сложим основния screenshot</span>
+                <span class="placeholder-title lang-en">Main workflow screenshot goes here</span>
+
+                <div class="lang-bg">
+                  Главният екран на приложението ще се добави тук, след като финализираме светлия интерфейс на ShotFactory.
+                </div>
+                <div class="lang-en">
+                  The main ShotFactory workflow screenshot will go here once the light interface is finalized.
+                </div>
+              </div>
             </div>
-            <img src="/assets/ui-main.png" alt="ShotFactory main interface screenshot" class="showcase-image" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip-section">
-      <div class="container trust-strip-grid">
-        <div class="trust-chip floating-card">
-          <strong data-i18n="trust_1_title">Windows desktop app</strong>
-          <span data-i18n="trust_1_body">Създадено за Windows 10/11 x64.</span>
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="card">
+          <h3 class="lang-bg">Ясно какво е</h3>
+          <h3 class="lang-en">Clear product type</h3>
+          <p class="lang-bg">ShotFactory е реално Windows desktop приложение за продуктова фотография, не browser tool и не downloader без обяснение.</p>
+          <p class="lang-en">ShotFactory is a real Windows desktop application for product photo workflows, not a vague browser tool or a suspicious downloader.</p>
         </div>
-        <div class="trust-chip floating-card">
-          <strong data-i18n="trust_2_title">Локална обработка</strong>
-          <span data-i18n="trust_2_body">Снимките не се качват автоматично онлайн.</span>
+
+        <div class="card">
+          <h3 class="lang-bg">Локална работа</h3>
+          <h3 class="lang-en">Local processing</h3>
+          <p class="lang-bg">Основният workflow работи локално на компютъра ти. Снимките не се качват автоматично в облак.</p>
+          <p class="lang-en">The core workflow runs locally on your PC. Photos are not automatically uploaded to the cloud.</p>
         </div>
-        <div class="trust-chip floating-card">
-          <strong data-i18n="trust_3_title">Прозрачен trial</strong>
-          <span data-i18n="trust_3_body">14 дни, пълна функционалност, watermark на експортите.</span>
+
+        <div class="card">
+          <h3 class="lang-bg">Честен trial</h3>
+          <h3 class="lang-en">Honest trial</h3>
+          <p class="lang-bg">14 дни тест с пълна функционалност, за да провериш реалния workflow. Export-ите са с watermark.</p>
+          <p class="lang-en">A 14-day trial with full functionality so you can test the real workflow. Exports include a watermark.</p>
         </div>
-        <div class="trust-chip floating-card">
-          <strong data-i18n="trust_4_title">Ясен install процес</strong>
-          <span data-i18n="trust_4_body">Download → Open → Install → Launch.</span>
+
+        <div class="card">
+          <h3 class="lang-bg">Прозрачен install</h3>
+          <h3 class="lang-en">Transparent install</h3>
+          <p class="lang-bg">На download страницата е описано какво точно сваляш, как се инсталира и какво да очакваш при Windows предупреждение.</p>
+          <p class="lang-en">The download page explains exactly what you download, how installation works, and what to expect if Windows shows a warning.</p>
         </div>
-        <div class="trust-chip floating-card">
-          <strong data-i18n="trust_5_title">Реална поддръжка</strong>
-          <span data-i18n="trust_5_body">support@getshotfactory.com</span>
+
+        <div class="card">
+          <h3 class="lang-bg">Видима поддръжка</h3>
+          <h3 class="lang-en">Visible support</h3>
+          <p class="lang-bg">Има ясен support email и директен контакт за installation, licensing и технически въпроси.</p>
+          <p class="lang-en">There is a clear support email and direct contact for installation, licensing, and technical questions.</p>
         </div>
       </div>
     </section>
 
-    <section id="how" class="section section-soft">
+    <!-- HOW -->
+    <section id="how" class="section">
       <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow" data-i18n="how_eyebrow">Simple workflow</div>
-            <h2 data-i18n="how_title">Как работи</h2>
-          </div>
-          <p class="section-copy" data-i18n="how_copy">
-            ShotFactory е направен за повтаряем workflow при голям обем продуктови снимки — от активен продукт до готови файлове за качване.
-          </p>
-        </div>
+        <h2 class="section-head lang-bg">Как работи</h2>
+        <h2 class="section-head lang-en">How it works</h2>
 
-        <div class="grid4 flow-grid">
-          <article class="feature-card floating-card">
+        <p class="section-lead lang-bg">
+          ShotFactory е създаден за повтаряеми product photo workflows. Идеята не е да замества цял студиен процес, а да свали ръчната, бавна и досадна част от обработката.
+        </p>
+        <p class="section-lead lang-en">
+          ShotFactory is built for repeatable product photo workflows. The goal is not to replace your whole studio process, but to remove the slow and repetitive part of image preparation.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
             <div class="step-number">1</div>
-            <h3 data-i18n="flow_1_title">Избираш продукт</h3>
-            <p data-i18n="flow_1_body">Сканираш barcode или въвеждаш product code / име, за да започнеш сесията.</p>
-          </article>
-
-          <article class="feature-card floating-card">
-            <div class="step-number">2</div>
-            <h3 data-i18n="flow_2_title">Снимаш или импортваш</h3>
-            <p data-i18n="flow_2_body">Работи както с incoming folder workflow, така и с вече заснети кадри.</p>
-          </article>
-
-          <article class="feature-card floating-card">
-            <div class="step-number">3</div>
-            <h3 data-i18n="flow_3_title">Автоматична обработка</h3>
-            <p data-i18n="flow_3_body">Премахване на фон, crop, центриране и подготовка според избраните формати.</p>
-          </article>
-
-          <article class="feature-card floating-card">
-            <div class="step-number">4</div>
-            <h3 data-i18n="flow_4_title">Експорт по пресети</h3>
-            <p data-i18n="flow_4_body">Готови PNG/JPG файлове в различни размери за marketplace, сайт или каталог.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="benefits" class="section">
-      <div class="container benefits-grid">
-        <div>
-          <div class="eyebrow" data-i18n="benefits_eyebrow">Why businesses use it</div>
-          <h2 data-i18n="benefits_title">Създадено за екипи, които обработват много продуктови снимки</h2>
-          <p class="lead compact" data-i18n="benefits_lead">
-            ShotFactory не обещава магия. Помага там, където има повтаряем процес, консистентно осветление и нужда от по-бърза и еднаква обработка.
-          </p>
-        </div>
-
-        <div class="benefit-list">
-          <article class="benefit-item floating-card">
-            <h3 data-i18n="benefit_1_title">По-малко ръчна работа</h3>
-            <p data-i18n="benefit_1_body">Намалява повтаряемите стъпки при background removal, crop и export.</p>
-          </article>
-
-          <article class="benefit-item floating-card">
-            <h3 data-i18n="benefit_2_title">По-консистентен каталог</h3>
-            <p data-i18n="benefit_2_body">Продуктите стоят по-еднакво между отделните артикули и кадри.</p>
-          </article>
-
-          <article class="benefit-item floating-card">
-            <h3 data-i18n="benefit_3_title">Подходящо за high-volume workflow</h3>
-            <p data-i18n="benefit_3_body">Подходящо за студиа, реселъри, e-commerce екипи и оператори с много артикули.</p>
-          </article>
-
-          <article class="benefit-item floating-card">
-            <h3 data-i18n="benefit_4_title">Работи най-добре в контролирана среда</h3>
-            <p data-i18n="benefit_4_body">Най-добри резултати при консистентно осветление и подреден снимачен setup.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="screens" class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow" data-i18n="screens_eyebrow">Real interface</div>
-            <h2 data-i18n="screens_title">Реални екрани от приложението</h2>
+            <h3 class="lang-bg">Избираш продукт</h3>
+            <h3 class="lang-en">Select a product</h3>
+            <p class="lang-bg">Сканираш barcode или въвеждаш product code / име, за да започнеш работна сесия за конкретен артикул.</p>
+            <p class="lang-en">Scan a barcode or enter a product code / name to start a working session for a specific item.</p>
           </div>
-          <p class="section-copy" data-i18n="screens_copy">
-            Вместо абстрактни mockup-и, тук се вижда реалният интерфейс и реалният workflow на ShotFactory.
-          </p>
-        </div>
 
-        <div class="screens-grid">
-          <article class="screen-card floating-card screen-large">
-            <img src="/assets/ui-main.png" alt="ShotFactory main workflow screen" />
-            <div class="screen-caption">
-              <h3 data-i18n="screen_1_title">Основен workflow екран</h3>
-              <p data-i18n="screen_1_body">Активен продукт, export формати, processed thumbnails и лог в една работна среда.</p>
-            </div>
-          </article>
+          <div class="card">
+            <div class="step-number">2</div>
+            <h3 class="lang-bg">Снимаш или импортваш</h3>
+            <h3 class="lang-en">Capture or import</h3>
+            <p class="lang-bg">Кадрите могат да дойдат от live shooting / transfer workflow или от вече заснети изображения.</p>
+            <p class="lang-en">Images can come from a live shooting / transfer workflow or from already captured product shots.</p>
+          </div>
 
-          <article class="screen-card floating-card">
-            <img src="/assets/ui-preview-ai.png" alt="ShotFactory preview AI mode screen" />
-            <div class="screen-caption">
-              <h3 data-i18n="screen_2_title">Preview и AI режим</h3>
-              <p data-i18n="screen_2_body">Преглед на резултата и избор на метод за background removal.</p>
-            </div>
-          </article>
+          <div class="card">
+            <div class="step-number">3</div>
+            <h3 class="lang-bg">Автоматична обработка</h3>
+            <h3 class="lang-en">Automatic processing</h3>
+            <p class="lang-bg">Приложението премахва фона, изрязва, центрира и подготвя продукта според избрания метод и профил.</p>
+            <p class="lang-en">The app removes the background, crops, centers, and prepares the subject based on the selected method and profile.</p>
+          </div>
 
-          <article class="screen-card floating-card">
-            <img src="/assets/ui-preview-manual.png" alt="ShotFactory preview manual sliders screen" />
-            <div class="screen-caption">
-              <h3 data-i18n="screen_3_title">Manual настройки при нужда</h3>
-              <p data-i18n="screen_3_body">Контрол върху threshold и feather за по-трудни кадри.</p>
-            </div>
-          </article>
+          <div class="card">
+            <div class="step-number">4</div>
+            <h3 class="lang-bg">Готов export</h3>
+            <h3 class="lang-en">Ready export</h3>
+            <p class="lang-bg">Получаваш готови версии в различни формати и размери за marketplace, e-commerce платформа или каталог.</p>
+            <p class="lang-en">You get ready-to-use exports in multiple sizes and formats for a marketplace, e-commerce platform, or catalog.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container demo-grid">
-        <div>
-          <div class="eyebrow" data-i18n="video_eyebrow">See it in action</div>
-          <h2 data-i18n="video_title">Кратко видео на реален workflow</h2>
-          <p class="section-copy" data-i18n="video_copy">
-            Видео демонстрацията е полезна за първа ориентация, но реалната оценка е да се тества с ваши снимки, артикули и setup.
-          </p>
-        </div>
+    <!-- WHY -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-head lang-bg">Защо бизнесите биха го използвали</h2>
+        <h2 class="section-head lang-en">Why businesses use it</h2>
 
-        <div class="video-card floating-card">
-          <video id="heroVideo" autoplay muted loop playsinline controls class="product-video">
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="lang-bg">По-малко ръчна работа</h3>
+            <h3 class="lang-en">Less repetitive editing</h3>
+            <p class="lang-bg">Повтаряемите задачи като background removal, crop и centering не е нужно да минават през човек кадър по кадър.</p>
+            <p class="lang-en">Repeatable tasks like background removal, crop, and centering do not have to be done manually image by image.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">По-консистентен каталог</h3>
+            <h3 class="lang-en">More consistent catalog output</h3>
+            <p class="lang-bg">Когато изходът е стандартизиран, продуктовите страници изглеждат по-подредени и по-професионални.</p>
+            <p class="lang-en">When output is standardized, product pages look more organized and more professional.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">По-добре при volume workflow</h3>
+            <h3 class="lang-en">Better for volume workflows</h3>
+            <p class="lang-bg">Най-силен ефект има там, където се минават много артикули и обработката е еднотипна.</p>
+            <p class="lang-en">It makes the biggest difference where many products pass through a similar processing workflow.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Честни очаквания</h3>
+            <h3 class="lang-en">Honest expectations</h3>
+            <p class="lang-bg">Работи най-добре при контролирана светлина и подреден setup. Не се опитва да се представя като магическо решение за всичко.</p>
+            <p class="lang-en">It works best in controlled lighting and a consistent setup. It is not presented as a magic fix for every possible product image.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Лесно тестване</h3>
+            <h3 class="lang-en">Easy evaluation</h3>
+            <p class="lang-bg">Trial версията е направена така, че да тестваш софтуера с реални собствени снимки, а не само с demo examples.</p>
+            <p class="lang-en">The trial is meant to be tested with your own real images, not only with sample examples.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Windows desktop workflow</h3>
+            <h3 class="lang-en">Windows desktop workflow</h3>
+            <p class="lang-bg">Подходящо е за екипи, които искат локален инструмент до реалните си папки, файлове и работен процес.</p>
+            <p class="lang-en">It fits teams that want a local tool working directly with real folders, files, and a Windows-based workflow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-head lang-bg">Кратко видео на workflow-а</h2>
+        <h2 class="section-head lang-en">Quick workflow video</h2>
+
+        <p class="section-lead lang-bg">
+          Видеото помага да се види, че това е реално приложение с реален интерфейс и работен процес, а не абстрактна концепция.
+        </p>
+        <p class="section-lead lang-en">
+          The video helps show that this is a real application with a real interface and workflow, not an abstract concept.
+        </p>
+
+        <div class="video-shell">
+          <video controls playsinline preload="metadata">
             <source src="video/shotfactory-demo-web.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </section>
 
-    <section id="download" class="section section-soft">
+    <!-- SCREENSHOTS -->
+    <section id="screens" class="section">
       <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow" data-i18n="download_eyebrow">Download and trial</div>
-            <h2 data-i18n="download_title">Ясен download и прозрачен trial</h2>
+        <h2 class="section-head lang-bg">Екрани от приложението</h2>
+        <h2 class="section-head lang-en">Application screens</h2>
+
+        <p class="section-lead lang-bg">
+          Засега оставяме местата празни, докато довършим новия светъл интерфейс на приложението. После тук ще влязат реални screenshots, не mockups.
+        </p>
+        <p class="section-lead lang-en">
+          These slots stay empty for now while the light application interface is being finalized. Real screenshots will go here afterward, not mockups.
+        </p>
+
+        <div class="screenshot-grid">
+          <div class="screenshot-card">
+            <div class="shot-top">
+              <h3 class="lang-bg">Главен екран</h3>
+              <h3 class="lang-en">Main window</h3>
+            </div>
+            <div class="shot-body">
+              <div class="shot-box">
+                <div class="lang-bg">Placeholder за главния workflow screenshot</div>
+                <div class="lang-en">Placeholder for the main workflow screenshot</div>
+              </div>
+            </div>
           </div>
-          <p class="section-copy" data-i18n="download_copy">
-            Идеята е проста: сваляте Windows приложението, инсталирате го и го тествате с реални продуктови снимки преди решение за лиценз.
-          </p>
-        </div>
 
-        <div class="download-panels">
-          <article class="download-panel floating-card">
-            <h3 data-i18n="download_panel_1_title">Какво се сваля</h3>
-            <p data-i18n="download_panel_1_body">От сайта се сваля MSIXBUNDLE пакет за Windows. Това е реалното приложение с 14-дневен пробен период.</p>
-          </article>
+          <div class="screenshot-card">
+            <div class="shot-top">
+              <h3 class="lang-bg">Preview и методи</h3>
+              <h3 class="lang-en">Preview and methods</h3>
+            </div>
+            <div class="shot-body">
+              <div class="shot-box">
+                <div class="lang-bg">Placeholder за preview screenshot</div>
+                <div class="lang-en">Placeholder for the preview screenshot</div>
+              </div>
+            </div>
+          </div>
 
-          <article class="download-panel floating-card">
-            <h3 data-i18n="download_panel_2_title">Как протича инсталацията</h3>
-            <p data-i18n="download_panel_2_body">Download → Open file → Install → Launch. Ако Windows покаже потвърждение или предупреждение, следвайте инструкциите в download страницата.</p>
-          </article>
-
-          <article class="download-panel floating-card">
-            <h3 data-i18n="download_panel_3_title">Какво включва пробният период</h3>
-            <p data-i18n="download_panel_3_body">Trial-ът е 14 дни и е направен за реален тест на workflow-а. Функциите са налични, а експортите са с воден знак.</p>
-          </article>
-        </div>
-
-        <div class="cta-row center-row">
-          <a class="btn primary" href="/download.html" data-i18n="download_cta">Към download страницата</a>
-          <button class="btn" type="button" onclick="openLicenseModal()" data-i18n="pricing_cta">Заяви цена</button>
+          <div class="screenshot-card">
+            <div class="shot-top">
+              <h3 class="lang-bg">Export и output</h3>
+              <h3 class="lang-en">Exports and output</h3>
+            </div>
+            <div class="shot-body">
+              <div class="shot-box">
+                <div class="lang-bg">Placeholder за export/output screenshot</div>
+                <div class="lang-en">Placeholder for the export/output screenshot</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- DOWNLOAD PANEL -->
+    <section class="section">
+      <div class="container">
+        <div class="download-panel">
+          <div class="card">
+            <h2 class="section-head lang-bg" style="font-size:34px; margin-bottom:12px;">Демо, install и trial — без мъгла</h2>
+            <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:12px;">Demo, install, and trial — clearly explained</h2>
+
+            <ul class="info-list lang-bg">
+              <li><strong>ShotFactory е Windows desktop app.</strong> Сваля се като MSIXBUNDLE.</li>
+              <li><strong>Има 14-дневен пробен период.</strong> Функционалността е налична, но export-ите са с watermark.</li>
+              <li><strong>Основният workflow е локален.</strong> Снимките не се качват автоматично онлайн.</li>
+              <li><strong>Install стъпките са описани ясно.</strong> Ако Windows покаже предупреждение, на download страницата ще има обяснение какво означава.</li>
+            </ul>
+
+            <ul class="info-list lang-en">
+              <li><strong>ShotFactory is a Windows desktop app.</strong> It is downloaded as an MSIXBUNDLE package.</li>
+              <li><strong>There is a 14-day trial.</strong> Functionality is available, but exports include a watermark.</li>
+              <li><strong>The core workflow is local.</strong> Photos are not automatically uploaded anywhere online.</li>
+              <li><strong>The install steps are explained clearly.</strong> If Windows shows a warning, the download page will explain what it means.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="lang-bg">Следваща стъпка</h3>
+            <h3 class="lang-en">Next step</h3>
+
+            <p class="lang-bg" style="margin-bottom:14px;">Отиди на download страницата, за да видиш какво сваляш, как се инсталира и как работи trial-ът.</p>
+            <p class="lang-en" style="margin-bottom:14px;">Go to the download page to see what you download, how installation works, and how the trial is structured.</p>
+
+            <div class="cta-row" style="margin-bottom:0;">
+              <a class="btn primary" href="/download.html">
+                <span class="lang-bg">Към download страницата</span>
+                <span class="lang-en">Go to download page</span>
+              </a>
+
+              <button class="btn" type="button" onclick="openLicenseModal()">
+                <span class="lang-bg">Заяви цена</span>
+                <span class="lang-en">Request pricing</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section id="faq" class="section">
       <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow" data-i18n="faq_eyebrow">Legitimacy and practical questions</div>
-            <h2 data-i18n="faq_title">Често задавани въпроси</h2>
-          </div>
-        </div>
+        <h2 class="section-head lang-bg">Често задавани въпроси</h2>
+        <h2 class="section-head lang-en">Frequently asked questions</h2>
 
         <div class="faq-grid">
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_1_q">Какво е ShotFactory?</h3>
-            <p data-i18n="faq_1_a">ShotFactory е Windows desktop приложение за автоматична обработка на продуктови снимки за e-commerce, каталожни и студийни workflow-и.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">Какво е ShotFactory?</h3>
+            <h3 class="lang-en">What is ShotFactory?</h3>
+            <p class="lang-bg">ShotFactory е Windows desktop приложение за автоматизиране на повтаряемата обработка на продуктови снимки.</p>
+            <p class="lang-en">ShotFactory is a Windows desktop application designed to automate repeatable product photo processing tasks.</p>
+          </div>
 
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_2_q">Това Windows desktop приложение ли е?</h3>
-            <p data-i18n="faq_2_a">Да. ShotFactory е създаден за Windows 10/11 x64.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">Това browser tool ли е?</h3>
+            <h3 class="lang-en">Is it a browser tool?</h3>
+            <p class="lang-bg">Не. Това е десктоп приложение за Windows, което се инсталира локално.</p>
+            <p class="lang-en">No. It is a locally installed Windows desktop application.</p>
+          </div>
 
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_3_q">Качват ли се снимките онлайн?</h3>
-            <p data-i18n="faq_3_a">Не като част от основния workflow. Приложението работи локално на вашия компютър.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">Качват ли се снимките някъде?</h3>
+            <h3 class="lang-en">Are photos uploaded anywhere?</h3>
+            <p class="lang-bg">Основният workflow работи локално. Снимките не се качват автоматично в облак.</p>
+            <p class="lang-en">The core workflow runs locally. Photos are not automatically uploaded to the cloud.</p>
+          </div>
 
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_4_q">Има ли demo или trial?</h3>
-            <p data-i18n="faq_4_a">Да. Има 14-дневен пробен период, за да тествате софтуера с реални продукти. Експортите в trial режима са с воден знак.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">Има ли trial?</h3>
+            <h3 class="lang-en">Is there a trial?</h3>
+            <p class="lang-bg">Да. Има 14-дневен пробен период с watermark на export-ите.</p>
+            <p class="lang-en">Yes. There is a 14-day trial with watermarking on exported images.</p>
+          </div>
 
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_5_q">Какво става при инсталация?</h3>
-            <p data-i18n="faq_5_a">Сваляте пакета, отваряте го и инсталирате приложението. Ако Windows покаже допълнително потвърждение, това ще бъде описано ясно в download страницата.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">За кого е?</h3>
+            <h3 class="lang-en">Who is it for?</h3>
+            <p class="lang-bg">За resellers, e-commerce екипи, каталожни оператори, студиа и бизнеси с много продуктови снимки.</p>
+            <p class="lang-en">For resellers, e-commerce teams, catalog operators, studios, and businesses processing many product images.</p>
+          </div>
 
-          <article class="faq-card floating-card">
-            <h3 data-i18n="faq_6_q">За кого е подходящо?</h3>
-            <p data-i18n="faq_6_a">За бизнеси и екипи, които обработват много продуктови снимки и искат по-еднакъв и по-бърз workflow.</p>
-          </article>
+          <div class="card">
+            <h3 class="lang-bg">Кога работи най-добре?</h3>
+            <h3 class="lang-en">When does it work best?</h3>
+            <p class="lang-bg">При контролирана светлина, подреден setup и повтаряем workflow с много подобни кадри.</p>
+            <p class="lang-en">In controlled lighting, with a consistent setup and repeatable workflows involving similar images.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section section-soft">
+    <!-- CONTACT -->
+    <section id="contact" class="section">
       <div class="container">
-        <div class="contact-panel floating-card">
-          <div>
-            <div class="eyebrow" data-i18n="contact_eyebrow">Support and contact</div>
-            <h2 data-i18n="contact_title">Имате въпрос преди тест или лицензиране?</h2>
-            <p class="section-copy" data-i18n="contact_copy">
-              Ако искате да проверите дали ShotFactory е подходящ за вашия workflow, пишете директно. По-добре ясен разговор, отколкото неясно обещание.
-            </p>
-          </div>
+        <div class="card">
+          <h2 class="section-head lang-bg" style="font-size:34px; margin-bottom:10px;">Контакт и поддръжка</h2>
+          <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:10px;">Contact and support</h2>
 
-          <div class="contact-list clean-contact-list">
-            <div class="contact-row contact-row-clean">
+          <p class="section-lead lang-bg" style="margin-bottom:18px;">
+            Ако имаш въпроси за install, trial, licensing или дали ShotFactory е подходящ за твоя workflow, пиши директно.
+          </p>
+          <p class="section-lead lang-en" style="margin-bottom:18px;">
+            If you have questions about installation, trial, licensing, or whether ShotFactory fits your workflow, reach out directly.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-row">
               <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
               <div class="muted">
-                <span class="lang-bg">Инсталация • технически въпроси • trial • лиценз</span>
-                <span class="lang-en">Install • technical questions • trial • licensing</span>
+                <span class="lang-bg">Инсталация • технически проблеми • лицензиране</span>
+                <span class="lang-en">Installation • technical issues • licensing</span>
               </div>
             </div>
 
-            <div class="contact-row contact-row-clean">
+            <div class="contact-row">
               <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
               <div class="muted">
-                <span class="lang-bg">Общи въпроси • бизнес запитвания • партньорства</span>
-                <span class="lang-en">General questions • business inquiries • partnerships</span>
+                <span class="lang-bg">Общи въпроси • партньорства • запитвания</span>
+                <span class="lang-en">General questions • partnerships • inquiries</span>
               </div>
             </div>
 
-            <div class="contact-row contact-row-clean">
+            <div class="contact-row">
               <a class="btn" href="https://www.linkedin.com/in/%D0%BC%D0%B8%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2-%D0%BD%D0%B5%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8-866720324/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <div class="muted">
                 <span class="lang-bg">Профил на Мирослав Неновски</span>
@@ -353,14 +484,13 @@
       </div>
     </section>
 
-    <section class="section foot">
-      <div class="container footer footer-links">
-        <div class="muted small">© <span id="y"></span> ShotFactory</div>
-
-        <div class="footer-legal">
-          <a href="/download.html" data-i18n="footer_download">Download</a>
+    <section class="footer-wrap">
+      <div class="container footer">
+        <div>© <span id="year"></span> ShotFactory</div>
+        <div class="footer-links">
           <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
           <a href="/privacy.html" class="lang-en">Privacy Policy</a>
+
           <a href="/terms.html" class="lang-bg">Общи условия</a>
           <a href="/terms.html" class="lang-en">Terms</a>
         </div>
@@ -368,6 +498,7 @@
     </section>
   </main>
 
+  <!-- LICENSE MODAL -->
   <div id="licenseModal" class="modal hidden" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
@@ -384,441 +515,137 @@
       <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
         <input type="hidden" name="type" value="license" />
 
-        <div class="grid2">
+        <div class="form-grid-2">
           <label>
-            <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+            <span class="lang-bg">Име</span>
+            <span class="lang-en">Name</span>
             <input name="name" />
           </label>
 
           <label>
-            <span data-i18n="form_email_lbl">Имейл</span>
+            <span class="lang-bg">Имейл</span>
+            <span class="lang-en">Email</span>
             <input name="email" type="email" required />
           </label>
         </div>
 
-        <div class="grid2">
+        <div class="form-grid-2" style="margin-top:14px;">
           <label>
-            <span class="lang-bg">Фирма / бранд <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">Company / brand <span class="muted small">(optional)</span></span>
+            <span class="lang-bg">Фирма / бранд</span>
+            <span class="lang-en">Company / brand</span>
             <input name="company" />
           </label>
 
           <label>
-            <span class="lang-bg">Колко снимки/месец? <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">How many photos/month? <span class="muted small">(optional)</span></span>
-            <input name="volume" placeholder="пример: 500" data-i18n-placeholder="form_volume_ph" />
+            <span class="lang-bg">Снимки на месец</span>
+            <span class="lang-en">Photos per month</span>
+            <input name="volume" />
           </label>
         </div>
 
-        <label>
-          <span data-i18n="form_need_lbl">Какво ти трябва?</span>
-          <textarea name="message" rows="5" required placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)" data-i18n-placeholder="form_need_ph"></textarea>
+        <label style="margin-top:14px;">
+          <span class="lang-bg">Какво ти трябва?</span>
+          <span class="lang-en">What do you need?</span>
+          <textarea name="message" rows="5" required placeholder="Платформи, формати, обем, специфични продукти..."></textarea>
         </label>
 
         <div class="modal-actions">
-          <button class="btn primary" type="submit" data-i18n="form_send">Заяви цена</button>
+          <button class="btn primary" type="submit">
+            <span class="lang-bg">Изпрати</span>
+            <span class="lang-en">Send request</span>
+          </button>
         </div>
 
-        <p class="muted small lang-bg" style="margin-top:10px">Няма автоматични имейли. Отговаряме лично.</p>
-        <p class="muted small lang-en" style="margin-top:10px">No automated emails. You’ll get a personal reply.</p>
+        <p class="muted small lang-bg" style="margin-top:12px;">Няма автоматични имейли. Отговаряме лично.</p>
+        <p class="muted small lang-en" style="margin-top:12px;">No automated emails. You’ll receive a personal reply.</p>
       </form>
     </div>
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    const i18n = {
-      bg: {
-        nav_how: "Как работи",
-        nav_benefits: "Защо ShotFactory",
-        nav_screens: "Екрани",
-        nav_download: "Свали",
-        nav_faq: "Въпроси",
-        nav_pricing: "Заяви цена",
-        nav_contact: "Контакт",
-
-        hero_eyebrow: "Windows desktop app for product photo automation",
-        hero_title: "Автоматична обработка на продуктови снимки — готови за качване.",
-        hero_lead: "ShotFactory е Windows desktop приложение за e-commerce и каталожни екипи, което премахва фона, crop-ва и центрира продукта и експортира готови файлове по зададени формати и размери.",
-        cta_download: "Свали демо за Windows",
-        cta_how: "Виж как работи",
-        hero_b1: "Работи локално на вашия компютър",
-        hero_b2: "14-дневен пробен период с воден знак върху експортите",
-        hero_b3: "Подходящо за high-volume продуктова фотография",
-
-        trust_1_title: "Windows desktop app",
-        trust_1_body: "Създадено за Windows 10/11 x64.",
-        trust_2_title: "Локална обработка",
-        trust_2_body: "Снимките не се качват автоматично онлайн.",
-        trust_3_title: "Прозрачен trial",
-        trust_3_body: "14 дни, пълна функционалност, watermark на експортите.",
-        trust_4_title: "Ясен install процес",
-        trust_4_body: "Download → Open → Install → Launch.",
-        trust_5_title: "Реална поддръжка",
-        trust_5_body: "support@getshotfactory.com",
-
-        how_eyebrow: "Simple workflow",
-        how_title: "Как работи",
-        how_copy: "ShotFactory е направен за повтаряем workflow при голям обем продуктови снимки — от активен продукт до готови файлове за качване.",
-        flow_1_title: "Избираш продукт",
-        flow_1_body: "Сканираш barcode или въвеждаш product code / име, за да започнеш сесията.",
-        flow_2_title: "Снимаш или импортваш",
-        flow_2_body: "Работи както с incoming folder workflow, така и с вече заснети кадри.",
-        flow_3_title: "Автоматична обработка",
-        flow_3_body: "Премахване на фон, crop, центриране и подготовка според избраните формати.",
-        flow_4_title: "Експорт по пресети",
-        flow_4_body: "Готови PNG/JPG файлове в различни размери за marketplace, сайт или каталог.",
-
-        benefits_eyebrow: "Why businesses use it",
-        benefits_title: "Създадено за екипи, които обработват много продуктови снимки",
-        benefits_lead: "ShotFactory не обещава магия. Помага там, където има повтаряем процес, консистентно осветление и нужда от по-бърза и еднаква обработка.",
-        benefit_1_title: "По-малко ръчна работа",
-        benefit_1_body: "Намалява повтаряемите стъпки при background removal, crop и export.",
-        benefit_2_title: "По-консистентен каталог",
-        benefit_2_body: "Продуктите стоят по-еднакво между отделните артикули и кадри.",
-        benefit_3_title: "Подходящо за high-volume workflow",
-        benefit_3_body: "Подходящо за студиа, реселъри, e-commerce екипи и оператори с много артикули.",
-        benefit_4_title: "Работи най-добре в контролирана среда",
-        benefit_4_body: "Най-добри резултати при консистентно осветление и подреден снимачен setup.",
-
-        screens_eyebrow: "Real interface",
-        screens_title: "Реални екрани от приложението",
-        screens_copy: "Вместо абстрактни mockup-и, тук се вижда реалният интерфейс и реалният workflow на ShotFactory.",
-        screen_1_title: "Основен workflow екран",
-        screen_1_body: "Активен продукт, export формати, processed thumbnails и лог в една работна среда.",
-        screen_2_title: "Preview и AI режим",
-        screen_2_body: "Преглед на резултата и избор на метод за background removal.",
-        screen_3_title: "Manual настройки при нужда",
-        screen_3_body: "Контрол върху threshold и feather за по-трудни кадри.",
-
-        video_eyebrow: "See it in action",
-        video_title: "Кратко видео на реален workflow",
-        video_copy: "Видео демонстрацията е полезна за първа ориентация, но реалната оценка е да се тества с ваши снимки, артикули и setup.",
-
-        download_eyebrow: "Download and trial",
-        download_title: "Ясен download и прозрачен trial",
-        download_copy: "Идеята е проста: сваляте Windows приложението, инсталирате го и го тествате с реални продуктови снимки преди решение за лиценз.",
-        download_panel_1_title: "Какво се сваля",
-        download_panel_1_body: "От сайта се сваля MSIXBUNDLE пакет за Windows. Това е реалното приложение с 14-дневен пробен период.",
-        download_panel_2_title: "Как протича инсталацията",
-        download_panel_2_body: "Download → Open file → Install → Launch. Ако Windows покаже потвърждение или предупреждение, следвайте инструкциите в download страницата.",
-        download_panel_3_title: "Какво включва пробният период",
-        download_panel_3_body: "Trial-ът е 14 дни и е направен за реален тест на workflow-а. Функциите са налични, а експортите са с воден знак.",
-        download_cta: "Към download страницата",
-        pricing_cta: "Заяви цена",
-
-        faq_eyebrow: "Legitimacy and practical questions",
-        faq_title: "Често задавани въпроси",
-        faq_1_q: "Какво е ShotFactory?",
-        faq_1_a: "ShotFactory е Windows desktop приложение за автоматична обработка на продуктови снимки за e-commerce, каталожни и студийни workflow-и.",
-        faq_2_q: "Това Windows desktop приложение ли е?",
-        faq_2_a: "Да. ShotFactory е създаден за Windows 10/11 x64.",
-        faq_3_q: "Качват ли се снимките онлайн?",
-        faq_3_a: "Не като част от основния workflow. Приложението работи локално на вашия компютър.",
-        faq_4_q: "Има ли demo или trial?",
-        faq_4_a: "Да. Има 14-дневен пробен период, за да тествате софтуера с реални продукти. Експортите в trial режима са с воден знак.",
-        faq_5_q: "Какво става при инсталация?",
-        faq_5_a: "Сваляте пакета, отваряте го и инсталирате приложението. Ако Windows покаже допълнително потвърждение, това ще бъде описано ясно в download страницата.",
-        faq_6_q: "За кого е подходящо?",
-        faq_6_a: "За бизнеси и екипи, които обработват много продуктови снимки и искат по-еднакъв и по-бърз workflow.",
-
-        contact_eyebrow: "Support and contact",
-        contact_title: "Имате въпрос преди тест или лицензиране?",
-        contact_copy: "Ако искате да проверите дали ShotFactory е подходящ за вашия workflow, пишете директно. По-добре ясен разговор, отколкото неясно обещание.",
-
-        footer_download: "Download",
-
-        form_email_lbl: "Имейл",
-        form_volume_ph: "пример: 500",
-        form_need_lbl: "Какво ти трябва?",
-        form_need_ph: "Платформи, формати, специфики (стъкло, бижута и т.н.)",
-        form_send: "Заяви цена"
-      },
-      en: {
-        nav_how: "How it works",
-        nav_benefits: "Why ShotFactory",
-        nav_screens: "Screens",
-        nav_download: "Download",
-        nav_faq: "FAQ",
-        nav_pricing: "Request pricing",
-        nav_contact: "Contact",
-
-        hero_eyebrow: "Windows desktop app for product photo automation",
-        hero_title: "Automated product photo processing — ready to upload.",
-        hero_lead: "ShotFactory is a Windows desktop app for e-commerce and catalog teams that removes the background, crops and centers the product, and exports ready-to-use files based on your required formats and sizes.",
-        cta_download: "Download demo for Windows",
-        cta_how: "See how it works",
-        hero_b1: "Runs locally on your computer",
-        hero_b2: "14-day trial with watermark on exported files",
-        hero_b3: "Suitable for high-volume product photography workflows",
-
-        trust_1_title: "Windows desktop app",
-        trust_1_body: "Built for Windows 10/11 x64.",
-        trust_2_title: "Local processing",
-        trust_2_body: "Your photos are not automatically uploaded online.",
-        trust_3_title: "Transparent trial",
-        trust_3_body: "14 days, full functionality, watermark on exports.",
-        trust_4_title: "Clear install flow",
-        trust_4_body: "Download → Open → Install → Launch.",
-        trust_5_title: "Real support",
-        trust_5_body: "support@getshotfactory.com",
-
-        how_eyebrow: "Simple workflow",
-        how_title: "How it works",
-        how_copy: "ShotFactory is built for repeatable high-volume product photo workflows — from active product selection to ready-to-upload files.",
-        flow_1_title: "Select a product",
-        flow_1_body: "Scan a barcode or enter a product code / name to start the session.",
-        flow_2_title: "Capture or import",
-        flow_2_body: "Works with both incoming-folder workflows and already-shot images.",
-        flow_3_title: "Automatic processing",
-        flow_3_body: "Background removal, crop, centering, and preparation based on selected output formats.",
-        flow_4_title: "Export by presets",
-        flow_4_body: "Ready PNG/JPG files in multiple sizes for marketplaces, websites, or catalogs.",
-
-        benefits_eyebrow: "Why businesses use it",
-        benefits_title: "Built for teams that process a lot of product images",
-        benefits_lead: "ShotFactory does not promise magic. It helps where the workflow is repeatable, the lighting is controlled, and the goal is faster, more consistent output.",
-        benefit_1_title: "Less manual work",
-        benefit_1_body: "Reduces repetitive work in background removal, crop, and export.",
-        benefit_2_title: "More consistent catalog output",
-        benefit_2_body: "Products look more uniform across items and frames.",
-        benefit_3_title: "Suitable for high-volume workflows",
-        benefit_3_body: "Useful for studios, resellers, e-commerce teams, and operators handling many items.",
-        benefit_4_title: "Works best in controlled conditions",
-        benefit_4_body: "Best results come from consistent lighting and an organized shooting setup.",
-
-        screens_eyebrow: "Real interface",
-        screens_title: "Real screenshots from the app",
-        screens_copy: "Instead of abstract mockups, this section shows the actual interface and the actual ShotFactory workflow.",
-        screen_1_title: "Main workflow screen",
-        screen_1_body: "Active product, export formats, processed thumbnails, and log in one workspace.",
-        screen_2_title: "Preview and AI mode",
-        screen_2_body: "Preview the result and choose the background removal method.",
-        screen_3_title: "Manual settings when needed",
-        screen_3_body: "Control threshold and feathering for more difficult images.",
-
-        video_eyebrow: "See it in action",
-        video_title: "Short video of the real workflow",
-        video_copy: "The video is useful for a first look, but the real evaluation is testing with your own photos, products, and setup.",
-
-        download_eyebrow: "Download and trial",
-        download_title: "Clear download flow and transparent trial",
-        download_copy: "The idea is simple: download the Windows app, install it, and test it with real product images before making a licensing decision.",
-        download_panel_1_title: "What you download",
-        download_panel_1_body: "The site provides an MSIXBUNDLE package for Windows. This is the real application with a 14-day trial period.",
-        download_panel_2_title: "How installation works",
-        download_panel_2_body: "Download → Open file → Install → Launch. If Windows shows a confirmation or warning, follow the instructions on the download page.",
-        download_panel_3_title: "What the trial includes",
-        download_panel_3_body: "The 14-day trial is intended for real workflow testing. Features are available, and exported files include a watermark.",
-        download_cta: "Go to download page",
-        pricing_cta: "Request pricing",
-
-        faq_eyebrow: "Legitimacy and practical questions",
-        faq_title: "Frequently asked questions",
-        faq_1_q: "What is ShotFactory?",
-        faq_1_a: "ShotFactory is a Windows desktop app for automated product photo processing in e-commerce, catalog, and studio workflows.",
-        faq_2_q: "Is this a Windows desktop application?",
-        faq_2_a: "Yes. ShotFactory is built for Windows 10/11 x64.",
-        faq_3_q: "Are my photos uploaded online?",
-        faq_3_a: "Not as part of the core workflow. The application runs locally on your computer.",
-        faq_4_q: "Is there a demo or trial?",
-        faq_4_a: "Yes. There is a 14-day trial for testing with real products. Exported files in trial mode include a watermark.",
-        faq_5_q: "What happens during installation?",
-        faq_5_a: "You download the package, open it, and install the app. If Windows shows any extra confirmation, the download page explains it clearly.",
-        faq_6_q: "Who is it for?",
-        faq_6_a: "For businesses and teams processing a lot of product images and looking for a faster, more consistent workflow.",
-
-        contact_eyebrow: "Support and contact",
-        contact_title: "Do you have a question before testing or licensing?",
-        contact_copy: "If you want to check whether ShotFactory fits your workflow, write directly. A clear conversation is better than vague promises.",
-
-        footer_download: "Download",
-
-        form_email_lbl: "Email",
-        form_volume_ph: "e.g. 500",
-        form_need_lbl: "What do you need?",
-        form_need_ph: "Platforms, formats, edge cases (glass, jewelry, etc.)",
-        form_send: "Request pricing"
-      }
-    };
-
-    function getThemePreference() {
-      const saved = localStorage.getItem("themePreference");
-      if (saved === "auto" || saved === "light" || saved === "dark") return saved;
-      return "auto";
-    }
-
-    function getTimeBasedTheme() {
-      const hour = new Date().getHours();
-      return (hour >= 7 && hour < 19) ? "light" : "dark";
-    }
-
-    function resolveTheme(preference) {
-      if (preference === "light" || preference === "dark") return preference;
-      return getTimeBasedTheme();
-    }
-
-    function getNextThemePreference(current) {
-      if (current === "auto") return "light";
-      if (current === "light") return "dark";
-      return "auto";
-    }
-
-    function updateThemeToggleUI() {
-      const btn = document.getElementById("themeToggle");
-      if (!btn) return;
-
-      const lang = document.documentElement.lang === "bg" ? "bg" : "en";
-      const preference = getThemePreference();
-      const actualTheme = resolveTheme(preference);
-
-      if (preference === "auto") {
-        btn.textContent = "🕒";
-        btn.title = lang === "bg"
-          ? `Тема: автоматично (${actualTheme === "dark" ? "тъмна" : "светла"})`
-          : `Theme: auto (${actualTheme})`;
-        btn.setAttribute("aria-label", btn.title);
-        return;
-      }
-
-      if (preference === "light") {
-        btn.textContent = "☀️";
-        btn.title = lang === "bg" ? "Тема: светла" : "Theme: light";
-        btn.setAttribute("aria-label", btn.title);
-        return;
-      }
-
-      btn.textContent = "🌙";
-      btn.title = lang === "bg" ? "Тема: тъмна" : "Theme: dark";
-      btn.setAttribute("aria-label", btn.title);
-    }
-
-    function applyThemePreference(preference) {
-      const actualTheme = resolveTheme(preference);
-      document.documentElement.setAttribute("data-theme", actualTheme);
-      localStorage.setItem("themePreference", preference);
-      updateThemeToggleUI();
-    }
-
-    function setLang(lang) {
+    function setLang(lang){
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
-      });
-
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        if (i18n[lang] && i18n[lang][key] !== undefined) el.setAttribute("placeholder", i18n[lang][key]);
-      });
-
-      const next = (lang === "bg") ? "en" : "bg";
       const btn = document.getElementById("langToggle");
-      if (btn) btn.textContent = next.toUpperCase();
-
-      updateThemeToggleUI();
+      if(btn){
+        btn.textContent = lang === "bg" ? "EN" : "BG";
+      }
     }
 
-    function getDefaultLang() {
+    function getDefaultLang(){
       const saved = localStorage.getItem("lang");
-      if (saved === "bg" || saved === "en") return saved;
-      const nav = (navigator.language || "").toLowerCase();
-      return nav.startsWith("bg") ? "bg" : "en";
+      if(saved === "bg" || saved === "en") return saved;
+      const navLang = (navigator.language || "").toLowerCase();
+      return navLang.startsWith("bg") ? "bg" : "en";
     }
 
     const langBtn = document.getElementById("langToggle");
-    if (langBtn) {
+    if(langBtn){
       langBtn.addEventListener("click", () => {
-        const current = localStorage.getItem("lang") || getDefaultLang();
+        const current = document.documentElement.lang === "bg" ? "bg" : "en";
         setLang(current === "bg" ? "en" : "bg");
       });
     }
 
     setLang(getDefaultLang());
-    applyThemePreference(getThemePreference());
 
-    const themeBtn = document.getElementById("themeToggle");
-    if (themeBtn) {
-      themeBtn.addEventListener("click", () => {
-        const current = getThemePreference();
-        const next = getNextThemePreference(current);
-        applyThemePreference(next);
-      });
-    }
-
-    setInterval(() => {
-      if (getThemePreference() !== "auto") return;
-
-      const currentApplied = document.documentElement.getAttribute("data-theme");
-      const autoTheme = getTimeBasedTheme();
-
-      if (currentApplied !== autoTheme) {
-        document.documentElement.setAttribute("data-theme", autoTheme);
-      }
-
-      updateThemeToggleUI();
-    }, 60000);
-
-    function closeMobileMenu() {
+    function closeMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
-      if (!nav || !btn) return;
+      if(!nav || !btn) return;
       nav.classList.remove("open");
       btn.setAttribute("aria-expanded", "false");
       btn.textContent = "☰";
     }
 
-    function toggleMobileMenu() {
+    function toggleMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
-      if (!nav || !btn) return;
-
+      if(!nav || !btn) return;
       const isOpen = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       btn.textContent = isOpen ? "✕" : "☰";
     }
 
     const menuToggle = document.getElementById("menuToggle");
-    if (menuToggle) {
+    if(menuToggle){
       menuToggle.addEventListener("click", toggleMobileMenu);
     }
 
     document.querySelectorAll("#siteNav a, #siteNav .nav-link-btn").forEach(el => {
       el.addEventListener("click", () => {
-        if (window.innerWidth <= 900) closeMobileMenu();
+        if(window.innerWidth <= 900) closeMobileMenu();
       });
     });
 
-    function openLicenseModal() {
+    function openLicenseModal(){
       const modal = document.getElementById("licenseModal");
-      if (!modal) return;
+      if(!modal) return;
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
       closeMobileMenu();
     }
 
-    function closeLicenseModal() {
+    function closeLicenseModal(){
       const modal = document.getElementById("licenseModal");
-      if (!modal) return;
+      if(!modal) return;
       modal.classList.add("hidden");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     const licenseModal = document.getElementById("licenseModal");
-    if (licenseModal) {
+    if(licenseModal){
       licenseModal.addEventListener("click", (e) => {
-        if (e.target === licenseModal) closeLicenseModal();
+        if(e.target === licenseModal) closeLicenseModal();
       });
     }
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
+      if(e.key === "Escape"){
         closeLicenseModal();
         closeMobileMenu();
       }
@@ -839,10 +666,14 @@
           if(res.ok){
             window.location.href = redirectUrl;
           }else{
-            alert("Неуспешно изпращане. Опитайте отново.");
+            alert(document.documentElement.lang === "bg"
+              ? "Неуспешно изпращане. Опитайте отново."
+              : "Sending failed. Please try again.");
           }
         }catch{
-          alert("Проблем с връзката. Опитайте отново.");
+          alert(document.documentElement.lang === "bg"
+            ? "Проблем с връзката. Опитайте отново."
+            : "Connection problem. Please try again.");
         }
       });
     }
