@@ -665,3 +665,11 @@ html[lang="en"] .lang-bg{ display:none !important; }
     margin-top:18px;
   }
 }
+.download-hero-grid{
+  grid-template-columns: 1fr;
+  max-width: 980px;
+}
+
+.download-hero-grid .hero-copy{
+  max-width: 920px;
+}
