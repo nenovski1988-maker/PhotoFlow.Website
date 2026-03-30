@@ -679,3 +679,12 @@ html[lang="en"] .lang-bg{ display:none !important; }
     grid-template-columns:1fr;
   }
 }
+.download-trust-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1100px){
+  .download-trust-grid{
+    grid-template-columns: 1fr;
+  }
+}
