@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>ShotFactory – Download</title>
-  <meta name="description" content="Свали демо версията на ShotFactory за Windows, инсталирай я и тествай с реални продуктови снимки." />
-  <link rel="stylesheet" href="/styles.css?v=lean-license-a8" />
+  <title>ShotFactory – Download for Windows</title>
+  <meta name="description" content="Свали демо версията на ShotFactory за Windows, виж какво точно сваляш, как се инсталира и как работи 14-дневният trial." />
+  <link rel="stylesheet" href="/styles.css?v=light-trust-02" />
 </head>
-
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
@@ -16,28 +15,25 @@
         <span>ShotFactory</span>
       </a>
 
-      <button
-        type="button"
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="siteNav">
-        ☰
-      </button>
+      <button type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="siteNav">☰</button>
 
       <nav class="nav" id="siteNav">
         <a href="/index.html#top" class="lang-bg">Начало</a>
         <a href="/index.html#top" class="lang-en">Home</a>
 
-        <a href="#requirements" class="lang-bg">Изисквания</a>
-        <a href="#requirements" class="lang-en">Requirements</a>
+        <a href="#download" class="lang-bg">Сваляне</a>
+        <a href="#download" class="lang-en">Download</a>
 
         <a href="#install" class="lang-bg">Инсталация</a>
         <a href="#install" class="lang-en">Install</a>
 
-        <a href="#demo" class="lang-bg">Какво включва</a>
-        <a href="#demo" class="lang-en">What’s included</a>
+        <a href="#trial" class="lang-bg">Trial</a>
+        <a href="#trial" class="lang-en">Trial</a>
 
         <a href="#help" class="lang-bg">Помощ</a>
         <a href="#help" class="lang-en">Help</a>
@@ -50,14 +46,7 @@
         <a href="#contact" class="lang-bg">Контакт</a>
         <a href="#contact" class="lang-en">Contact</a>
 
-        <a href="/privacy.html" class="lang-bg">Поверителност</a>
-        <a href="/privacy.html" class="lang-en">Privacy</a>
-
-        <a href="/terms.html" class="lang-bg">Общи условия</a>
-        <a href="/terms.html" class="lang-en">Terms</a>
-
         <span class="lang-switch">
-          <button type="button" id="themeToggle" class="lang-btn" aria-label="Theme mode" title="Theme mode">🕒</button>
           <button type="button" id="langToggle" class="lang-btn">EN</button>
         </span>
       </nav>
@@ -66,23 +55,34 @@
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero compact-hero">
+    <section id="download" class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy">
+          <div class="badge-row">
+            <span class="badge lang-bg">Windows 10/11 x64</span>
+            <span class="badge lang-en">Windows 10/11 x64</span>
+
+            <span class="badge lang-bg">MSIXBUNDLE пакет</span>
+            <span class="badge lang-en">MSIXBUNDLE package</span>
+
+            <span class="badge lang-bg">14-дневен trial</span>
+            <span class="badge lang-en">14-day trial</span>
+          </div>
+
           <h1 class="lang-bg">Свали ShotFactory за Windows</h1>
           <h1 class="lang-en">Download ShotFactory for Windows</h1>
 
           <p class="lead lang-bg">
-            Демо версия за тест с реални продуктови снимки. Свали, инсталирай и провери как ShotFactory пасва на твоя workflow.
+            Тук е описано ясно какво точно сваляш, как се инсталира и как работи пробният период. Целта е да тестваш ShotFactory с реални продуктови снимки и реалния си workflow, без неясни условия.
           </p>
           <p class="lead lang-en">
-            Demo version for testing with real product images. Download it, install it, and see how ShotFactory fits your workflow.
+            This page explains clearly what you download, how installation works, and how the trial is structured. The goal is to let you test ShotFactory with real product images and your actual workflow, without vague conditions.
           </p>
 
           <div class="cta-row">
             <a class="btn primary" href="https://github.com/nenovski1988-maker/PhotoFlow.Desktop/releases/download/v2.0.17.5/PhotoFlow.Package_2.0.17.5_x64.msixbundle">
-              <span class="lang-bg">Download / Install</span>
-              <span class="lang-en">Download / Install</span>
+              <span class="lang-bg">Свали демо</span>
+              <span class="lang-en">Download demo</span>
             </a>
 
             <button class="btn" type="button" onclick="openLicenseModal()">
@@ -91,38 +91,41 @@
             </button>
           </div>
 
-          <ul class="bullets">
-            <li class="lang-bg">Windows 10/11 x64</li>
-            <li class="lang-en">Windows 10/11 x64</li>
+          <ul class="bullets lang-bg">
+            <li>ShotFactory е Windows desktop app, не browser tool</li>
+            <li>Основният workflow работи локално на компютъра ти</li>
+            <li>Trial-ът е с пълна функционалност, но export-ите са с watermark</li>
+          </ul>
 
-            <li class="lang-bg">Работи локално на твоя компютър</li>
-            <li class="lang-en">Runs locally on your computer</li>
-
-            <li class="lang-bg">Подходящо за тест с реални продукти преди лицензиране</li>
-            <li class="lang-en">Suitable for real-world testing before licensing</li>
+          <ul class="bullets lang-en">
+            <li>ShotFactory is a Windows desktop app, not a browser tool</li>
+            <li>The core workflow runs locally on your computer</li>
+            <li>The trial includes full functionality, but exports have a watermark</li>
           </ul>
         </div>
 
-        <div class="hero-card">
-          <div class="download-card">
+        <div class="hero-visual">
+          <div class="card" style="height:100%;">
             <h3 class="lang-bg">Бърз старт</h3>
             <h3 class="lang-en">Quick start</h3>
 
-            <ol class="lang-bg">
-              <li>Свали файла</li>
-              <li>Отвори го</li>
-              <li>Натисни <strong>Install</strong></li>
-              <li>Стартирай ShotFactory</li>
+            <ol class="info-list lang-bg" style="padding-left:22px;">
+              <li>Свали MSIXBUNDLE файла.</li>
+              <li>Отвори сваления файл.</li>
+              <li>Натисни <strong>Install</strong>.</li>
+              <li>Стартирай ShotFactory.</li>
+              <li>Тествай с реални продуктови снимки.</li>
             </ol>
 
-            <ol class="lang-en">
-              <li>Download the file</li>
-              <li>Open it</li>
-              <li>Click <strong>Install</strong></li>
-              <li>Launch ShotFactory</li>
+            <ol class="info-list lang-en" style="padding-left:22px;">
+              <li>Download the MSIXBUNDLE file.</li>
+              <li>Open the downloaded file.</li>
+              <li>Click <strong>Install</strong>.</li>
+              <li>Launch ShotFactory.</li>
+              <li>Test it with real product images.</li>
             </ol>
 
-            <div class="cta-row" style="margin-top:14px">
+            <div class="cta-row" style="margin-top:18px; margin-bottom:0;">
               <a class="btn primary" href="https://github.com/nenovski1988-maker/PhotoFlow.Desktop/releases/download/v2.0.17.5/PhotoFlow.Package_2.0.17.5_x64.msixbundle">
                 <span class="lang-bg">Свали сега</span>
                 <span class="lang-en">Download now</span>
@@ -133,26 +136,67 @@
       </div>
     </section>
 
-    <!-- REQUIREMENTS -->
-    <section id="requirements" class="section">
-      <div class="container">
-        <h2 class="lang-bg">Системни изисквания</h2>
-        <h2 class="lang-en">System requirements</h2>
+    <!-- WHAT YOU DOWNLOAD -->
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="card">
+          <h3 class="lang-bg">Какво сваляш</h3>
+          <h3 class="lang-en">What you download</h3>
+          <p class="lang-bg">Сваляш MSIXBUNDLE пакет за Windows. Това е реалното приложение на ShotFactory.</p>
+          <p class="lang-en">You download an MSIXBUNDLE package for Windows. This is the actual ShotFactory application.</p>
+        </div>
 
-        <div class="grid2">
+        <div class="card">
+          <h3 class="lang-bg">Как работи install-ът</h3>
+          <h3 class="lang-en">How installation works</h3>
+          <p class="lang-bg">Процесът е стандартен: отваряш файла, натискаш Install и после стартираш приложението.</p>
+          <p class="lang-en">The process is standard: open the file, click Install, and then launch the app.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="lang-bg">Windows предупреждение</h3>
+          <h3 class="lang-en">Windows warning</h3>
+          <p class="lang-bg">В зависимост от Windows настройките е възможно да видиш потвърждение или предупреждение при първо инсталиране.</p>
+          <p class="lang-en">Depending on your Windows settings, you may see a confirmation or warning during the first installation.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="lang-bg">Локален workflow</h3>
+          <h3 class="lang-en">Local workflow</h3>
+          <p class="lang-bg">Основната обработка работи локално. Снимките не се качват автоматично онлайн.</p>
+          <p class="lang-en">The core processing workflow runs locally. Photos are not automatically uploaded online.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="lang-bg">Честен trial</h3>
+          <h3 class="lang-en">Honest trial</h3>
+          <p class="lang-bg">14 дни тест с реална функционалност, за да провериш дали ShotFactory пасва на твоя setup.</p>
+          <p class="lang-en">A 14-day trial with real functionality so you can verify whether ShotFactory fits your setup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-head lang-bg">Системни изисквания</h2>
+        <h2 class="section-head lang-en">System requirements</h2>
+
+        <div class="grid-2">
           <div class="card">
             <h3 class="lang-bg">Минимум</h3>
             <h3 class="lang-en">Minimum</h3>
 
-            <ul class="plain-list">
-              <li class="lang-bg">Windows 10 или Windows 11 (64-bit)</li>
-              <li class="lang-en">Windows 10 or Windows 11 (64-bit)</li>
+            <ul class="info-list lang-bg">
+              <li>Windows 10 или Windows 11, 64-bit</li>
+              <li>Свободно място за приложението и работните файлове</li>
+              <li>Интернет за сваляне на пакета</li>
+            </ul>
 
-              <li class="lang-bg">Достатъчно свободно място за приложението и работните файлове</li>
-              <li class="lang-en">Enough free disk space for the app and working files</li>
-
-              <li class="lang-bg">Интернет за сваляне на инсталацията</li>
-              <li class="lang-en">Internet access for downloading the installer</li>
+            <ul class="info-list lang-en">
+              <li>Windows 10 or Windows 11, 64-bit</li>
+              <li>Free space for the application and working files</li>
+              <li>Internet access for downloading the package</li>
             </ul>
           </div>
 
@@ -160,167 +204,136 @@
             <h3 class="lang-bg">Препоръчително</h3>
             <h3 class="lang-en">Recommended</h3>
 
-            <ul class="plain-list">
-              <li class="lang-bg">SSD за по-бърза работа с файлове</li>
-              <li class="lang-en">SSD for faster file handling</li>
+            <ul class="info-list lang-bg">
+              <li>SSD за по-бърза работа с файлове</li>
+              <li>Отделна GPU за по-добра AI производителност</li>
+              <li>Тест с реални снимки и реалния ти workflow</li>
+            </ul>
 
-              <li class="lang-bg">Отделна GPU за AI обработка</li>
-              <li class="lang-en">Dedicated GPU for AI processing</li>
-
-              <li class="lang-bg">Тест с реални снимки и реалния ти workflow</li>
-              <li class="lang-en">Testing with real images and your actual workflow</li>
+            <ul class="info-list lang-en">
+              <li>SSD for faster file handling</li>
+              <li>Dedicated GPU for better AI performance</li>
+              <li>Testing with real images and your actual workflow</li>
             </ul>
           </div>
         </div>
-
-        <p class="muted small lang-bg" style="margin-top:12px">
-          ShotFactory не изисква качване на снимките онлайн, за да работи основният desktop workflow.
-        </p>
-        <p class="muted small lang-en" style="margin-top:12px">
-          ShotFactory does not require uploading your images online for the core desktop workflow.
-        </p>
       </div>
     </section>
 
     <!-- INSTALL -->
-    <section id="install" class="section alt">
+    <section id="install" class="section">
       <div class="container">
-        <h2 class="lang-bg">Инсталация</h2>
-        <h2 class="lang-en">Installation</h2>
+        <h2 class="section-head lang-bg">Инсталация</h2>
+        <h2 class="section-head lang-en">Installation</h2>
 
-        <div class="grid2">
+        <div class="grid-3">
           <div class="card">
-            <h3 class="lang-bg">Стъпка по стъпка</h3>
-            <h3 class="lang-en">Step by step</h3>
-
-            <ol class="lang-bg">
-              <li>Натисни бутона <strong>Download / Install</strong>.</li>
-              <li>Изчакай файлът да се свали напълно.</li>
-              <li>Отвори сваления файл.</li>
-              <li>Натисни <strong>Install</strong>.</li>
-              <li>След инсталацията стартирай ShotFactory.</li>
-              <li>Тествай с реални продуктови снимки.</li>
-            </ol>
-
-            <ol class="lang-en">
-              <li>Click the <strong>Download / Install</strong> button.</li>
-              <li>Wait for the file to finish downloading.</li>
-              <li>Open the downloaded file.</li>
-              <li>Click <strong>Install</strong>.</li>
-              <li>Launch ShotFactory after installation.</li>
-              <li>Test it with real product images.</li>
-            </ol>
+            <div class="step-number">1</div>
+            <h3 class="lang-bg">Свали файла</h3>
+            <h3 class="lang-en">Download the file</h3>
+            <p class="lang-bg">Натисни бутона за сваляне и изчакай MSIXBUNDLE файлът да се свали напълно.</p>
+            <p class="lang-en">Click the download button and wait for the MSIXBUNDLE file to finish downloading.</p>
           </div>
 
           <div class="card">
+            <div class="step-number">2</div>
+            <h3 class="lang-bg">Отвори и инсталирай</h3>
+            <h3 class="lang-en">Open and install</h3>
+            <p class="lang-bg">Отвори файла и натисни <strong>Install</strong>. При някои Windows настройки може да се появи потвърждение.</p>
+            <p class="lang-en">Open the file and click <strong>Install</strong>. On some Windows setups, you may see a confirmation prompt.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-number">3</div>
+            <h3 class="lang-bg">Стартирай и тествай</h3>
+            <h3 class="lang-en">Launch and test</h3>
+            <p class="lang-bg">След инсталацията стартирай ShotFactory и го тествай с реални продуктови снимки и реален workflow.</p>
+            <p class="lang-en">After installation, launch ShotFactory and test it with real product images and a real workflow.</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:18px;">
+          <div class="card">
             <h3 class="lang-bg">Обновяване</h3>
             <h3 class="lang-en">Updating</h3>
+            <p class="lang-bg">Когато има нова версия, използвай същия официален линк. Windows обикновено предлага update вместо напълно нова отделна инсталация.</p>
+            <p class="lang-en">When a new version is available, use the same official link. Windows will usually offer an update instead of a completely separate installation.</p>
+          </div>
 
-            <p class="lang-bg">
-              При нова версия използвай същия бутон за сваляне. Windows обикновено ще предложи update вместо нова отделна инсталация.
-            </p>
-            <p class="lang-en">
-              For a new version, use the same download button again. Windows will usually offer an update instead of a separate new installation.
-            </p>
-
-            <p class="muted small lang-bg" style="margin-top:12px">
-              Използвай винаги официалния линк от сайта или GitHub release страницата на проекта.
-            </p>
-            <p class="muted small lang-en" style="margin-top:12px">
-              Always use the official link from the site or the project’s GitHub release page.
-            </p>
+          <div class="card">
+            <h3 class="lang-bg">Важно</h3>
+            <h3 class="lang-en">Important</h3>
+            <p class="lang-bg">Използвай само официалния линк от сайта или официалната GitHub release страница на проекта.</p>
+            <p class="lang-en">Use only the official link from the site or the project’s official GitHub release page.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DEMO -->
-    <section id="demo" class="section">
+    <!-- TRIAL -->
+    <section id="trial" class="section">
       <div class="container">
-        <h2 class="lang-bg">Какво включва демото</h2>
-        <h2 class="lang-en">What the demo includes</h2>
+        <h2 class="section-head lang-bg">Как работи trial-ът</h2>
+        <h2 class="section-head lang-en">How the trial works</h2>
 
-        <div class="grid3">
+        <div class="grid-3">
           <div class="card">
-            <h3 class="lang-bg">Реален workflow тест</h3>
-            <h3 class="lang-en">Real workflow testing</h3>
-
-            <p class="lang-bg">
-              Демото е направено така, че да тестваш приложението с реални продуктови снимки, а не само с примерни файлове.
-            </p>
-            <p class="lang-en">
-              The demo is meant for testing the app with real product images, not just sample files.
-            </p>
+            <h3 class="lang-bg">14 дни тест</h3>
+            <h3 class="lang-en">14-day evaluation</h3>
+            <p class="lang-bg">Пробният период е направен така, че да видиш дали приложението работи смислено в твоя setup и процес.</p>
+            <p class="lang-en">The trial is meant to show whether the application works meaningfully within your setup and process.</p>
           </div>
 
           <div class="card">
-            <h3 class="lang-bg">Preview преди лиценз</h3>
-            <h3 class="lang-en">Preview before licensing</h3>
-
-            <p class="lang-bg">
-              Можеш да провериш как работят обработката, профилите и експортът преди да вземеш решение за лиценз.
-            </p>
-            <p class="lang-en">
-              You can verify processing, profiles, and exports before making a licensing decision.
-            </p>
+            <h3 class="lang-bg">Пълна функционалност</h3>
+            <h3 class="lang-en">Full functionality</h3>
+            <p class="lang-bg">Идеята е да тестваш реалния workflow, а не орязана demo версия с фалшиво ограничен опит.</p>
+            <p class="lang-en">The goal is to test the real workflow, not a heavily crippled demo with an artificial experience.</p>
           </div>
 
           <div class="card">
-            <h3 class="lang-bg">Пробен режим</h3>
-            <h3 class="lang-en">Trial mode</h3>
-
-            <p class="lang-bg">
-              Демо версията е за оценка на софтуера. При нужда от пълен production workflow без ограничения използвай бутона за цена.
-            </p>
-            <p class="lang-en">
-              The demo version is for software evaluation. If you need the full production workflow without limitations, use the pricing button.
-            </p>
+            <h3 class="lang-bg">Watermark на export-ите</h3>
+            <h3 class="lang-en">Watermarked exports</h3>
+            <p class="lang-bg">Export-ите от trial режима са с watermark. Това позволява честен тест без да се бърка с платена production употреба.</p>
+            <p class="lang-en">Exports from the trial mode include a watermark. This allows honest evaluation without being confused with paid production usage.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- HELP -->
-    <section id="help" class="section alt">
+    <section id="help" class="section">
       <div class="container">
-        <h2 class="lang-bg">Помощ при проблем</h2>
-        <h2 class="lang-en">Troubleshooting</h2>
+        <h2 class="section-head lang-bg">Помощ при проблем</h2>
+        <h2 class="section-head lang-en">Troubleshooting</h2>
 
-        <div class="grid3">
+        <div class="faq-grid">
           <div class="card">
             <h3 class="lang-bg">Файлът не се стартира</h3>
             <h3 class="lang-en">The file does not start</h3>
-
-            <p class="lang-bg">
-              Увери се, че си на Windows 10/11 x64 и че файлът е свален напълно.
-            </p>
-            <p class="lang-en">
-              Make sure you are on Windows 10/11 x64 and that the file finished downloading completely.
-            </p>
+            <p class="lang-bg">Провери дали си на Windows 10/11 x64 и дали файлът е свален напълно.</p>
+            <p class="lang-en">Check that you are on Windows 10/11 x64 and that the file finished downloading completely.</p>
           </div>
 
           <div class="card">
             <h3 class="lang-bg">Windows показва предупреждение</h3>
             <h3 class="lang-en">Windows shows a warning</h3>
-
-            <p class="lang-bg">
-              Провери дали файлът е свален от официалния сайт или официалния GitHub release линк на проекта.
-            </p>
-            <p class="lang-en">
-              Confirm that the file was downloaded from the official site or the official GitHub release link for the project.
-            </p>
+            <p class="lang-bg">Увери се, че файлът е свален от официалния сайт или официалния GitHub release линк. При нужда пиши за помощ.</p>
+            <p class="lang-en">Make sure the file was downloaded from the official site or the official GitHub release link. Contact support if needed.</p>
           </div>
 
           <div class="card">
             <h3 class="lang-bg">Проблем след инсталация</h3>
             <h3 class="lang-en">Issue after installation</h3>
+            <p class="lang-bg">Пиши на <strong>support@getshotfactory.com</strong> и опиши какво точно се случва.</p>
+            <p class="lang-en">Email <strong>support@getshotfactory.com</strong> and describe exactly what is happening.</p>
+          </div>
 
-            <p class="lang-bg">
-              Пиши на <strong>support@getshotfactory.com</strong> и опиши какво точно се случва.
-            </p>
-            <p class="lang-en">
-              Email <strong>support@getshotfactory.com</strong> and describe exactly what is happening.
-            </p>
+          <div class="card">
+            <h3 class="lang-bg">Не си сигурен дали е за теб</h3>
+            <h3 class="lang-en">Not sure if it fits you</h3>
+            <p class="lang-bg">Прати кратко описание на workflow-а си и ще кажем директно дали ShotFactory е подходящ или не.</p>
+            <p class="lang-en">Send a short description of your workflow and you’ll get a direct answer on whether ShotFactory is a good fit or not.</p>
           </div>
         </div>
       </div>
@@ -329,18 +342,22 @@
     <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
-        <h2 class="lang-bg">Контакт</h2>
-        <h2 class="lang-en">Contact</h2>
-
         <div class="card">
-          <h3 class="lang-bg">Поддръжка и запитвания</h3>
-          <h3 class="lang-en">Support and inquiries</h3>
+          <h2 class="section-head lang-bg" style="font-size:34px; margin-bottom:10px;">Контакт и поддръжка</h2>
+          <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:10px;">Contact and support</h2>
+
+          <p class="section-lead lang-bg" style="margin-bottom:18px;">
+            Ако имаш въпроси за install, trial, licensing или за конкретен workflow, пиши директно.
+          </p>
+          <p class="section-lead lang-en" style="margin-bottom:18px;">
+            If you have questions about installation, trial, licensing, or a specific workflow, contact us directly.
+          </p>
 
           <div class="contact-list">
             <div class="contact-row">
               <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
               <div class="muted">
-                <span class="lang-bg">Инсталация • технически проблеми • лиценз</span>
+                <span class="lang-bg">Инсталация • технически проблеми • лицензиране</span>
                 <span class="lang-en">Installation • technical issues • licensing</span>
               </div>
             </div>
@@ -365,12 +382,10 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <section class="section foot">
-      <div class="container footer footer-links">
-        <div class="muted small">© <span id="y"></span> ShotFactory</div>
-
-        <div class="footer-legal">
+    <section class="footer-wrap">
+      <div class="container footer">
+        <div>© <span id="year"></span> ShotFactory</div>
+        <div class="footer-links">
           <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
           <a href="/privacy.html" class="lang-en">Privacy Policy</a>
 
@@ -398,10 +413,10 @@
       <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
         <input type="hidden" name="type" value="license" />
 
-        <div class="grid2">
+        <div class="form-grid-2">
           <label>
-            <span class="lang-bg">Име <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">Name <span class="muted small">(optional)</span></span>
+            <span class="lang-bg">Име</span>
+            <span class="lang-en">Name</span>
             <input name="name" />
           </label>
 
@@ -412,212 +427,123 @@
           </label>
         </div>
 
-        <div class="grid2">
+        <div class="form-grid-2" style="margin-top:14px;">
           <label>
-            <span class="lang-bg">Фирма / бранд <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">Company / brand <span class="muted small">(optional)</span></span>
+            <span class="lang-bg">Фирма / бранд</span>
+            <span class="lang-en">Company / brand</span>
             <input name="company" />
           </label>
 
           <label>
-            <span class="lang-bg">Колко снимки/месец? <span class="muted small">(по желание)</span></span>
-            <span class="lang-en">How many photos/month? <span class="muted small">(optional)</span></span>
-            <input name="volume" placeholder="пример: 500" />
+            <span class="lang-bg">Снимки на месец</span>
+            <span class="lang-en">Photos per month</span>
+            <input name="volume" />
           </label>
         </div>
 
-        <label>
+        <label style="margin-top:14px;">
           <span class="lang-bg">Какво ти трябва?</span>
           <span class="lang-en">What do you need?</span>
-          <textarea name="message" rows="5" required
-            placeholder="Платформи, формати, специфики (стъкло, бижута и т.н.)"
-            class="lang-bg"></textarea>
-          <textarea name="message_en" rows="5"
-            placeholder="Platforms, formats, edge cases (glass, jewelry, etc.)"
-            class="lang-en"></textarea>
+          <textarea name="message" rows="5" required placeholder="Платформи, формати, обем, специфични продукти..."></textarea>
         </label>
 
         <div class="modal-actions">
           <button class="btn primary" type="submit">
-            <span class="lang-bg">Заяви цена</span>
-            <span class="lang-en">Request pricing</span>
+            <span class="lang-bg">Изпрати</span>
+            <span class="lang-en">Send request</span>
           </button>
         </div>
 
-        <p class="muted small lang-bg" style="margin-top:10px">Няма автоматични имейли. Отговаряме лично.</p>
-        <p class="muted small lang-en" style="margin-top:10px">No automated emails. You’ll get a personal reply.</p>
+        <p class="muted small lang-bg" style="margin-top:12px;">Няма автоматични имейли. Отговаряме лично.</p>
+        <p class="muted small lang-en" style="margin-top:12px;">No automated emails. You’ll receive a personal reply.</p>
       </form>
     </div>
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function setLang(lang) {
+    function setLang(lang){
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
-
-      const next = (lang === "bg") ? "en" : "bg";
       const btn = document.getElementById("langToggle");
-      if (btn) btn.textContent = next.toUpperCase();
-
-      updateThemeToggleUI();
+      if(btn){
+        btn.textContent = lang === "bg" ? "EN" : "BG";
+      }
     }
 
-    function getDefaultLang() {
+    function getDefaultLang(){
       const saved = localStorage.getItem("lang");
-      if (saved === "bg" || saved === "en") return saved;
-      const nav = (navigator.language || "").toLowerCase();
-      return nav.startsWith("bg") ? "bg" : "en";
-    }
-
-    function getThemePreference() {
-      const saved = localStorage.getItem("themePreference");
-      if (saved === "auto" || saved === "light" || saved === "dark") return saved;
-      return "auto";
-    }
-
-    function getTimeBasedTheme() {
-      const hour = new Date().getHours();
-      return (hour >= 7 && hour < 19) ? "light" : "dark";
-    }
-
-    function resolveTheme(preference) {
-      if (preference === "light" || preference === "dark") return preference;
-      return getTimeBasedTheme();
-    }
-
-    function getNextThemePreference(current) {
-      if (current === "auto") return "light";
-      if (current === "light") return "dark";
-      return "auto";
-    }
-
-    function updateThemeToggleUI() {
-      const btn = document.getElementById("themeToggle");
-      if (!btn) return;
-
-      const lang = document.documentElement.lang === "bg" ? "bg" : "en";
-      const preference = getThemePreference();
-      const actualTheme = resolveTheme(preference);
-
-      if (preference === "auto") {
-        btn.textContent = "🕒";
-        btn.title = lang === "bg"
-          ? `Тема: автоматично (${actualTheme === "dark" ? "тъмна" : "светла"})`
-          : `Theme: auto (${actualTheme})`;
-        btn.setAttribute("aria-label", btn.title);
-        return;
-      }
-
-      if (preference === "light") {
-        btn.textContent = "☀️";
-        btn.title = lang === "bg" ? "Тема: светла" : "Theme: light";
-        btn.setAttribute("aria-label", btn.title);
-        return;
-      }
-
-      btn.textContent = "🌙";
-      btn.title = lang === "bg" ? "Тема: тъмна" : "Theme: dark";
-      btn.setAttribute("aria-label", btn.title);
-    }
-
-    function applyThemePreference(preference) {
-      const actualTheme = resolveTheme(preference);
-      document.documentElement.setAttribute("data-theme", actualTheme);
-      localStorage.setItem("themePreference", preference);
-      updateThemeToggleUI();
+      if(saved === "bg" || saved === "en") return saved;
+      const navLang = (navigator.language || "").toLowerCase();
+      return navLang.startsWith("bg") ? "bg" : "en";
     }
 
     const langBtn = document.getElementById("langToggle");
-    if (langBtn) {
+    if(langBtn){
       langBtn.addEventListener("click", () => {
-        const current = localStorage.getItem("lang") || getDefaultLang();
+        const current = document.documentElement.lang === "bg" ? "bg" : "en";
         setLang(current === "bg" ? "en" : "bg");
       });
     }
 
     setLang(getDefaultLang());
-    applyThemePreference(getThemePreference());
 
-    const themeBtn = document.getElementById("themeToggle");
-    if (themeBtn) {
-      themeBtn.addEventListener("click", () => {
-        const current = getThemePreference();
-        const next = getNextThemePreference(current);
-        applyThemePreference(next);
-      });
-    }
-
-    setInterval(() => {
-      if (getThemePreference() !== "auto") return;
-
-      const currentApplied = document.documentElement.getAttribute("data-theme");
-      const autoTheme = getTimeBasedTheme();
-
-      if (currentApplied !== autoTheme) {
-        document.documentElement.setAttribute("data-theme", autoTheme);
-      }
-
-      updateThemeToggleUI();
-    }, 60000);
-
-    function closeMobileMenu() {
+    function closeMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
-      if (!nav || !btn) return;
+      if(!nav || !btn) return;
       nav.classList.remove("open");
       btn.setAttribute("aria-expanded", "false");
       btn.textContent = "☰";
     }
 
-    function toggleMobileMenu() {
+    function toggleMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
-      if (!nav || !btn) return;
-
+      if(!nav || !btn) return;
       const isOpen = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       btn.textContent = isOpen ? "✕" : "☰";
     }
 
     const menuToggle = document.getElementById("menuToggle");
-    if (menuToggle) {
+    if(menuToggle){
       menuToggle.addEventListener("click", toggleMobileMenu);
     }
 
     document.querySelectorAll("#siteNav a, #siteNav .nav-link-btn").forEach(el => {
       el.addEventListener("click", () => {
-        if (window.innerWidth <= 900) closeMobileMenu();
+        if(window.innerWidth <= 900) closeMobileMenu();
       });
     });
 
-    function openLicenseModal() {
+    function openLicenseModal(){
       const modal = document.getElementById("licenseModal");
-      if (!modal) return;
+      if(!modal) return;
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
       closeMobileMenu();
     }
 
-    function closeLicenseModal() {
+    function closeLicenseModal(){
       const modal = document.getElementById("licenseModal");
-      if (!modal) return;
+      if(!modal) return;
       modal.classList.add("hidden");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     const licenseModal = document.getElementById("licenseModal");
-    if (licenseModal) {
+    if(licenseModal){
       licenseModal.addEventListener("click", (e) => {
-        if (e.target === licenseModal) closeLicenseModal();
+        if(e.target === licenseModal) closeLicenseModal();
       });
     }
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
+      if(e.key === "Escape"){
         closeLicenseModal();
         closeMobileMenu();
       }
@@ -638,10 +564,14 @@
           if(res.ok){
             window.location.href = redirectUrl;
           }else{
-            alert("Неуспешно изпращане. Опитайте отново.");
+            alert(document.documentElement.lang === "bg"
+              ? "Неуспешно изпращане. Опитайте отново."
+              : "Sending failed. Please try again.");
           }
         }catch{
-          alert("Проблем с връзката. Опитайте отново.");
+          alert(document.documentElement.lang === "bg"
+            ? "Проблем с връзката. Опитайте отново."
+            : "Connection problem. Please try again.");
         }
       });
     }
@@ -650,37 +580,5 @@
       wireForm(f, "/thanks.html");
     });
   </script>
-
-  <style>
-    .download-card{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .plain-list{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .contact-list{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:12px;
-    }
-
-    .contact-row{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .contact-row .muted{
-      flex:1;
-      min-width:220px;
-    }
-  </style>
 </body>
 </html>
