@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Pricing / Цени</title>
   <meta name="description" content="Планове и цени за ShotFactory в евро. Ясни условия, Windows desktop app, 14-дневен trial." />
-  <link rel="stylesheet" href="/styles.css?v=pricing-light-01" />
+  <link rel="stylesheet" href="/styles.css?v=pricing-light-02" />
   <style>
     .pricing-hero{
       padding:46px 0 24px;
@@ -21,6 +21,8 @@
     .pricing-card{
       position:relative;
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
     }
 
     .pricing-card.recommended{
@@ -51,6 +53,13 @@
       line-height:1.15;
     }
 
+    .pricing-subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
     .pricing-for{
       margin:0 0 18px;
       color:var(--muted);
@@ -62,6 +71,7 @@
       align-items:flex-end;
       gap:8px;
       margin:0 0 16px;
+      min-height:56px;
     }
 
     .pricing-price .value{
@@ -83,6 +93,7 @@
       padding-left:20px;
       color:var(--muted);
       line-height:1.8;
+      flex:1 1 auto;
     }
 
     .pricing-list li strong{
@@ -90,10 +101,16 @@
     }
 
     .pricing-actions{
-      margin-top:20px;
+      margin-top:auto;
+      padding-top:18px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+    }
+
+    .pricing-actions .btn{
+      flex:1 1 calc(50% - 5px);
+      min-width:0;
     }
 
     .pricing-note{
@@ -116,6 +133,12 @@
       .pricing-grid,
       .pricing-mini-grid{
         grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:700px){
+      .pricing-actions .btn{
+        flex:1 1 100%;
       }
     }
   </style>
@@ -176,10 +199,10 @@
         <h1 class="section-head lang-en" style="margin-bottom:14px;">ShotFactory plans and pricing</h1>
 
         <p class="section-lead lang-bg">
-          Ясни планове без скрити условия. ShotFactory се предлага като Windows desktop приложение с 14-дневен trial. Платената версия е за реална работа без watermark на export-ите.
+          Ясни планове без скрити условия. Trial-ът е 14 дни с watermark на export-ите. Платената версия е за реална работа без watermark.
         </p>
         <p class="section-lead lang-en">
-          Clear plans without hidden conditions. ShotFactory is offered as a Windows desktop app with a 14-day trial. The paid version is intended for real production use without watermarks on exported images.
+          Clear plans without hidden conditions. The trial lasts 14 days and includes a watermark on exports. The paid version is for real work without watermarks.
         </p>
 
         <div class="pricing-grid">
@@ -187,8 +210,11 @@
             <h2 class="pricing-name lang-bg">Starter</h2>
             <h2 class="pricing-name lang-en">Starter</h2>
 
-            <p class="pricing-for lang-bg">За самостоятелен оператор, малък онлайн магазин или ранна реална употреба.</p>
-            <p class="pricing-for lang-en">For a solo operator, a small online store, or early real-world use.</p>
+            <p class="pricing-subtitle lang-bg">Използвай ShotFactory самостоятелно</p>
+            <p class="pricing-subtitle lang-en">Use ShotFactory on your own</p>
+
+            <p class="pricing-for lang-bg">За самостоятелен оператор, малък онлайн магазин или старт на реална употреба.</p>
+            <p class="pricing-for lang-en">For a solo operator, a small online store, or getting started with real work.</p>
 
             <div class="pricing-price">
               <span class="value">49 €</span>
@@ -199,17 +225,17 @@
             <ul class="pricing-list lang-bg">
               <li><strong>Пълна функционалност</strong> на приложението</li>
               <li><strong>Без watermark</strong> на export-ите</li>
-              <li><strong>Windows desktop app</strong> с локален workflow</li>
               <li><strong>Стандартна имейл поддръжка</strong></li>
-              <li><strong>Подходящо за старт</strong> и първи реални процеси</li>
+              <li><strong>Self-serve setup</strong> без допълнителна помощ</li>
+              <li><strong>Най-добрият стартов план</strong></li>
             </ul>
 
             <ul class="pricing-list lang-en">
               <li><strong>Full application functionality</strong></li>
               <li><strong>No watermark</strong> on exports</li>
-              <li><strong>Windows desktop app</strong> with a local workflow</li>
               <li><strong>Standard email support</strong></li>
-              <li><strong>Suitable for getting started</strong> with real work</li>
+              <li><strong>Self-serve setup</strong> without extra guidance</li>
+              <li><strong>The best starting plan</strong></li>
             </ul>
 
             <div class="pricing-actions">
@@ -231,8 +257,11 @@
             <h2 class="pricing-name lang-bg">Studio</h2>
             <h2 class="pricing-name lang-en">Studio</h2>
 
-            <p class="pricing-for lang-bg">За по-редовен workflow, каталожна работа и по-висок дневен обем.</p>
-            <p class="pricing-for lang-en">For more regular workflows, catalog production, and higher daily volume.</p>
+            <p class="pricing-subtitle lang-bg">ShotFactory + помощ при setup</p>
+            <p class="pricing-subtitle lang-en">ShotFactory + help with setup</p>
+
+            <p class="pricing-for lang-bg">За студио или по-редовен workflow, когато искаш да тръгнеш по-бързо и с по-малко губене на време.</p>
+            <p class="pricing-for lang-en">For a studio or more regular workflow when you want to get started faster with less trial and error.</p>
 
             <div class="pricing-price">
               <span class="value">89 €</span>
@@ -242,18 +271,18 @@
 
             <ul class="pricing-list lang-bg">
               <li><strong>Всичко от Starter</strong></li>
-              <li><strong>По-подходящо за студио</strong> или постоянен e-commerce workflow</li>
               <li><strong>Приоритетна имейл поддръжка</strong></li>
-              <li><strong>Помощ при първоначален setup</strong> и workflow насоки</li>
-              <li><strong>По-добър избор</strong> ако ShotFactory е част от ежедневна работа</li>
+              <li><strong>Помощ при initial setup</strong></li>
+              <li><strong>Workflow guidance</strong> за началната подредба на процеса</li>
+              <li><strong>По-добър избор за ежедневна работа</strong></li>
             </ul>
 
             <ul class="pricing-list lang-en">
               <li><strong>Everything in Starter</strong></li>
-              <li><strong>Better suited for a studio</strong> or a regular e-commerce workflow</li>
               <li><strong>Priority email support</strong></li>
-              <li><strong>Help with initial setup</strong> and workflow guidance</li>
-              <li><strong>A better fit</strong> if ShotFactory is part of daily work</li>
+              <li><strong>Help with the initial setup</strong></li>
+              <li><strong>Workflow guidance</strong> for the first setup phase</li>
+              <li><strong>A better fit for daily work</strong></li>
             </ul>
 
             <div class="pricing-actions">
@@ -270,30 +299,33 @@
 
           <div class="card pricing-card">
             <h2 class="pricing-name lang-bg">Custom</h2>
-            <h2 class="pricing-name lang-en">Персонализиран</h2>
+            <h2 class="pricing-name lang-en">Custom</h2>
 
-            <p class="pricing-for lang-bg">За по-голям екип, по-интензивно използване и по-близка комуникация.</p>
-            <p class="pricing-for lang-en">For a larger team, heavier use, and closer communication.</p>
+            <p class="pricing-subtitle lang-bg">За по-специфичен workflow</p>
+            <p class="pricing-subtitle lang-en">For a more specific workflow</p>
+
+            <p class="pricing-for lang-bg">За по-голям екип, по-интензивно използване или нужда от по-близка комуникация.</p>
+            <p class="pricing-for lang-en">For a larger team, heavier use, or cases where you need closer communication.</p>
 
             <div class="pricing-price">
-  <span class="value lang-bg" style="font-size:34px;">По запитване</span>
-  <span class="value lang-en" style="font-size:34px;">Contact us</span>
-</div>
+              <span class="value lang-bg" style="font-size:34px;">По запитване</span>
+              <span class="value lang-en" style="font-size:34px;">Contact us</span>
+            </div>
 
             <ul class="pricing-list lang-bg">
               <li><strong>Всичко от Studio</strong></li>
               <li><strong>По-бърза директна комуникация</strong></li>
               <li><strong>Помощ за workflow review</strong></li>
-              <li><strong>Подходящо за екипи</strong> с по-сериозна натовареност</li>
-              <li><strong>По-добра база</strong> за бъдещо team развитие</li>
+              <li><strong>Подходящо за по-специфични нужди</strong></li>
+              <li><strong>За случаи извън стандартните планове</strong></li>
             </ul>
 
             <ul class="pricing-list lang-en">
               <li><strong>Everything in Studio</strong></li>
               <li><strong>Faster direct communication</strong></li>
               <li><strong>Help with workflow review</strong></li>
-              <li><strong>Suitable for teams</strong> with heavier usage</li>
-              <li><strong>A stronger base</strong> for future team growth</li>
+              <li><strong>Suitable for more specific needs</strong></li>
+              <li><strong>For cases outside the standard plans</strong></li>
             </ul>
 
             <div class="pricing-actions">
@@ -301,9 +333,9 @@
                 <span class="lang-bg">Пробвай trial</span>
                 <span class="lang-en">Try the trial</span>
               </a>
-              <a class="btn" href="mailto:info@getshotfactory.com?subject=ShotFactory%20Business%20Plan">
-                <span class="lang-bg">Избирам Custom</span>
-                <span class="lang-en">Choose Персонализиран</span>
+              <a class="btn" href="mailto:info@getshotfactory.com?subject=ShotFactory%20Custom%20Plan">
+                <span class="lang-bg">Свържи се с нас</span>
+                <span class="lang-en">Contact us</span>
               </a>
             </div>
           </div>
@@ -311,11 +343,11 @@
 
         <div class="pricing-note lang-bg">
           <strong style="color:var(--text);">Важно:</strong>
-          trial версията е за реален тест с твои собствени снимки. Платените планове са без watermark на export-ите. Ако искаш да започнеш, най-добрият подход е първо да пробваш trial-а, а после да избереш план.
+          trial версията е за реален тест с твои собствени снимки. Платените планове са без watermark на export-ите. Най-разумният път е първо да пробваш trial-а, а после да избереш план.
         </div>
         <div class="pricing-note lang-en">
           <strong style="color:var(--text);">Important:</strong>
-          the trial is intended for real testing with your own images. Paid plans remove the watermark from exports. If you want to get started, the best path is to test the trial first and then choose a plan.
+          the trial is intended for real testing with your own images. Paid plans remove the watermark from exports. The most sensible path is to try the trial first and then choose a plan.
         </div>
       </div>
     </section>
@@ -459,20 +491,3 @@
   </script>
 </body>
 </html>
-.pricing-card{
-  display:flex;
-  flex-direction:column;
-}
-
-.pricing-list{
-  flex:1 1 auto;
-}
-
-.pricing-actions{
-  margin-top:auto;
-  padding-top:18px;
-}
-
-.pricing-actions .btn{
-  min-width: 190px;
-}
