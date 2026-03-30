@@ -2,27 +2,108 @@
 <html lang="bg">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Privacy Policy / Политика за поверителност</title>
-  <link rel="stylesheet" href="/styles.css?v=legal-bilingual-1" />
+  <meta name="description" content="Политика за поверителност на ShotFactory и getshotfactory.com." />
+  <link rel="stylesheet" href="/styles.css?v=legal-light-01" />
+  <style>
+    .legal-hero{ padding:42px 0 20px; }
+    .legal-shell{
+      background:linear-gradient(180deg,#ffffff,#f8fbfd);
+      border:1px solid var(--accent-line);
+      border-radius:28px;
+      box-shadow:var(--shadow-lg);
+      padding:28px;
+    }
+    .legal-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 18px;
+    }
+    .legal-meta .badge{ box-shadow:none; }
+    .legal-intro{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.65;
+      margin:0;
+      max-width:900px;
+    }
+    .legal-content{
+      margin-top:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow-md);
+    }
+    .legal-content h2{
+      margin:28px 0 10px;
+      font-size:26px;
+      line-height:1.2;
+      letter-spacing:-.4px;
+      color:var(--text);
+    }
+    .legal-content h2:first-of-type{ margin-top:0; }
+    .legal-content p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+    }
+    .legal-content ul{
+      margin:0 0 16px 0;
+      padding-left:22px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+    .legal-content li{ margin-bottom:4px; }
+    .legal-content strong{ color:var(--text); }
+    .legal-contact{
+      margin-top:20px;
+      padding:18px;
+      border:1px solid var(--accent-line);
+      border-radius:18px;
+      background:linear-gradient(180deg,#ffffff,#f6fbf8);
+    }
+    .legal-contact p:last-child{ margin-bottom:0; }
+    @media (max-width:900px){
+      .legal-shell, .legal-content{ padding:20px; }
+      .legal-content h2{ font-size:22px; }
+      .legal-intro{ font-size:17px; }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/" aria-label="ShotFactory">
+      <a class="brand" href="/index.html#top" aria-label="ShotFactory">
         <img src="/assets/logo.png" alt="ShotFactory logo" class="logo" />
         <span>ShotFactory</span>
       </a>
 
-      <nav class="nav">
-        <a href="/" class="lang-bg">Начало</a>
-        <a href="/" class="lang-en">Home</a>
+      <button type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="siteNav">☰</button>
+
+      <nav class="nav" id="siteNav">
+        <a href="/index.html#top" class="lang-bg">Начало</a>
+        <a href="/index.html#top" class="lang-en">Home</a>
+
+        <a href="/download.html" class="lang-bg">Свали</a>
+        <a href="/download.html" class="lang-en">Download</a>
 
         <a href="/privacy.html" class="lang-bg">Поверителност</a>
         <a href="/privacy.html" class="lang-en">Privacy</a>
 
         <a href="/terms.html" class="lang-bg">Общи условия</a>
         <a href="/terms.html" class="lang-en">Terms</a>
+
+        <a href="/index.html#contact" class="lang-bg">Контакт</a>
+        <a href="/index.html#contact" class="lang-en">Contact</a>
 
         <span class="lang-switch">
           <button type="button" id="langToggle" class="lang-btn">EN</button>
@@ -32,236 +113,250 @@
   </header>
 
   <main>
-    <section class="section">
+    <section class="legal-hero">
       <div class="container">
-        <div class="card">
-          <h1 class="lang-bg">Политика за поверителност</h1>
-          <h1 class="lang-en">Privacy Policy</h1>
+        <div class="legal-shell">
+          <div class="legal-meta">
+            <span class="badge lang-bg">Юридическа информация</span>
+            <span class="badge lang-en">Legal information</span>
 
-          <p class="lang-bg">
-            Настоящата политика описва как се събират, използват и съхраняват лични данни при използване на сайта
-            <strong>getshotfactory.com</strong> и при изпращане на информация чрез формите на сайта.
-          </p>
-          <p class="lang-en">
-            This policy explains how personal data is collected, used and stored when using
-            <strong>getshotfactory.com</strong> and when submitting information through the website forms.
-          </p>
+            <span class="badge lang-bg">Last updated: 30 Mar 2026</span>
+            <span class="badge lang-en">Last updated: 30 Mar 2026</span>
+          </div>
 
-          <h2 class="lang-bg">1. Администратор на лични данни</h2>
-          <h2 class="lang-en">1. Data Controller</h2>
+          <h1 class="section-head lang-bg" style="margin-bottom:14px;">Политика за поверителност</h1>
+          <h1 class="section-head lang-en" style="margin-bottom:14px;">Privacy Policy</h1>
 
-          <p class="lang-bg">
-            Администратор на личните данни е:
+          <p class="legal-intro lang-bg">
+            Тази страница описва какви данни могат да бъдат събирани чрез сайта <strong>getshotfactory.com</strong>, как се използват и как се съхраняват, когато посетител изпрати информация чрез формите на сайта.
           </p>
-          <p class="lang-en">
-            The data controller is:
+          <p class="legal-intro lang-en">
+            This page explains what data may be collected through <strong>getshotfactory.com</strong>, how it is used, and how it is stored when a visitor submits information through the website forms.
           </p>
 
-          <p>
-            <strong>Мирослав Неновски / Miroslav Nenovski</strong><br>
-            гр. София, жк. Овча Купел 2, блок 8Б<br>
-            Sofia, Ovcha Kupel 2, block 8B<br>
-            Email: nenovski1988@gmail.com
-          </p>
+          <div class="legal-content">
+            <h2 class="lang-bg">1. Администратор на данни</h2>
+            <h2 class="lang-en">1. Data controller</h2>
 
-          <h2 class="lang-bg">2. Какви данни се събират</h2>
-          <h2 class="lang-en">2. What data is collected</h2>
+            <p class="lang-bg">Администратор на личните данни, обработвани чрез сайта, е:</p>
+            <p class="lang-en">The controller of personal data processed through the website is:</p>
 
-          <p class="lang-bg">При използване на формите на сайта могат да бъдат събрани следните данни:</p>
-          <p class="lang-en">When using the website forms, the following data may be collected:</p>
+            <p>
+              <strong>Мирослав Неновски / Miroslav Nenovski</strong><br>
+              гр. София, жк. Овча Купел 2, блок 8Б<br>
+              Sofia, Ovcha Kupel 2, block 8B<br>
+              Email: <strong>nenovski1988@gmail.com</strong>
+            </p>
 
-          <ul class="lang-bg">
-            <li>име (ако е въведено)</li>
-            <li>имейл адрес</li>
-            <li>име на фирма (по желание)</li>
-            <li>текст на съобщението, отзива или съвета</li>
-            <li>техническа информация, използвана за защита от спам</li>
-          </ul>
+            <h2 class="lang-bg">2. Какви данни могат да бъдат събирани</h2>
+            <h2 class="lang-en">2. What data may be collected</h2>
 
-          <ul class="lang-en">
-            <li>name, if provided</li>
-            <li>email address</li>
-            <li>company name, if provided</li>
-            <li>message, review or tip content</li>
-            <li>technical information used for spam protection</li>
-          </ul>
+            <p class="lang-bg">При използване на формите на сайта могат да бъдат събрани:</p>
+            <p class="lang-en">When the website forms are used, the following may be collected:</p>
 
-          <p class="lang-bg">
-            Формите на сайта се обработват чрез външната услуга <strong>Formspree</strong>,
-            която служи за доставяне на съобщенията към имейл адреса на администратора.
-          </p>
-          <p class="lang-en">
-            The website forms are processed through the external service <strong>Formspree</strong>,
-            which is used to deliver submitted messages to the administrator’s email.
-          </p>
+            <ul class="lang-bg">
+              <li>име, ако е въведено от потребителя</li>
+              <li>имейл адрес</li>
+              <li>име на фирма или бранд, ако е въведено</li>
+              <li>съдържанието на съобщение, отзив или съвет</li>
+              <li>техническа информация, използвана за защита от спам и обработка на формата</li>
+            </ul>
 
-          <h2 class="lang-bg">3. Цел на събирането на данни</h2>
-          <h2 class="lang-en">3. Purpose of data collection</h2>
+            <ul class="lang-en">
+              <li>name, if provided by the user</li>
+              <li>email address</li>
+              <li>company or brand name, if provided</li>
+              <li>the content of a message, review, or tip</li>
+              <li>technical information used for spam protection and form handling</li>
+            </ul>
 
-          <p class="lang-bg">Личните данни се използват единствено за:</p>
-          <p class="lang-en">Personal data is used only for:</p>
+            <h2 class="lang-bg">3. Как се събират данните</h2>
+            <h2 class="lang-en">3. How data is collected</h2>
 
-          <ul class="lang-bg">
-            <li>отговор на запитвания за лиценз или цена</li>
-            <li>комуникация с потребители</li>
-            <li>преглед и евентуално публикуване на изпратени съвети или отзиви</li>
-            <li>подобряване на услугата и сравняване на ефективността на комуникацията</li>
-          </ul>
+            <p class="lang-bg">
+              Данните се събират основно когато посетител изпрати информация чрез формите на сайта.
+              Формите се обработват чрез външната услуга <strong>Formspree</strong>, която доставя изпратените съобщения към имейл адреса на администратора.
+            </p>
+            <p class="lang-en">
+              Data is collected mainly when a visitor submits information through the website forms.
+              The forms are processed through the external service <strong>Formspree</strong>, which delivers submitted messages to the administrator’s email address.
+            </p>
 
-          <ul class="lang-en">
-            <li>replying to license or pricing inquiries</li>
-            <li>communication with users</li>
-            <li>reviewing and potentially publishing submitted tips or reviews</li>
-            <li>improving the service and comparing communication effectiveness</li>
-          </ul>
+            <h2 class="lang-bg">4. За какво се използват данните</h2>
+            <h2 class="lang-en">4. What the data is used for</h2>
 
-          <p class="lang-bg">
-            Данните не се продават и не се използват за нерелевантни маркетингови кампании.
-          </p>
-          <p class="lang-en">
-            Data is not sold and is not used for unrelated marketing campaigns.
-          </p>
+            <p class="lang-bg">Личните данни се използват само за цели, свързани с ShotFactory, включително:</p>
+            <p class="lang-en">Personal data is used only for purposes related to ShotFactory, including:</p>
 
-          <h2 class="lang-bg">4. Срок на съхранение</h2>
-          <h2 class="lang-en">4. Retention period</h2>
+            <ul class="lang-bg">
+              <li>отговор на запитвания за лиценз, trial или цена</li>
+              <li>комуникация с потребители относно приложението или сайта</li>
+              <li>преглед на изпратени съвети или отзиви</li>
+              <li>подобряване на комуникацията и услугата</li>
+            </ul>
 
-          <p class="lang-bg">
-            Данните се съхраняват до приключване на комуникацията с потребителя
-            или до <strong>1 година след последния контакт</strong>.
-          </p>
-          <p class="lang-en">
-            Data is stored until communication with the user is completed
-            or for up to <strong>1 year after the last contact</strong>.
-          </p>
+            <ul class="lang-en">
+              <li>replying to licensing, trial, or pricing inquiries</li>
+              <li>communicating with users about the application or the website</li>
+              <li>reviewing submitted tips or reviews</li>
+              <li>improving communication and the service</li>
+            </ul>
 
-          <p class="lang-bg">
-            Този период позволява проследяване на резултатите от комуникацията и подобряване на услугата.
-          </p>
-          <p class="lang-en">
-            This period allows tracking communication results and improving the service.
-          </p>
+            <p class="lang-bg">Данните не се продават и не се използват за нерелевантни маркетингови кампании.</p>
+            <p class="lang-en">Data is not sold and is not used for unrelated marketing campaigns.</p>
 
-          <h2 class="lang-bg">5. Споделяне на данни</h2>
-          <h2 class="lang-en">5. Data sharing</h2>
+            <h2 class="lang-bg">5. Срок на съхранение</h2>
+            <h2 class="lang-en">5. Retention period</h2>
 
-          <p class="lang-bg">
-            Личните данни не се предоставят на трети лица, освен когато това е необходимо
-            за техническата работа на сайта и формите.
-          </p>
-          <p class="lang-en">
-            Personal data is not shared with third parties unless this is necessary
-            for the technical operation of the website and forms.
-          </p>
+            <p class="lang-bg">
+              Данните се съхраняват до приключване на комуникацията с потребителя или до <strong>1 година след последния контакт</strong>, освен ако по-дълъг срок не е необходим за защита на законни интереси или за изпълнение на правно задължение.
+            </p>
+            <p class="lang-en">
+              Data is stored until communication with the user is completed or for up to <strong>1 year after the last contact</strong>, unless a longer period is necessary to protect legitimate interests or comply with a legal obligation.
+            </p>
 
-          <p class="lang-bg">
-            За обработка на формите се използва <strong>Formspree</strong>.
-          </p>
-          <p class="lang-en">
-            <strong>Formspree</strong> is used to process form submissions.
-          </p>
+            <h2 class="lang-bg">6. Споделяне на данни</h2>
+            <h2 class="lang-en">6. Data sharing</h2>
 
-          <h2 class="lang-bg">6. Права на потребителите</h2>
-          <h2 class="lang-en">6. User rights</h2>
+            <p class="lang-bg">
+              Личните данни не се предоставят на трети лица, освен когато това е необходимо за техническата работа на сайта и обработката на формите.
+            </p>
+            <p class="lang-en">
+              Personal data is not disclosed to third parties unless this is necessary for the technical operation of the website and the handling of forms.
+            </p>
 
-          <p class="lang-bg">
-            Съгласно приложимото законодателство имате право да:
-          </p>
-          <p class="lang-en">
-            Under applicable law, you have the right to:
-          </p>
+            <p class="lang-bg">За обработка на формите се използва <strong>Formspree</strong>.</p>
+            <p class="lang-en"><strong>Formspree</strong> is used to process form submissions.</p>
 
-          <ul class="lang-bg">
-            <li>получите информация за съхраняваните данни</li>
-            <li>поискате корекция на неточни данни</li>
-            <li>поискате изтриване на данни</li>
-            <li>ограничите обработката</li>
-            <li>подадете жалба до компетентен надзорен орган</li>
-          </ul>
+            <h2 class="lang-bg">7. Права на потребителите</h2>
+            <h2 class="lang-en">7. User rights</h2>
 
-          <ul class="lang-en">
-            <li>obtain information about stored data</li>
-            <li>request correction of inaccurate data</li>
-            <li>request deletion of data</li>
-            <li>restrict processing</li>
-            <li>lodge a complaint with a competent supervisory authority</li>
-          </ul>
+            <p class="lang-bg">Съгласно приложимото законодателство потребителят може да:</p>
+            <p class="lang-en">Under applicable law, a user may:</p>
 
-          <p class="lang-bg">
-            За упражняване на тези права можете да се свържете на:
-            <strong>nenovski1988@gmail.com</strong>
-          </p>
-          <p class="lang-en">
-            To exercise these rights, you may contact:
-            <strong>nenovski1988@gmail.com</strong>
-          </p>
+            <ul class="lang-bg">
+              <li>получи информация за съхраняваните данни</li>
+              <li>поиска корекция на неточни данни</li>
+              <li>поиска изтриване на данни</li>
+              <li>поиска ограничаване на обработката</li>
+              <li>подаде жалба до компетентен надзорен орган</li>
+            </ul>
 
-          <h2 class="lang-bg">7. Бисквитки</h2>
-          <h2 class="lang-en">7. Cookies</h2>
+            <ul class="lang-en">
+              <li>request information about stored data</li>
+              <li>request correction of inaccurate data</li>
+              <li>request deletion of data</li>
+              <li>request restriction of processing</li>
+              <li>lodge a complaint with a competent supervisory authority</li>
+            </ul>
 
-          <p class="lang-bg">
-            Сайтът не използва рекламни или маркетингови бисквитки.
-            Възможно е използването на технически бисквитки, необходими за нормалната работа на сайта.
-          </p>
-          <p class="lang-en">
-            The website does not use advertising or marketing cookies.
-            Technical cookies required for normal site operation may be used.
-          </p>
+            <h2 class="lang-bg">8. Бисквитки</h2>
+            <h2 class="lang-en">8. Cookies</h2>
 
-          <h2 class="lang-bg">8. Промени в политиката</h2>
-          <h2 class="lang-en">8. Changes to this policy</h2>
+            <p class="lang-bg">
+              Сайтът не използва рекламни или маркетингови бисквитки. Възможно е да се използват технически бисквитки, които са необходими за нормалното функциониране на сайта.
+            </p>
+            <p class="lang-en">
+              The website does not use advertising or marketing cookies. Technical cookies necessary for the normal operation of the website may still be used.
+            </p>
 
-          <p class="lang-bg">
-            Настоящата политика може да бъде актуализирана при промени в сайта или услугата.
-          </p>
-          <p class="lang-en">
-            This policy may be updated if the website or service changes.
-          </p>
+            <h2 class="lang-bg">9. Промени в тази политика</h2>
+            <h2 class="lang-en">9. Changes to this policy</h2>
+
+            <p class="lang-bg">
+              Тази политика може да бъде актуализирана, ако има промени в сайта, начина на комуникация или начина на обработка на данни.
+            </p>
+            <p class="lang-en">
+              This policy may be updated if there are changes to the website, the communication process, or the way data is handled.
+            </p>
+
+            <div class="legal-contact">
+              <h2 class="lang-bg" style="margin-top:0;">10. Контакт</h2>
+              <h2 class="lang-en" style="margin-top:0;">10. Contact</h2>
+
+              <p class="lang-bg">
+                За въпроси относно тази политика или за упражняване на права, свързани с лични данни, може да се свържеш на:
+                <strong>nenovski1988@gmail.com</strong>
+              </p>
+              <p class="lang-en">
+                For questions about this policy or to exercise rights related to personal data, contact:
+                <strong>nenovski1988@gmail.com</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-wrap">
+      <div class="container footer">
+        <div>© <span id="year"></span> ShotFactory</div>
+        <div class="footer-links">
+          <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
+          <a href="/privacy.html" class="lang-en">Privacy Policy</a>
+
+          <a href="/terms.html" class="lang-bg">Общи условия</a>
+          <a href="/terms.html" class="lang-en">Terms</a>
         </div>
       </div>
     </section>
   </main>
 
-  <section class="section foot">
-    <div class="container footer footer-links">
-      <div class="muted small">© <span id="y"></span> ShotFactory</div>
-
-      <div class="footer-legal">
-        <a href="/privacy.html" class="lang-bg">Политика за поверителност</a>
-        <a href="/privacy.html" class="lang-en">Privacy Policy</a>
-
-        <a href="/terms.html" class="lang-bg">Общи условия</a>
-        <a href="/terms.html" class="lang-en">Terms</a>
-      </div>
-    </div>
-  </section>
-
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function setLang(lang) {
+    function setLang(lang){
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
-
       const btn = document.getElementById("langToggle");
-      if (btn) btn.textContent = lang === "bg" ? "EN" : "BG";
+      if(btn) btn.textContent = lang === "bg" ? "EN" : "BG";
     }
 
-    function getDefaultLang() {
+    function getDefaultLang(){
       const saved = localStorage.getItem("lang");
-      if (saved === "bg" || saved === "en") return saved;
-      const nav = (navigator.language || "").toLowerCase();
-      return nav.startsWith("bg") ? "bg" : "en";
+      if(saved === "bg" || saved === "en") return saved;
+      const navLang = (navigator.language || "").toLowerCase();
+      return navLang.startsWith("bg") ? "bg" : "en";
     }
 
     const langBtn = document.getElementById("langToggle");
-    if (langBtn) {
+    if(langBtn){
       langBtn.addEventListener("click", () => {
-        const current = document.documentElement.lang || getDefaultLang();
+        const current = document.documentElement.lang === "bg" ? "bg" : "en";
         setLang(current === "bg" ? "en" : "bg");
       });
     }
 
     setLang(getDefaultLang());
+
+    function closeMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+
+    function toggleMobileMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("menuToggle");
+      if(!nav || !btn) return;
+      const isOpen = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.textContent = isOpen ? "✕" : "☰";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    if(menuToggle){
+      menuToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    document.querySelectorAll("#siteNav a").forEach(el => {
+      el.addEventListener("click", () => {
+        if(window.innerWidth <= 900) closeMobileMenu();
+      });
+    });
   </script>
 </body>
 </html>
