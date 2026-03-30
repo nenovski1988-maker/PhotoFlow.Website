@@ -666,55 +666,12 @@ html[lang="en"] .lang-bg{ display:none !important; }
   }
 }
 .download-hero-grid{
-  grid-template-columns: minmax(0, 1fr) 380px;
-  align-items:start;
-  gap:24px;
+  grid-template-columns: 1fr;
+  max-width: 860px;
 }
 
 .download-hero-grid .hero-copy{
-  max-width: 900px;
-}
-
-.download-side-card{
-  position:relative;
-  top:6px;
-}
-
-.download-side-list{
-  margin:14px 0 0;
-  padding:0;
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.download-side-list li{
-  color:var(--muted);
-  line-height:1.6;
-  padding:0 0 12px;
-  border-bottom:1px solid var(--line);
-}
-
-.download-side-list li:last-child{
-  border-bottom:none;
-  padding-bottom:0;
-}
-
-.download-side-list strong{
-  color:var(--text);
-  display:block;
-  margin-bottom:2px;
-}
-
-.download-note{
-  margin-top:16px;
-  padding:14px;
-  border:1px solid var(--accent-line);
-  border-radius:16px;
-  background:linear-gradient(180deg,#ffffff,#f6fbf8);
-  color:var(--muted);
-  line-height:1.65;
+  max-width: 860px;
 }
 
 @media (max-width: 1100px){
