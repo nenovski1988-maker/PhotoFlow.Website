@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Automated product photo processing for Windows</title>
   <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
-  <link rel="stylesheet" href="/styles.css?v=light-trust-03" />
+  <link rel="stylesheet" href="/styles.css?v=light-trust-04" />
   <style>
     .app-shot{
       display:block;
@@ -19,6 +19,10 @@
         0 18px 40px rgba(18,32,56,.10),
         0 0 30px rgba(18,32,56,.06);
       overflow:hidden;
+    }
+
+    .zoomable-shot{
+      cursor:zoom-in;
     }
 
     .hero-shot-wrap{
@@ -51,10 +55,6 @@
       z-index:1;
     }
 
-    .screenshot-card:hover{
-      z-index:30;
-    }
-
     .screenshot-card .shot-body{
       padding:18px 18px 20px;
     }
@@ -70,7 +70,7 @@
       align-items:center;
       justify-content:center;
       text-align:left;
-      overflow:visible;
+      overflow:hidden;
       border-radius:24px;
     }
 
@@ -82,22 +82,90 @@
       object-fit:contain;
       border-radius:18px;
       margin:0 auto;
-      transition:
-        transform .22s ease,
-        box-shadow .22s ease;
-      transform-origin:center center;
-      cursor:zoom-in;
     }
 
-    .screenshot-card:hover .app-shot{
-      transform:scale(1.55);
-      box-shadow:0 28px 60px rgba(18,32,56,.18);
+    .shot-lightbox{
+      position:fixed;
+      inset:0;
+      z-index:5000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .shot-lightbox.hidden{
+      display:none !important;
+    }
+
+    .shot-lightbox-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(10,18,32,.72);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .shot-lightbox-inner{
+      position:relative;
+      z-index:2;
+      width:min(94vw, 1400px);
+      height:min(88vh, 980px);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .shot-lightbox-close{
+      align-self:flex-end;
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.24);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+    }
+
+    .shot-lightbox-close:hover{
+      background:rgba(255,255,255,.18);
+    }
+
+    .shot-lightbox-stage{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:auto;
+      border-radius:24px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 30px 80px rgba(0,0,0,.28);
+      padding:28px;
+    }
+
+    .shot-lightbox-image{
+      max-width:none;
+      max-height:none;
+      width:auto;
+      height:auto;
+      transform-origin:center center;
+      transition:transform .08s linear;
+      border-radius:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.26);
+    }
+
+    .shot-lightbox-hint{
+      color:rgba(255,255,255,.88);
+      text-align:center;
+      font-size:14px;
     }
 
     @media (max-width:900px){
       .shot-box{
         height:auto;
-        overflow:hidden;
       }
 
       .screenshot-card .app-shot{
@@ -106,8 +174,17 @@
         height:auto;
       }
 
-      .screenshot-card:hover .app-shot{
-        transform:none;
+      .shot-lightbox{
+        padding:12px;
+      }
+
+      .shot-lightbox-inner{
+        width:100%;
+        height:92vh;
+      }
+
+      .shot-lightbox-stage{
+        padding:14px;
       }
     }
   </style>
@@ -207,7 +284,7 @@
           <div class="hero-shot-wrap">
             <img src="/assets/main-window-purple-shirt.png"
                  alt="ShotFactory main window"
-                 class="app-shot hero-shot" />
+                 class="app-shot hero-shot zoomable-shot" />
           </div>
         </div>
       </div>
@@ -330,7 +407,7 @@
               <div class="shot-box">
                 <img src="/assets/main-window-purple-shirt.png"
                      alt="ShotFactory main window screenshot"
-                     class="app-shot" />
+                     class="app-shot zoomable-shot" />
               </div>
             </div>
           </div>
@@ -344,7 +421,7 @@
               <div class="shot-box">
                 <img src="/assets/preview-manual-purple-shirt.png"
                      alt="ShotFactory preview window with manual sliders"
-                     class="app-shot" />
+                     class="app-shot zoomable-shot" />
               </div>
             </div>
           </div>
@@ -358,7 +435,7 @@
               <div class="shot-box">
                 <img src="/assets/folder-setup-window.png"
                      alt="ShotFactory folder setup window"
-                     class="app-shot" />
+                     class="app-shot zoomable-shot" />
               </div>
             </div>
           </div>
@@ -506,6 +583,24 @@
     </section>
   </main>
 
+  <!-- LIGHTBOX -->
+  <div id="shotLightbox" class="shot-lightbox hidden" aria-hidden="true">
+    <div class="shot-lightbox-backdrop" id="shotLightboxBackdrop"></div>
+
+    <div class="shot-lightbox-inner">
+      <button type="button" class="shot-lightbox-close" id="shotLightboxClose" aria-label="Close">×</button>
+
+      <div class="shot-lightbox-stage" id="shotLightboxStage">
+        <img id="shotLightboxImage" class="shot-lightbox-image" alt="Expanded screenshot" />
+      </div>
+
+      <div class="shot-lightbox-hint">
+        <span class="lang-bg">Скрол за zoom • Esc за затваряне</span>
+        <span class="lang-en">Scroll to zoom • Esc to close</span>
+      </div>
+    </div>
+  </div>
+
   <!-- LICENSE MODAL -->
   <div id="licenseModal" class="modal hidden" aria-hidden="true">
     <div class="modal-content">
@@ -650,13 +745,6 @@
       });
     }
 
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape"){
-        closeLicenseModal();
-        closeMobileMenu();
-      }
-    });
-
     function wireForm(form, redirectUrl){
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -684,6 +772,73 @@
 
     document.querySelectorAll("form.form").forEach(f => {
       wireForm(f, "/thanks.html");
+    });
+
+    let shotScale = 1;
+    const shotMinScale = 1;
+    const shotMaxScale = 4;
+
+    const shotLightbox = document.getElementById("shotLightbox");
+    const shotLightboxImage = document.getElementById("shotLightboxImage");
+    const shotLightboxBackdrop = document.getElementById("shotLightboxBackdrop");
+    const shotLightboxClose = document.getElementById("shotLightboxClose");
+    const shotLightboxStage = document.getElementById("shotLightboxStage");
+
+    function applyShotZoom(){
+      if(!shotLightboxImage) return;
+      shotLightboxImage.style.transform = `scale(${shotScale})`;
+    }
+
+    function openShotLightbox(src, altText){
+      if(!shotLightbox || !shotLightboxImage) return;
+      shotScale = 1;
+      shotLightboxImage.src = src;
+      shotLightboxImage.alt = altText || "Expanded screenshot";
+      applyShotZoom();
+      shotLightbox.classList.remove("hidden");
+      shotLightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeShotLightbox(){
+      if(!shotLightbox || !shotLightboxImage) return;
+      shotLightbox.classList.add("hidden");
+      shotLightbox.setAttribute("aria-hidden", "true");
+      shotLightboxImage.src = "";
+      document.body.classList.remove("modal-open");
+    }
+
+    document.querySelectorAll(".zoomable-shot").forEach(img => {
+      img.addEventListener("click", () => {
+        openShotLightbox(img.src, img.alt);
+      });
+    });
+
+    if(shotLightboxBackdrop){
+      shotLightboxBackdrop.addEventListener("click", closeShotLightbox);
+    }
+
+    if(shotLightboxClose){
+      shotLightboxClose.addEventListener("click", closeShotLightbox);
+    }
+
+    if(shotLightboxStage){
+      shotLightboxStage.addEventListener("wheel", (e) => {
+        if(shotLightbox.classList.contains("hidden")) return;
+        e.preventDefault();
+
+        const delta = e.deltaY < 0 ? 0.12 : -0.12;
+        shotScale = Math.min(shotMaxScale, Math.max(shotMinScale, shotScale + delta));
+        applyShotZoom();
+      }, { passive:false });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        closeShotLightbox();
+        closeLicenseModal();
+        closeMobileMenu();
+      }
     });
   </script>
 </body>
