@@ -6,37 +6,74 @@
   <title>ShotFactory – Automated product photo processing for Windows</title>
   <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
   <link rel="stylesheet" href="/styles.css?v=light-trust-02" />
-  <style>
-    .app-shot{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:16px;
-  border:0;
-  background:#ffffff;
-  box-shadow:0 14px 30px rgba(18,32,56,.08);
-}
+ <style>
+  .app-shot{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:18px;
+    border:0;
+    background:transparent;
+    box-shadow:none;
+  }
 
-    .hero-shot-wrap{
-      padding:0px;
-    }
+  .hero-shot-wrap{
+    padding:0;
+  }
 
-    .hero-shot{
-      border-radius:22px;
-    }
-    .hero-visual{
-  padding:14px;
-}
+  .hero-shot{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:22px;
+    box-shadow:0 14px 30px rgba(18,32,56,.08);
+  }
 
-.hero-visual .app-shot{
-  width:100%;
-  max-width:none;
-}
+  .hero-visual{
+    padding:14px;
+  }
 
+  .screenshot-card{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .screenshot-card .shot-body{
+    padding:18px 18px 20px;
+  }
+
+  .shot-box{
+    padding:0 !important;
+    min-height:0 !important;
+    height:clamp(230px, 24vw, 340px);
+    border:0 !important;
+    background:transparent !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:left;
+  }
+
+  .screenshot-card .app-shot{
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    border-radius:18px;
+  }
+
+  @media (max-width:900px){
     .shot-box{
-      padding:12px;
+      height:auto;
     }
-  </style>
+
+    .screenshot-card .app-shot{
+      height:auto;
+    }
+  }
+</style>
 </head>
 <body>
   <header class="topbar">
