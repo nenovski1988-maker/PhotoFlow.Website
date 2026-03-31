@@ -153,13 +153,14 @@
       user-select:none;
     }
 
-    ..shot-lightbox-canvas{
-  min-width:100%;
-  min-height:100%;
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-}
+    /* FIXED: was "..shot-lightbox-canvas" (double dot) */
+    .shot-lightbox-canvas{
+      min-width:100%;
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:flex-start;
+    }
 
     .shot-lightbox-image{
       display:block;
@@ -178,6 +179,16 @@
       color:rgba(255,255,255,.88);
       text-align:center;
       font-size:14px;
+    }
+
+    .plan-selected-box{
+      background:var(--accent-soft);
+      border:1px solid var(--accent-line);
+      border-radius:12px;
+      padding:12px 16px;
+      margin-bottom:14px;
+      font-size:14px;
+      color:var(--muted);
     }
 
     @media (max-width:900px){
@@ -592,6 +603,7 @@
     </section>
   </main>
 
+  <!-- SHOT LIGHTBOX -->
   <div id="shotLightbox" class="shot-lightbox hidden" aria-hidden="true">
     <div class="shot-lightbox-backdrop" id="shotLightboxBackdrop"></div>
 
@@ -611,6 +623,69 @@
     </div>
   </div>
 
+  <!-- CONTACT MODAL -->
+  <div id="contactModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 class="lang-bg">Изпрати съобщение</h3>
+          <h3 class="lang-en">Send a message</h3>
+        </div>
+        <button class="modal-close" type="button" onclick="closeContactModal()" aria-label="Close">×</button>
+      </div>
+
+      <div class="plan-selected-box">
+        <div class="lang-bg">До: <strong id="contactTargetLabelBg">support@getshotfactory.com</strong></div>
+        <div class="lang-en">To: <strong id="contactTargetLabelEn">support@getshotfactory.com</strong></div>
+      </div>
+
+      <p class="muted lang-bg">Попълни формата и съобщението ще бъде изпратено директно по имейл.</p>
+      <p class="muted lang-en">Fill in the form and the message will be sent directly by email.</p>
+
+      <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+        <input type="hidden" name="type" value="contact_request" />
+        <input type="hidden" name="contact_target" id="contactTargetInput" value="support" />
+
+        <div class="form-grid-2">
+          <label>
+            <span class="lang-bg">Име</span>
+            <span class="lang-en">Name</span>
+            <input name="name" />
+          </label>
+
+          <label>
+            <span class="lang-bg">Имейл</span>
+            <span class="lang-en">Email</span>
+            <input name="email" type="email" required />
+          </label>
+        </div>
+
+        <label style="margin-top:14px;">
+          <span class="lang-bg">Относно</span>
+          <span class="lang-en">Subject</span>
+          <input name="subject" id="contactSubjectInput" required />
+        </label>
+
+        <label style="margin-top:14px;">
+          <span class="lang-bg">Съобщение</span>
+          <span class="lang-en">Message</span>
+          <textarea name="message" rows="6" required placeholder="Опиши накратко какво ти трябва..."></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button class="btn primary" type="submit">
+            <span class="lang-bg">Изпрати</span>
+            <span class="lang-en">Send</span>
+          </button>
+        </div>
+
+        <p class="muted small lang-bg" style="margin-top:12px;">Не е нужен mail app. Формата изпраща директно.</p>
+        <p class="muted small lang-en" style="margin-top:12px;">No mail app needed. The form sends directly.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LICENSE MODAL -->
   <div id="licenseModal" class="modal hidden" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
@@ -675,8 +750,10 @@
   </div>
 
   <script>
+    // ── YEAR ──────────────────────────────────────────────
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // ── LANGUAGE ──────────────────────────────────────────
     function setLang(lang){
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
@@ -687,20 +764,19 @@
     function getDefaultLang(){
       const saved = localStorage.getItem("lang");
       if(saved === "bg" || saved === "en") return saved;
-      const navLang = (navigator.language || "").toLowerCase();
-      return navLang.startsWith("bg") ? "bg" : "en";
+      return (navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : "en";
     }
 
     const langBtn = document.getElementById("langToggle");
     if(langBtn){
       langBtn.addEventListener("click", () => {
-        const current = document.documentElement.lang === "bg" ? "bg" : "en";
-        setLang(current === "bg" ? "en" : "bg");
+        setLang(document.documentElement.lang === "bg" ? "en" : "bg");
       });
     }
 
     setLang(getDefaultLang());
 
+    // ── MOBILE MENU ───────────────────────────────────────
     function closeMobileMenu(){
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("menuToggle");
@@ -715,21 +791,18 @@
       const btn = document.getElementById("menuToggle");
       if(!nav || !btn) return;
       const isOpen = nav.classList.toggle("open");
-      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      btn.setAttribute("aria-expanded", String(isOpen));
       btn.textContent = isOpen ? "✕" : "☰";
     }
 
     const menuToggle = document.getElementById("menuToggle");
-    if(menuToggle){
-      menuToggle.addEventListener("click", toggleMobileMenu);
-    }
+    if(menuToggle){ menuToggle.addEventListener("click", toggleMobileMenu); }
 
     document.querySelectorAll("#siteNav a, #siteNav .nav-link-btn").forEach(el => {
-      el.addEventListener("click", () => {
-        if(window.innerWidth <= 900) closeMobileMenu();
-      });
+      el.addEventListener("click", () => { if(window.innerWidth <= 900) closeMobileMenu(); });
     });
 
+    // ── LICENSE MODAL ─────────────────────────────────────
     function openLicenseModal(){
       const modal = document.getElementById("licenseModal");
       if(!modal) return;
@@ -754,6 +827,47 @@
       });
     }
 
+    // ── CONTACT MODAL ─────────────────────────────────────
+    function openContactModal(target){
+      const modal    = document.getElementById("contactModal");
+      const input    = document.getElementById("contactTargetInput");
+      const labelBg  = document.getElementById("contactTargetLabelBg");
+      const labelEn  = document.getElementById("contactTargetLabelEn");
+      const subject  = document.getElementById("contactSubjectInput");
+      if(!modal || !input || !labelBg || !labelEn || !subject) return;
+
+      const isInfo = target === "info";
+      const email  = isInfo ? "info@getshotfactory.com" : "support@getshotfactory.com";
+
+      input.value    = target;
+      labelBg.textContent = email;
+      labelEn.textContent = email;
+      subject.value  = isInfo
+        ? (document.documentElement.lang === "bg" ? "Общо запитване за ShotFactory"       : "General inquiry about ShotFactory")
+        : (document.documentElement.lang === "bg" ? "Запитване за поддръжка / инсталация" : "Support / installation inquiry");
+
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      closeMobileMenu();
+    }
+
+    function closeContactModal(){
+      const modal = document.getElementById("contactModal");
+      if(!modal) return;
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    const contactModal = document.getElementById("contactModal");
+    if(contactModal){
+      contactModal.addEventListener("click", (e) => {
+        if(e.target === contactModal) closeContactModal();
+      });
+    }
+
+    // ── FORM SUBMIT ───────────────────────────────────────
     function wireForm(form, redirectUrl){
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -766,12 +880,12 @@
           });
           if(res.ok){
             window.location.href = redirectUrl;
-          }else{
+          } else {
             alert(document.documentElement.lang === "bg"
               ? "Неуспешно изпращане. Опитайте отново."
               : "Sending failed. Please try again.");
           }
-        }catch{
+        } catch {
           alert(document.documentElement.lang === "bg"
             ? "Проблем с връзката. Опитайте отново."
             : "Connection problem. Please try again.");
@@ -779,263 +893,180 @@
       });
     }
 
-    document.querySelectorAll("form.form").forEach(f => {
-      wireForm(f, "/thanks.html");
+    document.querySelectorAll("form.form").forEach(f => { wireForm(f, "/thanks.html"); });
+
+    // ── ESC KEY ───────────────────────────────────────────
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        closeShotLightbox();
+        closeLicenseModal();
+        closeContactModal();
+        closeMobileMenu();
+      }
     });
 
+    // ── SHOT LIGHTBOX ─────────────────────────────────────
     let shotScale = 1;
     const shotMinScale = 1;
     const shotMaxScale = 4;
     let shotBaseWidth = 0;
     let shotBaseHeight = 0;
-
     let isDraggingShot = false;
     let shotDragStartX = 0;
     let shotDragStartY = 0;
     let shotDragStartScrollLeft = 0;
     let shotDragStartScrollTop = 0;
 
-    const shotLightbox = document.getElementById("shotLightbox");
+    const shotLightbox      = document.getElementById("shotLightbox");
     const shotLightboxImage = document.getElementById("shotLightboxImage");
     const shotLightboxBackdrop = document.getElementById("shotLightboxBackdrop");
     const shotLightboxClose = document.getElementById("shotLightboxClose");
     const shotLightboxStage = document.getElementById("shotLightboxStage");
-const shotLightboxCanvas = document.getElementById("shotLightboxCanvas");
-    function clamp(value, min, max){
-      return Math.min(max, Math.max(min, value));
-    }
+    const shotLightboxCanvas = document.getElementById("shotLightboxCanvas");
+
+    function clamp(value, min, max){ return Math.min(max, Math.max(min, value)); }
 
     function updateShotDragState(){
       if(!shotLightboxStage) return;
-
       shotLightboxStage.classList.remove("is-draggable", "is-dragging");
-
-      if(shotScale > 1){
-        shotLightboxStage.classList.add("is-draggable");
-      }
-
-      if(isDraggingShot){
-        shotLightboxStage.classList.add("is-dragging");
-      }
+      if(shotScale > 1) shotLightboxStage.classList.add("is-draggable");
+      if(isDraggingShot) shotLightboxStage.classList.add("is-dragging");
     }
-function getShotStageMetrics(){
-  if(!shotLightboxStage) return null;
 
-  const styles = getComputedStyle(shotLightboxStage);
-  const padLeft = parseFloat(styles.paddingLeft) || 0;
-  const padRight = parseFloat(styles.paddingRight) || 0;
-  const padTop = parseFloat(styles.paddingTop) || 0;
-  const padBottom = parseFloat(styles.paddingBottom) || 0;
+    function getShotStageMetrics(){
+      if(!shotLightboxStage) return null;
+      const s = getComputedStyle(shotLightboxStage);
+      const padLeft   = parseFloat(s.paddingLeft)   || 0;
+      const padRight  = parseFloat(s.paddingRight)  || 0;
+      const padTop    = parseFloat(s.paddingTop)    || 0;
+      const padBottom = parseFloat(s.paddingBottom) || 0;
+      return {
+        padLeft, padRight, padTop, padBottom,
+        innerWidth:  Math.max(100, shotLightboxStage.clientWidth  - padLeft - padRight),
+        innerHeight: Math.max(100, shotLightboxStage.clientHeight - padTop  - padBottom)
+      };
+    }
 
-  return {
-    padLeft,
-    padRight,
-    padTop,
-    padBottom,
-    innerWidth: Math.max(100, shotLightboxStage.clientWidth - padLeft - padRight),
-    innerHeight: Math.max(100, shotLightboxStage.clientHeight - padTop - padBottom)
-  };
-}
-   function applyShotZoom(){
-  if(!shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas || !shotBaseWidth || !shotBaseHeight) return;
+    function applyShotZoom(){
+      if(!shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas || !shotBaseWidth || !shotBaseHeight) return;
+      const m = getShotStageMetrics();
+      if(!m) return;
+      const cw = Math.round(shotBaseWidth  * shotScale);
+      const ch = Math.round(shotBaseHeight * shotScale);
+      shotLightboxImage.style.width  = `${cw}px`;
+      shotLightboxImage.style.height = `${ch}px`;
+      shotLightboxCanvas.style.width  = `${Math.max(m.innerWidth,  cw)}px`;
+      shotLightboxCanvas.style.height = `${Math.max(m.innerHeight, ch)}px`;
+      shotLightboxCanvas.style.justifyContent = cw < m.innerWidth  ? "center"     : "flex-start";
+      shotLightboxCanvas.style.alignItems     = ch < m.innerHeight ? "center"     : "flex-start";
+      updateShotDragState();
+    }
 
-  const metrics = getShotStageMetrics();
-  if(!metrics) return;
-
-  const currentWidth = Math.round(shotBaseWidth * shotScale);
-  const currentHeight = Math.round(shotBaseHeight * shotScale);
-
-  shotLightboxImage.style.width = `${currentWidth}px`;
-  shotLightboxImage.style.height = `${currentHeight}px`;
-
-  shotLightboxCanvas.style.width = `${Math.max(metrics.innerWidth, currentWidth)}px`;
-  shotLightboxCanvas.style.height = `${Math.max(metrics.innerHeight, currentHeight)}px`;
-
-  shotLightboxCanvas.style.justifyContent = currentWidth < metrics.innerWidth ? "center" : "flex-start";
-  shotLightboxCanvas.style.alignItems = currentHeight < metrics.innerHeight ? "center" : "flex-start";
-
-  updateShotDragState();
-}
-
-   function fitShotToStage(){
-  if(!shotLightboxImage || !shotLightboxStage) return;
-  if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
-
-  const metrics = getShotStageMetrics();
-  if(!metrics) return;
-
-  const naturalWidth = shotLightboxImage.naturalWidth;
-  const naturalHeight = shotLightboxImage.naturalHeight;
-
-  const fitRatio = Math.min(metrics.innerWidth / naturalWidth, metrics.innerHeight / naturalHeight);
-
-  shotBaseWidth = naturalWidth * fitRatio;
-  shotBaseHeight = naturalHeight * fitRatio;
-  shotScale = 1;
-
-  applyShotZoom();
-
-  shotLightboxStage.scrollLeft = 0;
-  shotLightboxStage.scrollTop = 0;
-}
+    function fitShotToStage(){
+      if(!shotLightboxImage || !shotLightboxStage) return;
+      if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
+      const m = getShotStageMetrics();
+      if(!m) return;
+      const ratio = Math.min(m.innerWidth / shotLightboxImage.naturalWidth, m.innerHeight / shotLightboxImage.naturalHeight);
+      shotBaseWidth  = shotLightboxImage.naturalWidth  * ratio;
+      shotBaseHeight = shotLightboxImage.naturalHeight * ratio;
+      shotScale = 1;
+      applyShotZoom();
+      shotLightboxStage.scrollLeft = 0;
+      shotLightboxStage.scrollTop  = 0;
+    }
 
     function openShotLightbox(src, altText){
       if(!shotLightbox || !shotLightboxImage || !shotLightboxStage) return;
-
       isDraggingShot = false;
-      shotBaseWidth = 0;
+      shotBaseWidth  = 0;
       shotBaseHeight = 0;
-      shotScale = 1;
-
-      shotLightboxImage.onload = () => {
-        requestAnimationFrame(() => {
-          fitShotToStage();
-        });
-      };
-
+      shotScale      = 1;
+      shotLightboxImage.onload = () => { requestAnimationFrame(fitShotToStage); };
       shotLightboxImage.src = src;
       shotLightboxImage.alt = altText || "Expanded screenshot";
-
       shotLightbox.classList.remove("hidden");
       shotLightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
     }
 
     function closeShotLightbox(){
-  if(!shotLightbox || !shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas) return;
-
-  isDraggingShot = false;
-  shotScale = 1;
-  shotBaseWidth = 0;
-  shotBaseHeight = 0;
-
-  shotLightbox.classList.add("hidden");
-  shotLightbox.setAttribute("aria-hidden", "true");
-
-  shotLightboxImage.src = "";
-  shotLightboxImage.style.width = "";
-  shotLightboxImage.style.height = "";
-
-  shotLightboxCanvas.style.width = "";
-  shotLightboxCanvas.style.height = "";
-  shotLightboxCanvas.style.justifyContent = "flex-start";
-  shotLightboxCanvas.style.alignItems = "flex-start";
-
-  shotLightboxStage.scrollLeft = 0;
-  shotLightboxStage.scrollTop = 0;
-
-  updateShotDragState();
-  document.body.classList.remove("modal-open");
-}
+      if(!shotLightbox || !shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas) return;
+      isDraggingShot = false;
+      shotScale = 1;
+      shotBaseWidth  = 0;
+      shotBaseHeight = 0;
+      shotLightbox.classList.add("hidden");
+      shotLightbox.setAttribute("aria-hidden", "true");
+      shotLightboxImage.src          = "";
+      shotLightboxImage.style.width  = "";
+      shotLightboxImage.style.height = "";
+      shotLightboxCanvas.style.width  = "";
+      shotLightboxCanvas.style.height = "";
+      shotLightboxCanvas.style.justifyContent = "flex-start";
+      shotLightboxCanvas.style.alignItems     = "flex-start";
+      shotLightboxStage.scrollLeft = 0;
+      shotLightboxStage.scrollTop  = 0;
+      updateShotDragState();
+      document.body.classList.remove("modal-open");
+    }
 
     document.querySelectorAll(".zoomable-shot").forEach(img => {
-      img.addEventListener("click", () => {
-        openShotLightbox(img.src, img.alt);
-      });
-
-      img.addEventListener("dragstart", (e) => {
-        e.preventDefault();
-      });
+      img.addEventListener("click",     () => { openShotLightbox(img.src, img.alt); });
+      img.addEventListener("dragstart", (e) => { e.preventDefault(); });
     });
 
-    if(shotLightboxBackdrop){
-      shotLightboxBackdrop.addEventListener("click", closeShotLightbox);
-    }
-
-    if(shotLightboxClose){
-      shotLightboxClose.addEventListener("click", closeShotLightbox);
-    }
+    if(shotLightboxBackdrop){ shotLightboxBackdrop.addEventListener("click", closeShotLightbox); }
+    if(shotLightboxClose)   { shotLightboxClose.addEventListener("click",   closeShotLightbox); }
 
     if(shotLightboxStage){
       shotLightboxStage.addEventListener("wheel", (e) => {
-  if(shotLightbox.classList.contains("hidden")) return;
-  if(!shotBaseWidth || !shotBaseHeight) return;
-
-  e.preventDefault();
-
-  const metrics = getShotStageMetrics();
-  if(!metrics) return;
-
-  const oldScale = shotScale;
-  const delta = e.deltaY < 0 ? 0.15 : -0.15;
-  const newScale = clamp(oldScale + delta, shotMinScale, shotMaxScale);
-
-  if(newScale === oldScale) return;
-
-  const stageRect = shotLightboxStage.getBoundingClientRect();
-
-  const pointerX = clamp(
-    e.clientX - stageRect.left - metrics.padLeft,
-    0,
-    metrics.innerWidth
-  );
-
-  const pointerY = clamp(
-    e.clientY - stageRect.top - metrics.padTop,
-    0,
-    metrics.innerHeight
-  );
-
-  const oldWidth = shotBaseWidth * oldScale;
-  const oldHeight = shotBaseHeight * oldScale;
-
-  const oldCanvasWidth = Math.max(metrics.innerWidth, oldWidth);
-  const oldCanvasHeight = Math.max(metrics.innerHeight, oldHeight);
-
-  const oldOffsetX = oldWidth < metrics.innerWidth ? (oldCanvasWidth - oldWidth) / 2 : 0;
-  const oldOffsetY = oldHeight < metrics.innerHeight ? (oldCanvasHeight - oldHeight) / 2 : 0;
-
-  const imagePointX = clamp(
-    pointerX + shotLightboxStage.scrollLeft - oldOffsetX,
-    0,
-    oldWidth
-  );
-
-  const imagePointY = clamp(
-    pointerY + shotLightboxStage.scrollTop - oldOffsetY,
-    0,
-    oldHeight
-  );
-
-  const imageRatioX = oldWidth > 0 ? imagePointX / oldWidth : 0;
-  const imageRatioY = oldHeight > 0 ? imagePointY / oldHeight : 0;
-
-  shotScale = newScale;
-  applyShotZoom();
-
-  requestAnimationFrame(() => {
-    const newWidth = shotBaseWidth * shotScale;
-    const newHeight = shotBaseHeight * shotScale;
-
-    const newCanvasWidth = Math.max(metrics.innerWidth, newWidth);
-    const newCanvasHeight = Math.max(metrics.innerHeight, newHeight);
-
-    const newOffsetX = newWidth < metrics.innerWidth ? (newCanvasWidth - newWidth) / 2 : 0;
-    const newOffsetY = newHeight < metrics.innerHeight ? (newCanvasHeight - newHeight) / 2 : 0;
-
-    const targetContentX = newOffsetX + (imageRatioX * newWidth);
-    const targetContentY = newOffsetY + (imageRatioY * newHeight);
-
-    shotLightboxStage.scrollLeft = targetContentX - pointerX;
-    shotLightboxStage.scrollTop = targetContentY - pointerY;
-  });
-}, { passive:false });
+        if(shotLightbox.classList.contains("hidden") || !shotBaseWidth || !shotBaseHeight) return;
+        e.preventDefault();
+        const m = getShotStageMetrics();
+        if(!m) return;
+        const oldScale = shotScale;
+        const delta    = e.deltaY < 0 ? 0.15 : -0.15;
+        const newScale = clamp(oldScale + delta, shotMinScale, shotMaxScale);
+        if(newScale === oldScale) return;
+        const stageRect = shotLightboxStage.getBoundingClientRect();
+        const pointerX  = clamp(e.clientX - stageRect.left - m.padLeft, 0, m.innerWidth);
+        const pointerY  = clamp(e.clientY - stageRect.top  - m.padTop,  0, m.innerHeight);
+        const oldW = shotBaseWidth  * oldScale;
+        const oldH = shotBaseHeight * oldScale;
+        const oldCW = Math.max(m.innerWidth,  oldW);
+        const oldCH = Math.max(m.innerHeight, oldH);
+        const offX  = oldW < m.innerWidth  ? (oldCW - oldW) / 2 : 0;
+        const offY  = oldH < m.innerHeight ? (oldCH - oldH) / 2 : 0;
+        const imgX  = clamp(pointerX + shotLightboxStage.scrollLeft - offX, 0, oldW);
+        const imgY  = clamp(pointerY + shotLightboxStage.scrollTop  - offY, 0, oldH);
+        const ratioX = oldW > 0 ? imgX / oldW : 0;
+        const ratioY = oldH > 0 ? imgY / oldH : 0;
+        shotScale = newScale;
+        applyShotZoom();
+        requestAnimationFrame(() => {
+          const newW  = shotBaseWidth  * shotScale;
+          const newH  = shotBaseHeight * shotScale;
+          const newCW = Math.max(m.innerWidth,  newW);
+          const newCH = Math.max(m.innerHeight, newH);
+          const nOffX = newW < m.innerWidth  ? (newCW - newW) / 2 : 0;
+          const nOffY = newH < m.innerHeight ? (newCH - newH) / 2 : 0;
+          shotLightboxStage.scrollLeft = nOffX + (ratioX * newW) - pointerX;
+          shotLightboxStage.scrollTop  = nOffY + (ratioY * newH) - pointerY;
+        });
+      }, { passive: false });
 
       shotLightboxStage.addEventListener("dblclick", () => {
-        if(shotLightbox.classList.contains("hidden")) return;
-        fitShotToStage();
+        if(!shotLightbox.classList.contains("hidden")) fitShotToStage();
       });
 
       shotLightboxStage.addEventListener("mousedown", (e) => {
-        if(shotLightbox.classList.contains("hidden")) return;
-        if(shotScale <= 1) return;
-
+        if(shotLightbox.classList.contains("hidden") || shotScale <= 1) return;
         isDraggingShot = true;
         shotDragStartX = e.clientX;
         shotDragStartY = e.clientY;
         shotDragStartScrollLeft = shotLightboxStage.scrollLeft;
-        shotDragStartScrollTop = shotLightboxStage.scrollTop;
-
+        shotDragStartScrollTop  = shotLightboxStage.scrollTop;
         updateShotDragState();
         e.preventDefault();
       });
@@ -1043,12 +1074,8 @@ function getShotStageMetrics(){
 
     window.addEventListener("mousemove", (e) => {
       if(!isDraggingShot || !shotLightboxStage) return;
-
-      const dx = e.clientX - shotDragStartX;
-      const dy = e.clientY - shotDragStartY;
-
-      shotLightboxStage.scrollLeft = shotDragStartScrollLeft - dx;
-      shotLightboxStage.scrollTop = shotDragStartScrollTop - dy;
+      shotLightboxStage.scrollLeft = shotDragStartScrollLeft - (e.clientX - shotDragStartX);
+      shotLightboxStage.scrollTop  = shotDragStartScrollTop  - (e.clientY - shotDragStartY);
     });
 
     window.addEventListener("mouseup", () => {
@@ -1061,122 +1088,6 @@ function getShotStageMetrics(){
       if(!shotLightbox || shotLightbox.classList.contains("hidden")) return;
       fitShotToStage();
     });
-
-  document.addEventListener("keydown", (e) => {
-  if(e.key === "Escape"){
-    closeShotLightbox();
-    closeLicenseModal();
-    closeContactModal();
-    closeMobileMenu();
-  }
-});
   </script>
-  <script>
-  function openContactModal(target){
-    const modal = document.getElementById("contactModal");
-    const input = document.getElementById("contactTargetInput");
-    const labelBg = document.getElementById("contactTargetLabelBg");
-    const labelEn = document.getElementById("contactTargetLabelEn");
-    const subject = document.getElementById("contactSubjectInput");
-
-    if(!modal || !input || !labelBg || !labelEn || !subject) return;
-
-    if(target === "info"){
-      input.value = "info";
-      labelBg.textContent = "info@getshotfactory.com";
-      labelEn.textContent = "info@getshotfactory.com";
-      subject.value = document.documentElement.lang === "bg"
-        ? "Общо запитване за ShotFactory"
-        : "General inquiry about ShotFactory";
-    } else {
-      input.value = "support";
-      labelBg.textContent = "support@getshotfactory.com";
-      labelEn.textContent = "support@getshotfactory.com";
-      subject.value = document.documentElement.lang === "bg"
-        ? "Запитване за поддръжка / инсталация"
-        : "Support / installation inquiry";
-    }
-
-    modal.classList.remove("hidden");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-    closeMobileMenu();
-  }
-
-  function closeContactModal(){
-    const modal = document.getElementById("contactModal");
-    if(!modal) return;
-    modal.classList.add("hidden");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-  }
-
-  const contactModal = document.getElementById("contactModal");
-  if(contactModal){
-    contactModal.addEventListener("click", (e) => {
-      if(e.target === contactModal) closeContactModal();
-    });
-  }
-</script>
-  <div id="contactModal" class="modal hidden" aria-hidden="true">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div>
-        <h3 class="lang-bg">Изпрати съобщение</h3>
-        <h3 class="lang-en">Send a message</h3>
-      </div>
-      <button class="modal-close" type="button" onclick="closeContactModal()" aria-label="Close">×</button>
-    </div>
-
-    <div class="plan-selected-box">
-      <div class="lang-bg">До: <strong id="contactTargetLabelBg">support@getshotfactory.com</strong></div>
-      <div class="lang-en">To: <strong id="contactTargetLabelEn">support@getshotfactory.com</strong></div>
-    </div>
-
-    <p class="muted lang-bg">Попълни формата и съобщението ще бъде изпратено директно по имейл.</p>
-    <p class="muted lang-en">Fill in the form and the message will be sent directly by email.</p>
-
-    <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-      <input type="hidden" name="type" value="contact_request" />
-      <input type="hidden" name="contact_target" id="contactTargetInput" value="support" />
-
-      <div class="form-grid-2">
-        <label>
-          <span class="lang-bg">Име</span>
-          <span class="lang-en">Name</span>
-          <input name="name" />
-        </label>
-
-        <label>
-          <span class="lang-bg">Имейл</span>
-          <span class="lang-en">Email</span>
-          <input name="email" type="email" required />
-        </label>
-      </div>
-
-      <label style="margin-top:14px;">
-        <span class="lang-bg">Относно</span>
-        <span class="lang-en">Subject</span>
-        <input name="subject" id="contactSubjectInput" required />
-      </label>
-
-      <label style="margin-top:14px;">
-        <span class="lang-bg">Съобщение</span>
-        <span class="lang-en">Message</span>
-        <textarea name="message" rows="6" required placeholder="Опиши накратко какво ти трябва..."></textarea>
-      </label>
-
-      <div class="modal-actions">
-        <button class="btn primary" type="submit">
-          <span class="lang-bg">Изпрати</span>
-          <span class="lang-en">Send</span>
-        </button>
-      </div>
-
-      <p class="muted small lang-bg" style="margin-top:12px;">Не е нужен mail app. Формата изпраща директно.</p>
-      <p class="muted small lang-en" style="margin-top:12px;">No mail app is needed. The form sends directly.</p>
-    </form>
-  </div>
-</div>
 </body>
 </html>
