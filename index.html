@@ -551,7 +551,7 @@
 
           <div class="contact-list">
             <div class="contact-row">
-              <a class="btn" href="mailto:support@getshotfactory.com">support@getshotfactory.com</a>
+              <button class="btn" type="button" onclick="openContactModal('support')">support@getshotfactory.com</button>
               <div class="muted">
                 <span class="lang-bg">Инсталация • технически проблеми • лицензиране</span>
                 <span class="lang-en">Installation • technical issues • licensing</span>
@@ -559,7 +559,7 @@
             </div>
 
             <div class="contact-row">
-              <a class="btn" href="mailto:info@getshotfactory.com">info@getshotfactory.com</a>
+              <button class="btn" type="button" onclick="openContactModal('info')">info@getshotfactory.com</button>
               <div class="muted">
                 <span class="lang-bg">Общи въпроси • партньорства</span>
                 <span class="lang-en">General questions • partnerships</span>
@@ -1062,13 +1062,121 @@ function getShotStageMetrics(){
       fitShotToStage();
     });
 
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape"){
-        closeShotLightbox();
-        closeLicenseModal();
-        closeMobileMenu();
-      }
-    });
+  document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape"){
+    closeShotLightbox();
+    closeLicenseModal();
+    closeContactModal();
+    closeMobileMenu();
+  }
+});
   </script>
+  <script>
+  function openContactModal(target){
+    const modal = document.getElementById("contactModal");
+    const input = document.getElementById("contactTargetInput");
+    const labelBg = document.getElementById("contactTargetLabelBg");
+    const labelEn = document.getElementById("contactTargetLabelEn");
+    const subject = document.getElementById("contactSubjectInput");
+
+    if(!modal || !input || !labelBg || !labelEn || !subject) return;
+
+    if(target === "info"){
+      input.value = "info";
+      labelBg.textContent = "info@getshotfactory.com";
+      labelEn.textContent = "info@getshotfactory.com";
+      subject.value = document.documentElement.lang === "bg"
+        ? "Общо запитване за ShotFactory"
+        : "General inquiry about ShotFactory";
+    } else {
+      input.value = "support";
+      labelBg.textContent = "support@getshotfactory.com";
+      labelEn.textContent = "support@getshotfactory.com";
+      subject.value = document.documentElement.lang === "bg"
+        ? "Запитване за поддръжка / инсталация"
+        : "Support / installation inquiry";
+    }
+
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    closeMobileMenu();
+  }
+
+  function closeContactModal(){
+    const modal = document.getElementById("contactModal");
+    if(!modal) return;
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+
+  const contactModal = document.getElementById("contactModal");
+  if(contactModal){
+    contactModal.addEventListener("click", (e) => {
+      if(e.target === contactModal) closeContactModal();
+    });
+  }
+</script>
+  <div id="contactModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h3 class="lang-bg">Изпрати съобщение</h3>
+        <h3 class="lang-en">Send a message</h3>
+      </div>
+      <button class="modal-close" type="button" onclick="closeContactModal()" aria-label="Close">×</button>
+    </div>
+
+    <div class="plan-selected-box">
+      <div class="lang-bg">До: <strong id="contactTargetLabelBg">support@getshotfactory.com</strong></div>
+      <div class="lang-en">To: <strong id="contactTargetLabelEn">support@getshotfactory.com</strong></div>
+    </div>
+
+    <p class="muted lang-bg">Попълни формата и съобщението ще бъде изпратено директно по имейл.</p>
+    <p class="muted lang-en">Fill in the form and the message will be sent directly by email.</p>
+
+    <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
+      <input type="hidden" name="type" value="contact_request" />
+      <input type="hidden" name="contact_target" id="contactTargetInput" value="support" />
+
+      <div class="form-grid-2">
+        <label>
+          <span class="lang-bg">Име</span>
+          <span class="lang-en">Name</span>
+          <input name="name" />
+        </label>
+
+        <label>
+          <span class="lang-bg">Имейл</span>
+          <span class="lang-en">Email</span>
+          <input name="email" type="email" required />
+        </label>
+      </div>
+
+      <label style="margin-top:14px;">
+        <span class="lang-bg">Относно</span>
+        <span class="lang-en">Subject</span>
+        <input name="subject" id="contactSubjectInput" required />
+      </label>
+
+      <label style="margin-top:14px;">
+        <span class="lang-bg">Съобщение</span>
+        <span class="lang-en">Message</span>
+        <textarea name="message" rows="6" required placeholder="Опиши накратко какво ти трябва..."></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button class="btn primary" type="submit">
+          <span class="lang-bg">Изпрати</span>
+          <span class="lang-en">Send</span>
+        </button>
+      </div>
+
+      <p class="muted small lang-bg" style="margin-top:12px;">Не е нужен mail app. Формата изпраща директно.</p>
+      <p class="muted small lang-en" style="margin-top:12px;">No mail app is needed. The form sends directly.</p>
+    </form>
+  </div>
+</div>
 </body>
 </html>
