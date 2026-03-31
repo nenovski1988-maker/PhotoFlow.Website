@@ -5,103 +5,112 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Automated product photo processing for Windows</title>
   <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
-  <link rel="stylesheet" href="/styles.css?v=light-trust-02" />
- <style>
-  .app-shot{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:22px;
-  border:0;
-  background:transparent;
-  box-shadow:
-    0 18px 40px rgba(18,32,56,.10),
-    0 0 30px rgba(18,32,56,.06);
-  overflow:hidden;
-}
+  <link rel="stylesheet" href="/styles.css?v=light-trust-03" />
+  <style>
+    .app-shot{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:22px;
+      border:0;
+      background:transparent;
+      box-shadow:
+        0 18px 40px rgba(18,32,56,.10),
+        0 0 30px rgba(18,32,56,.06);
+      overflow:hidden;
+    }
 
-  .hero-shot-wrap{
-    padding:0;
-  }
+    .hero-shot-wrap{
+      padding:0;
+    }
 
-  .hero-shot{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  border-radius:26px;
-  box-shadow:
-    0 24px 55px rgba(18,32,56,.12),
-    0 0 36px rgba(18,32,56,.07);
-}
-
-  .hero-visual{
-    padding:14px;
-  }
-
-  .screenshot-card{
-    display:flex;
-    flex-direction:column;
-  }
-
-  .screenshot-card .shot-body{
-    padding:18px 18px 20px;
-  }
-
-  .shot-box{
-    padding:0 !important;
-    min-height:0 !important;
-    height:clamp(230px, 24vw, 340px);
-    border:0 !important;
-    background:transparent !important;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:left;
-  }
-
-  .screenshot-card .app-shot{
-    width:100%;
-    height:100%;
-    max-width:100%;
-    max-height:100%;
-    object-fit:contain;
-    border-radius:18px;
-  }
-
-  @media (max-width:900px){
-    .shot-box{
+    .hero-shot{
+      width:100%;
       height:auto;
+      object-fit:contain;
+      border-radius:26px;
+      box-shadow:
+        0 24px 55px rgba(18,32,56,.12),
+        0 0 36px rgba(18,32,56,.07);
+    }
+
+    .hero-visual{
+      padding:14px;
+    }
+
+    .hero-visual .app-shot{
+      width:100%;
+      max-width:none;
+    }
+
+    .screenshot-card{
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      z-index:1;
+    }
+
+    .screenshot-card:hover{
+      z-index:30;
+    }
+
+    .screenshot-card .shot-body{
+      padding:18px 18px 20px;
+    }
+
+    .shot-box{
+      position:relative;
+      padding:20px 18px !important;
+      min-height:0 !important;
+      height:clamp(230px, 24vw, 340px);
+      border:0 !important;
+      background:transparent !important;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:left;
+      overflow:visible;
+      border-radius:24px;
     }
 
     .screenshot-card .app-shot{
+      width:88%;
       height:auto;
+      max-width:88%;
+      max-height:none;
+      object-fit:contain;
+      border-radius:18px;
+      margin:0 auto;
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+      transform-origin:center center;
+      cursor:zoom-in;
     }
-  }
-   .shot-box{
-  position:relative;
-  padding:0 !important;
-  min-height:0 !important;
-  height:clamp(230px, 24vw, 340px);
-  border:0 !important;
-  background:transparent !important;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:left;
-  overflow:hidden;
-  border-radius:24px;
-}
 
-.shot-box::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:24px;
-  box-shadow: inset 0 0 26px rgba(255,255,255,.35);
-}
-</style>
+    .screenshot-card:hover .app-shot{
+      transform:scale(1.55);
+      box-shadow:0 28px 60px rgba(18,32,56,.18);
+    }
+
+    @media (max-width:900px){
+      .shot-box{
+        height:auto;
+        overflow:hidden;
+      }
+
+      .screenshot-card .app-shot{
+        width:100%;
+        max-width:100%;
+        height:auto;
+      }
+
+      .screenshot-card:hover .app-shot{
+        transform:none;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -195,12 +204,12 @@
         </div>
 
         <div class="hero-visual">
-  <div class="hero-shot-wrap">
-    <img src="/assets/main-window-purple-shirt.png"
-         alt="ShotFactory main window"
-         class="app-shot hero-shot" />
-  </div>
-</div>
+          <div class="hero-shot-wrap">
+            <img src="/assets/main-window-purple-shirt.png"
+                 alt="ShotFactory main window"
+                 class="app-shot hero-shot" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -607,10 +616,14 @@
     }
 
     const menuToggle = document.getElementById("menuToggle");
-    if(menuToggle){ menuToggle.addEventListener("click", toggleMobileMenu); }
+    if(menuToggle){
+      menuToggle.addEventListener("click", toggleMobileMenu);
+    }
 
     document.querySelectorAll("#siteNav a, #siteNav .nav-link-btn").forEach(el => {
-      el.addEventListener("click", () => { if(window.innerWidth <= 900) closeMobileMenu(); });
+      el.addEventListener("click", () => {
+        if(window.innerWidth <= 900) closeMobileMenu();
+      });
     });
 
     function openLicenseModal(){
@@ -632,11 +645,16 @@
 
     const licenseModal = document.getElementById("licenseModal");
     if(licenseModal){
-      licenseModal.addEventListener("click", (e) => { if(e.target === licenseModal) closeLicenseModal(); });
+      licenseModal.addEventListener("click", (e) => {
+        if(e.target === licenseModal) closeLicenseModal();
+      });
     }
 
     document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape"){ closeLicenseModal(); closeMobileMenu(); }
+      if(e.key === "Escape"){
+        closeLicenseModal();
+        closeMobileMenu();
+      }
     });
 
     function wireForm(form, redirectUrl){
@@ -644,16 +662,29 @@
         e.preventDefault();
         const data = new FormData(form);
         try{
-          const res = await fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } });
-          if(res.ok){ window.location.href = redirectUrl; }
-          else{ alert(document.documentElement.lang === "bg" ? "Неуспешно изпращане. Опитайте отново." : "Sending failed. Please try again."); }
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+          });
+          if(res.ok){
+            window.location.href = redirectUrl;
+          }else{
+            alert(document.documentElement.lang === "bg"
+              ? "Неуспешно изпращане. Опитайте отново."
+              : "Sending failed. Please try again.");
+          }
         }catch{
-          alert(document.documentElement.lang === "bg" ? "Проблем с връзката. Опитайте отново." : "Connection problem. Please try again.");
+          alert(document.documentElement.lang === "bg"
+            ? "Проблем с връзката. Опитайте отново."
+            : "Connection problem. Please try again.");
         }
       });
     }
 
-    document.querySelectorAll("form.form").forEach(f => { wireForm(f, "/thanks.html"); });
+    document.querySelectorAll("form.form").forEach(f => {
+      wireForm(f, "/thanks.html");
+    });
   </script>
 </body>
 </html>
