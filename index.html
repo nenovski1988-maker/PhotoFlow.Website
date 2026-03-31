@@ -818,49 +818,66 @@ const shotLightboxCanvas = document.getElementById("shotLightboxCanvas");
         shotLightboxStage.classList.add("is-dragging");
       }
     }
+function getShotStageMetrics(){
+  if(!shotLightboxStage) return null;
 
+  const styles = getComputedStyle(shotLightboxStage);
+  const padLeft = parseFloat(styles.paddingLeft) || 0;
+  const padRight = parseFloat(styles.paddingRight) || 0;
+  const padTop = parseFloat(styles.paddingTop) || 0;
+  const padBottom = parseFloat(styles.paddingBottom) || 0;
+
+  return {
+    padLeft,
+    padRight,
+    padTop,
+    padBottom,
+    innerWidth: Math.max(100, shotLightboxStage.clientWidth - padLeft - padRight),
+    innerHeight: Math.max(100, shotLightboxStage.clientHeight - padTop - padBottom)
+  };
+}
    function applyShotZoom(){
   if(!shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas || !shotBaseWidth || !shotBaseHeight) return;
+
+  const metrics = getShotStageMetrics();
+  if(!metrics) return;
 
   const currentWidth = Math.round(shotBaseWidth * shotScale);
   const currentHeight = Math.round(shotBaseHeight * shotScale);
 
-  const stageInnerWidth = Math.max(100, shotLightboxStage.clientWidth - 56);
-  const stageInnerHeight = Math.max(100, shotLightboxStage.clientHeight - 56);
-
   shotLightboxImage.style.width = `${currentWidth}px`;
   shotLightboxImage.style.height = `${currentHeight}px`;
 
-  shotLightboxCanvas.style.width = `${Math.max(stageInnerWidth, currentWidth)}px`;
-  shotLightboxCanvas.style.height = `${Math.max(stageInnerHeight, currentHeight)}px`;
+  shotLightboxCanvas.style.width = `${Math.max(metrics.innerWidth, currentWidth)}px`;
+  shotLightboxCanvas.style.height = `${Math.max(metrics.innerHeight, currentHeight)}px`;
 
-  shotLightboxCanvas.style.justifyContent = currentWidth < stageInnerWidth ? "center" : "flex-start";
-  shotLightboxCanvas.style.alignItems = currentHeight < stageInnerHeight ? "center" : "flex-start";
+  shotLightboxCanvas.style.justifyContent = currentWidth < metrics.innerWidth ? "center" : "flex-start";
+  shotLightboxCanvas.style.alignItems = currentHeight < metrics.innerHeight ? "center" : "flex-start";
 
   updateShotDragState();
 }
 
-    function fitShotToStage(){
-      if(!shotLightboxImage || !shotLightboxStage) return;
-      if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
+   function fitShotToStage(){
+  if(!shotLightboxImage || !shotLightboxStage) return;
+  if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
 
-      const stageWidth = Math.max(100, shotLightboxStage.clientWidth - 56);
-      const stageHeight = Math.max(100, shotLightboxStage.clientHeight - 56);
+  const metrics = getShotStageMetrics();
+  if(!metrics) return;
 
-      const naturalWidth = shotLightboxImage.naturalWidth;
-      const naturalHeight = shotLightboxImage.naturalHeight;
+  const naturalWidth = shotLightboxImage.naturalWidth;
+  const naturalHeight = shotLightboxImage.naturalHeight;
 
-      const fitRatio = Math.min(stageWidth / naturalWidth, stageHeight / naturalHeight);
+  const fitRatio = Math.min(metrics.innerWidth / naturalWidth, metrics.innerHeight / naturalHeight);
 
-      shotBaseWidth = naturalWidth * fitRatio;
-      shotBaseHeight = naturalHeight * fitRatio;
-      shotScale = 1;
+  shotBaseWidth = naturalWidth * fitRatio;
+  shotBaseHeight = naturalHeight * fitRatio;
+  shotScale = 1;
 
-      applyShotZoom();
+  applyShotZoom();
 
-      shotLightboxStage.scrollLeft = 0;
-      shotLightboxStage.scrollTop = 0;
-    }
+  shotLightboxStage.scrollLeft = 0;
+  shotLightboxStage.scrollTop = 0;
+}
 
     function openShotLightbox(src, altText){
       if(!shotLightbox || !shotLightboxImage || !shotLightboxStage) return;
@@ -931,28 +948,78 @@ const shotLightboxCanvas = document.getElementById("shotLightboxCanvas");
 
     if(shotLightboxStage){
       shotLightboxStage.addEventListener("wheel", (e) => {
-        if(shotLightbox.classList.contains("hidden")) return;
-        if(!shotBaseWidth || !shotBaseHeight) return;
+  if(shotLightbox.classList.contains("hidden")) return;
+  if(!shotBaseWidth || !shotBaseHeight) return;
 
-        e.preventDefault();
+  e.preventDefault();
 
-        const oldScale = shotScale;
-        const delta = e.deltaY < 0 ? 0.15 : -0.15;
-        shotScale = clamp(shotScale + delta, shotMinScale, shotMaxScale);
+  const metrics = getShotStageMetrics();
+  if(!metrics) return;
 
-        if(oldScale === shotScale) return;
+  const oldScale = shotScale;
+  const delta = e.deltaY < 0 ? 0.15 : -0.15;
+  const newScale = clamp(oldScale + delta, shotMinScale, shotMaxScale);
 
-        const oldCenterX = shotLightboxStage.scrollLeft + (shotLightboxStage.clientWidth / 2);
-        const oldCenterY = shotLightboxStage.scrollTop + (shotLightboxStage.clientHeight / 2);
-        const ratio = shotScale / oldScale;
+  if(newScale === oldScale) return;
 
-        applyShotZoom();
+  const stageRect = shotLightboxStage.getBoundingClientRect();
 
-        requestAnimationFrame(() => {
-          shotLightboxStage.scrollLeft = (oldCenterX * ratio) - (shotLightboxStage.clientWidth / 2);
-          shotLightboxStage.scrollTop = (oldCenterY * ratio) - (shotLightboxStage.clientHeight / 2);
-        });
-      }, { passive:false });
+  const pointerX = clamp(
+    e.clientX - stageRect.left - metrics.padLeft,
+    0,
+    metrics.innerWidth
+  );
+
+  const pointerY = clamp(
+    e.clientY - stageRect.top - metrics.padTop,
+    0,
+    metrics.innerHeight
+  );
+
+  const oldWidth = shotBaseWidth * oldScale;
+  const oldHeight = shotBaseHeight * oldScale;
+
+  const oldCanvasWidth = Math.max(metrics.innerWidth, oldWidth);
+  const oldCanvasHeight = Math.max(metrics.innerHeight, oldHeight);
+
+  const oldOffsetX = oldWidth < metrics.innerWidth ? (oldCanvasWidth - oldWidth) / 2 : 0;
+  const oldOffsetY = oldHeight < metrics.innerHeight ? (oldCanvasHeight - oldHeight) / 2 : 0;
+
+  const imagePointX = clamp(
+    pointerX + shotLightboxStage.scrollLeft - oldOffsetX,
+    0,
+    oldWidth
+  );
+
+  const imagePointY = clamp(
+    pointerY + shotLightboxStage.scrollTop - oldOffsetY,
+    0,
+    oldHeight
+  );
+
+  const imageRatioX = oldWidth > 0 ? imagePointX / oldWidth : 0;
+  const imageRatioY = oldHeight > 0 ? imagePointY / oldHeight : 0;
+
+  shotScale = newScale;
+  applyShotZoom();
+
+  requestAnimationFrame(() => {
+    const newWidth = shotBaseWidth * shotScale;
+    const newHeight = shotBaseHeight * shotScale;
+
+    const newCanvasWidth = Math.max(metrics.innerWidth, newWidth);
+    const newCanvasHeight = Math.max(metrics.innerHeight, newHeight);
+
+    const newOffsetX = newWidth < metrics.innerWidth ? (newCanvasWidth - newWidth) / 2 : 0;
+    const newOffsetY = newHeight < metrics.innerHeight ? (newCanvasHeight - newHeight) / 2 : 0;
+
+    const targetContentX = newOffsetX + (imageRatioX * newWidth);
+    const targetContentY = newOffsetY + (imageRatioY * newHeight);
+
+    shotLightboxStage.scrollLeft = targetContentX - pointerX;
+    shotLightboxStage.scrollTop = targetContentY - pointerY;
+  });
+}, { passive:false });
 
       shotLightboxStage.addEventListener("dblclick", () => {
         if(shotLightbox.classList.contains("hidden")) return;
