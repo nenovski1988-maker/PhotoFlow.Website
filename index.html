@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Automated product photo processing for Windows</title>
   <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
-  <link rel="stylesheet" href="/styles.css?v=light-trust-04" />
+  <link rel="stylesheet" href="/styles.css?v=light-trust-05" />
   <style>
     .app-shot{
       display:block;
@@ -135,28 +135,43 @@
 
     .shot-lightbox-stage{
       flex:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
       overflow:auto;
       border-radius:24px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
       box-shadow:0 30px 80px rgba(0,0,0,.28);
       padding:28px;
+      cursor:default;
+    }
+
+    .shot-lightbox-stage.is-draggable{
+      cursor:grab;
+    }
+
+    .shot-lightbox-stage.is-dragging{
+      cursor:grabbing;
+      user-select:none;
+    }
+
+    .shot-lightbox-canvas{
+      min-width:100%;
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .shot-lightbox-image{
       display:block;
-      max-width:100%;
-      max-height:100%;
       width:auto;
       height:auto;
+      max-width:none;
+      max-height:none;
       object-fit:contain;
-      transform-origin:center center;
-      transition:transform .08s linear;
       border-radius:18px;
       box-shadow:0 20px 60px rgba(0,0,0,.26);
+      -webkit-user-drag:none;
+      user-select:none;
     }
 
     .shot-lightbox-hint{
@@ -584,12 +599,14 @@
       <button type="button" class="shot-lightbox-close" id="shotLightboxClose" aria-label="Close">×</button>
 
       <div class="shot-lightbox-stage" id="shotLightboxStage">
-        <img id="shotLightboxImage" class="shot-lightbox-image" alt="Expanded screenshot" />
+        <div class="shot-lightbox-canvas" id="shotLightboxCanvas">
+          <img id="shotLightboxImage" class="shot-lightbox-image" alt="Expanded screenshot" />
+        </div>
       </div>
 
       <div class="shot-lightbox-hint">
-        <span class="lang-bg">Скрол за zoom • двоен клик за reset • Esc за затваряне</span>
-        <span class="lang-en">Scroll to zoom • double click to reset • Esc to close</span>
+        <span class="lang-bg">Скрол за zoom • хвани и влачи с мишката • двоен клик за reset • Esc за затваряне</span>
+        <span class="lang-en">Scroll to zoom • click and drag • double click to reset • Esc to close</span>
       </div>
     </div>
   </div>
@@ -769,6 +786,14 @@
     let shotScale = 1;
     const shotMinScale = 1;
     const shotMaxScale = 4;
+    let shotBaseWidth = 0;
+    let shotBaseHeight = 0;
+
+    let isDraggingShot = false;
+    let shotDragStartX = 0;
+    let shotDragStartY = 0;
+    let shotDragStartScrollLeft = 0;
+    let shotDragStartScrollTop = 0;
 
     const shotLightbox = document.getElementById("shotLightbox");
     const shotLightboxImage = document.getElementById("shotLightboxImage");
@@ -776,43 +801,106 @@
     const shotLightboxClose = document.getElementById("shotLightboxClose");
     const shotLightboxStage = document.getElementById("shotLightboxStage");
 
+    function clamp(value, min, max){
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function updateShotDragState(){
+      if(!shotLightboxStage) return;
+
+      shotLightboxStage.classList.remove("is-draggable", "is-dragging");
+
+      if(shotScale > 1){
+        shotLightboxStage.classList.add("is-draggable");
+      }
+
+      if(isDraggingShot){
+        shotLightboxStage.classList.add("is-dragging");
+      }
+    }
+
     function applyShotZoom(){
-      if(!shotLightboxImage) return;
-      shotLightboxImage.style.transform = `scale(${shotScale})`;
+      if(!shotLightboxImage || !shotBaseWidth || !shotBaseHeight) return;
+
+      shotLightboxImage.style.width = `${Math.round(shotBaseWidth * shotScale)}px`;
+      shotLightboxImage.style.height = `${Math.round(shotBaseHeight * shotScale)}px`;
+
+      updateShotDragState();
+    }
+
+    function fitShotToStage(){
+      if(!shotLightboxImage || !shotLightboxStage) return;
+      if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
+
+      const stageWidth = Math.max(100, shotLightboxStage.clientWidth - 56);
+      const stageHeight = Math.max(100, shotLightboxStage.clientHeight - 56);
+
+      const naturalWidth = shotLightboxImage.naturalWidth;
+      const naturalHeight = shotLightboxImage.naturalHeight;
+
+      const fitRatio = Math.min(stageWidth / naturalWidth, stageHeight / naturalHeight);
+
+      shotBaseWidth = naturalWidth * fitRatio;
+      shotBaseHeight = naturalHeight * fitRatio;
+      shotScale = 1;
+
+      applyShotZoom();
+
+      shotLightboxStage.scrollLeft = 0;
+      shotLightboxStage.scrollTop = 0;
     }
 
     function openShotLightbox(src, altText){
       if(!shotLightbox || !shotLightboxImage || !shotLightboxStage) return;
 
+      isDraggingShot = false;
+      shotBaseWidth = 0;
+      shotBaseHeight = 0;
       shotScale = 1;
-      shotLightboxImage.style.transform = "scale(1)";
+
+      shotLightboxImage.onload = () => {
+        requestAnimationFrame(() => {
+          fitShotToStage();
+        });
+      };
+
       shotLightboxImage.src = src;
       shotLightboxImage.alt = altText || "Expanded screenshot";
 
       shotLightbox.classList.remove("hidden");
       shotLightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
-
-      requestAnimationFrame(() => {
-        shotLightboxStage.scrollTop = 0;
-        shotLightboxStage.scrollLeft = 0;
-        applyShotZoom();
-      });
     }
 
     function closeShotLightbox(){
       if(!shotLightbox || !shotLightboxImage || !shotLightboxStage) return;
+
+      isDraggingShot = false;
+      shotScale = 1;
+      shotBaseWidth = 0;
+      shotBaseHeight = 0;
+
       shotLightbox.classList.add("hidden");
       shotLightbox.setAttribute("aria-hidden", "true");
+
       shotLightboxImage.src = "";
-      shotLightboxStage.scrollTop = 0;
+      shotLightboxImage.style.width = "";
+      shotLightboxImage.style.height = "";
+
       shotLightboxStage.scrollLeft = 0;
+      shotLightboxStage.scrollTop = 0;
+
+      updateShotDragState();
       document.body.classList.remove("modal-open");
     }
 
     document.querySelectorAll(".zoomable-shot").forEach(img => {
       img.addEventListener("click", () => {
         openShotLightbox(img.src, img.alt);
+      });
+
+      img.addEventListener("dragstart", (e) => {
+        e.preventDefault();
       });
     });
 
@@ -827,21 +915,68 @@
     if(shotLightboxStage){
       shotLightboxStage.addEventListener("wheel", (e) => {
         if(shotLightbox.classList.contains("hidden")) return;
+        if(!shotBaseWidth || !shotBaseHeight) return;
+
         e.preventDefault();
 
-        const delta = e.deltaY < 0 ? 0.12 : -0.12;
-        shotScale = Math.min(shotMaxScale, Math.max(shotMinScale, shotScale + delta));
+        const oldScale = shotScale;
+        const delta = e.deltaY < 0 ? 0.15 : -0.15;
+        shotScale = clamp(shotScale + delta, shotMinScale, shotMaxScale);
+
+        if(oldScale === shotScale) return;
+
+        const oldCenterX = shotLightboxStage.scrollLeft + (shotLightboxStage.clientWidth / 2);
+        const oldCenterY = shotLightboxStage.scrollTop + (shotLightboxStage.clientHeight / 2);
+        const ratio = shotScale / oldScale;
+
         applyShotZoom();
+
+        requestAnimationFrame(() => {
+          shotLightboxStage.scrollLeft = (oldCenterX * ratio) - (shotLightboxStage.clientWidth / 2);
+          shotLightboxStage.scrollTop = (oldCenterY * ratio) - (shotLightboxStage.clientHeight / 2);
+        });
       }, { passive:false });
 
       shotLightboxStage.addEventListener("dblclick", () => {
         if(shotLightbox.classList.contains("hidden")) return;
-        shotScale = 1;
-        shotLightboxStage.scrollTop = 0;
-        shotLightboxStage.scrollLeft = 0;
-        applyShotZoom();
+        fitShotToStage();
+      });
+
+      shotLightboxStage.addEventListener("mousedown", (e) => {
+        if(shotLightbox.classList.contains("hidden")) return;
+        if(shotScale <= 1) return;
+
+        isDraggingShot = true;
+        shotDragStartX = e.clientX;
+        shotDragStartY = e.clientY;
+        shotDragStartScrollLeft = shotLightboxStage.scrollLeft;
+        shotDragStartScrollTop = shotLightboxStage.scrollTop;
+
+        updateShotDragState();
+        e.preventDefault();
       });
     }
+
+    window.addEventListener("mousemove", (e) => {
+      if(!isDraggingShot || !shotLightboxStage) return;
+
+      const dx = e.clientX - shotDragStartX;
+      const dy = e.clientY - shotDragStartY;
+
+      shotLightboxStage.scrollLeft = shotDragStartScrollLeft - dx;
+      shotLightboxStage.scrollTop = shotDragStartScrollTop - dy;
+    });
+
+    window.addEventListener("mouseup", () => {
+      if(!isDraggingShot) return;
+      isDraggingShot = false;
+      updateShotDragState();
+    });
+
+    window.addEventListener("resize", () => {
+      if(!shotLightbox || shotLightbox.classList.contains("hidden")) return;
+      fitShotToStage();
+    });
 
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape"){
