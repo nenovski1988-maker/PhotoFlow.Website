@@ -1,10 +1,56 @@
 <!doctype html>
-<html lang="bg">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>ShotFactory – Automated product photo processing for Windows</title>
-  <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
+
+  <!-- Primary meta -->
+  <title>ShotFactory – Batch Product Photo Editing Software for Windows</title>
+  <meta name="description" content="Automatically remove backgrounds, crop, center, and export product photos in bulk. A Windows desktop app built for e-commerce teams and catalog studios." />
+  <link rel="canonical" href="https://getshotfactory.com/" />
+
+  <!-- Language alternates -->
+  <link rel="alternate" hreflang="en" href="https://getshotfactory.com/" />
+  <link rel="alternate" hreflang="bg" href="https://getshotfactory.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://getshotfactory.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"             content="website" />
+  <meta property="og:url"              content="https://getshotfactory.com/" />
+  <meta property="og:title"            content="ShotFactory – Batch Product Photo Editing for Windows" />
+  <meta property="og:description"      content="Remove backgrounds, crop, and export product photos automatically. Built for e-commerce teams and catalog studios." />
+  <meta property="og:image"            content="https://getshotfactory.com/assets/og-image.png" />
+  <meta property="og:image:width"      content="1200" />
+  <meta property="og:image:height"     content="630" />
+  <meta property="og:locale"           content="en_US" />
+  <meta property="og:locale:alternate" content="bg_BG" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="ShotFactory – Batch Product Photo Editing for Windows" />
+  <meta name="twitter:description" content="Remove backgrounds, crop, and export product photos automatically. Built for e-commerce teams and catalog studios." />
+  <meta name="twitter:image"       content="https://getshotfactory.com/assets/og-image.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ShotFactory",
+    "url": "https://getshotfactory.com/",
+    "description": "Windows desktop app for automated product photo processing — background removal, crop, centering, and batch export for e-commerce teams and catalog studios.",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "PhotographyApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "14-day free trial"
+    },
+    "screenshot": "https://getshotfactory.com/assets/main-window-purple-shirt.png"
+  }
+  </script>
+
   <link rel="stylesheet" href="/styles.css?v=light-trust-05" />
   <style>
     .app-shot{
@@ -153,7 +199,6 @@
       user-select:none;
     }
 
-    /* FIXED: was "..shot-lightbox-canvas" (double dot) */
     .shot-lightbox-canvas{
       min-width:100%;
       min-height:100%;
@@ -310,7 +355,7 @@
         <div class="hero-visual">
           <div class="hero-shot-wrap">
             <img src="/assets/main-window-purple-shirt.png"
-                 alt="ShotFactory main window"
+                 alt="ShotFactory main window — batch product photo editing on Windows"
                  class="app-shot hero-shot zoomable-shot" />
           </div>
         </div>
@@ -429,7 +474,7 @@
             <div class="shot-body">
               <div class="shot-box">
                 <img src="/assets/main-window-purple-shirt.png"
-                     alt="ShotFactory main window screenshot"
+                     alt="ShotFactory main window — product photo background removal"
                      class="app-shot zoomable-shot" />
               </div>
             </div>
@@ -443,7 +488,7 @@
             <div class="shot-body">
               <div class="shot-box">
                 <img src="/assets/preview-manual-purple-shirt.png"
-                     alt="ShotFactory preview window with manual sliders"
+                     alt="ShotFactory preview window — manual crop and centering controls"
                      class="app-shot zoomable-shot" />
               </div>
             </div>
@@ -457,7 +502,7 @@
             <div class="shot-body">
               <div class="shot-box">
                 <img src="/assets/folder-setup-window.png"
-                     alt="ShotFactory folder setup window"
+                     alt="ShotFactory folder setup — export presets and output configuration"
                      class="app-shot zoomable-shot" />
               </div>
             </div>
@@ -839,10 +884,10 @@
       const isInfo = target === "info";
       const email  = isInfo ? "info@getshotfactory.com" : "support@getshotfactory.com";
 
-      input.value    = target;
+      input.value         = target;
       labelBg.textContent = email;
       labelEn.textContent = email;
-      subject.value  = isInfo
+      subject.value       = isInfo
         ? (document.documentElement.lang === "bg" ? "Общо запитване за ShotFactory"       : "General inquiry about ShotFactory")
         : (document.documentElement.lang === "bg" ? "Запитване за поддръжка / инсталация" : "Support / installation inquiry");
 
@@ -917,11 +962,11 @@
     let shotDragStartScrollLeft = 0;
     let shotDragStartScrollTop = 0;
 
-    const shotLightbox      = document.getElementById("shotLightbox");
-    const shotLightboxImage = document.getElementById("shotLightboxImage");
+    const shotLightbox       = document.getElementById("shotLightbox");
+    const shotLightboxImage  = document.getElementById("shotLightboxImage");
     const shotLightboxBackdrop = document.getElementById("shotLightboxBackdrop");
-    const shotLightboxClose = document.getElementById("shotLightboxClose");
-    const shotLightboxStage = document.getElementById("shotLightboxStage");
+    const shotLightboxClose  = document.getElementById("shotLightboxClose");
+    const shotLightboxStage  = document.getElementById("shotLightboxStage");
     const shotLightboxCanvas = document.getElementById("shotLightboxCanvas");
 
     function clamp(value, min, max){ return Math.min(max, Math.max(min, value)); }
@@ -929,7 +974,7 @@
     function updateShotDragState(){
       if(!shotLightboxStage) return;
       shotLightboxStage.classList.remove("is-draggable", "is-dragging");
-      if(shotScale > 1) shotLightboxStage.classList.add("is-draggable");
+      if(shotScale > 1)  shotLightboxStage.classList.add("is-draggable");
       if(isDraggingShot) shotLightboxStage.classList.add("is-dragging");
     }
 
@@ -949,7 +994,7 @@
 
     function applyShotZoom(){
       if(!shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas || !shotBaseWidth || !shotBaseHeight) return;
-      const m = getShotStageMetrics();
+      const m  = getShotStageMetrics();
       if(!m) return;
       const cw = Math.round(shotBaseWidth  * shotScale);
       const ch = Math.round(shotBaseHeight * shotScale);
@@ -965,12 +1010,12 @@
     function fitShotToStage(){
       if(!shotLightboxImage || !shotLightboxStage) return;
       if(!shotLightboxImage.naturalWidth || !shotLightboxImage.naturalHeight) return;
-      const m = getShotStageMetrics();
+      const m    = getShotStageMetrics();
       if(!m) return;
-      const ratio = Math.min(m.innerWidth / shotLightboxImage.naturalWidth, m.innerHeight / shotLightboxImage.naturalHeight);
+      const ratio    = Math.min(m.innerWidth / shotLightboxImage.naturalWidth, m.innerHeight / shotLightboxImage.naturalHeight);
       shotBaseWidth  = shotLightboxImage.naturalWidth  * ratio;
       shotBaseHeight = shotLightboxImage.naturalHeight * ratio;
-      shotScale = 1;
+      shotScale      = 1;
       applyShotZoom();
       shotLightboxStage.scrollLeft = 0;
       shotLightboxStage.scrollTop  = 0;
@@ -993,7 +1038,7 @@
     function closeShotLightbox(){
       if(!shotLightbox || !shotLightboxImage || !shotLightboxStage || !shotLightboxCanvas) return;
       isDraggingShot = false;
-      shotScale = 1;
+      shotScale      = 1;
       shotBaseWidth  = 0;
       shotBaseHeight = 0;
       shotLightbox.classList.add("hidden");
@@ -1023,7 +1068,7 @@
       shotLightboxStage.addEventListener("wheel", (e) => {
         if(shotLightbox.classList.contains("hidden") || !shotBaseWidth || !shotBaseHeight) return;
         e.preventDefault();
-        const m = getShotStageMetrics();
+        const m        = getShotStageMetrics();
         if(!m) return;
         const oldScale = shotScale;
         const delta    = e.deltaY < 0 ? 0.15 : -0.15;
@@ -1032,8 +1077,8 @@
         const stageRect = shotLightboxStage.getBoundingClientRect();
         const pointerX  = clamp(e.clientX - stageRect.left - m.padLeft, 0, m.innerWidth);
         const pointerY  = clamp(e.clientY - stageRect.top  - m.padTop,  0, m.innerHeight);
-        const oldW = shotBaseWidth  * oldScale;
-        const oldH = shotBaseHeight * oldScale;
+        const oldW  = shotBaseWidth  * oldScale;
+        const oldH  = shotBaseHeight * oldScale;
         const oldCW = Math.max(m.innerWidth,  oldW);
         const oldCH = Math.max(m.innerHeight, oldH);
         const offX  = oldW < m.innerWidth  ? (oldCW - oldW) / 2 : 0;
@@ -1062,9 +1107,9 @@
 
       shotLightboxStage.addEventListener("mousedown", (e) => {
         if(shotLightbox.classList.contains("hidden") || shotScale <= 1) return;
-        isDraggingShot = true;
-        shotDragStartX = e.clientX;
-        shotDragStartY = e.clientY;
+        isDraggingShot          = true;
+        shotDragStartX          = e.clientX;
+        shotDragStartY          = e.clientY;
         shotDragStartScrollLeft = shotLightboxStage.scrollLeft;
         shotDragStartScrollTop  = shotLightboxStage.scrollTop;
         updateShotDragState();
