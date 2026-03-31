@@ -5,7 +5,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>ShotFactory – Automated product photo processing for Windows</title>
   <meta name="description" content="ShotFactory е Windows desktop app за автоматична обработка на продуктови снимки: премахване на фон, crop, центриране и export на готови файлове за e-commerce и каталожни екипи." />
-  <link rel="stylesheet" href="/styles.css?v=light-trust-01" />
+  <link rel="stylesheet" href="/styles.css?v=light-trust-02" />
+  <style>
+    .app-shot{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:16px;
+      border:1px solid #d8e2ec;
+      background:#ffffff;
+      box-shadow:0 14px 30px rgba(18,32,56,.08);
+    }
+
+    .hero-shot-wrap{
+      padding:18px;
+    }
+
+    .hero-shot{
+      border-radius:18px;
+    }
+
+    .shot-box{
+      padding:12px;
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -27,7 +50,7 @@
         <a href="#how" class="lang-en">How it works</a>
 
         <a href="#features" class="lang-bg">За кого е</a>
-<a href="#features" class="lang-en">Who it's for</a>
+        <a href="#features" class="lang-en">Who it's for</a>
 
         <a href="#screens" class="lang-bg">Екрани</a>
         <a href="#screens" class="lang-en">Screens</a>
@@ -39,7 +62,7 @@
         <a href="#faq" class="lang-en">FAQ</a>
 
         <a href="/pricing.html" class="lang-bg">Цени</a>
-<a href="/pricing.html" class="lang-en">Pricing</a>
+        <a href="/pricing.html" class="lang-en">Pricing</a>
 
         <a href="#contact" class="lang-bg">Контакт</a>
         <a href="#contact" class="lang-en">Contact</a>
@@ -101,13 +124,10 @@
         <div class="hero-visual">
           <div class="window-chrome">
             <div class="window-bar"></div>
-            <div class="screenshot-placeholder">
-              <div class="placeholder-inner">
-                <span class="placeholder-title lang-bg">Тук ще сложим основния screenshot</span>
-                <span class="placeholder-title lang-en">Main workflow screenshot goes here</span>
-                <div class="lang-bg">Главният екран на приложението ще се добави тук, след като финализираме светлия интерфейс на ShotFactory.</div>
-                <div class="lang-en">The main ShotFactory workflow screenshot will go here once the light interface is finalized.</div>
-              </div>
+            <div class="hero-shot-wrap">
+              <img src="/assets/main-window-purple-shirt.png"
+                   alt="ShotFactory main window"
+                   class="app-shot hero-shot" />
             </div>
           </div>
         </div>
@@ -215,10 +235,10 @@
         <h2 class="section-head lang-en">Application screens</h2>
 
         <p class="section-lead lang-bg">
-          Засега оставяме местата празни, докато довършим новия светъл интерфейс на приложението. После тук ще влязат реални screenshots, не mockups.
+          Реални screenshots от текущия светъл интерфейс на ShotFactory.
         </p>
         <p class="section-lead lang-en">
-          These slots stay empty for now while the light application interface is being finalized. Real screenshots will go here afterward, not mockups.
+          Real screenshots from the current light ShotFactory interface.
         </p>
 
         <div class="screenshot-grid">
@@ -229,34 +249,37 @@
             </div>
             <div class="shot-body">
               <div class="shot-box">
-                <div class="lang-bg">Placeholder за главния workflow screenshot</div>
-                <div class="lang-en">Placeholder for the main workflow screenshot</div>
+                <img src="/assets/main-window-purple-shirt.png"
+                     alt="ShotFactory main window screenshot"
+                     class="app-shot" />
               </div>
             </div>
           </div>
 
           <div class="screenshot-card">
             <div class="shot-top">
-              <h3 class="lang-bg">Preview и методи</h3>
-              <h3 class="lang-en">Preview and methods</h3>
+              <h3 class="lang-bg">Preview и ръчни настройки</h3>
+              <h3 class="lang-en">Preview and manual controls</h3>
             </div>
             <div class="shot-body">
               <div class="shot-box">
-                <div class="lang-bg">Placeholder за preview screenshot</div>
-                <div class="lang-en">Placeholder for the preview screenshot</div>
+                <img src="/assets/preview-manual-purple-shirt.png"
+                     alt="ShotFactory preview window with manual sliders"
+                     class="app-shot" />
               </div>
             </div>
           </div>
 
           <div class="screenshot-card">
             <div class="shot-top">
-              <h3 class="lang-bg">Export и output</h3>
-              <h3 class="lang-en">Exports and output</h3>
+              <h3 class="lang-bg">Настройка на папките</h3>
+              <h3 class="lang-en">Folder setup</h3>
             </div>
             <div class="shot-body">
               <div class="shot-box">
-                <div class="lang-bg">Placeholder за export/output screenshot</div>
-                <div class="lang-en">Placeholder for the export/output screenshot</div>
+                <img src="/assets/folder-setup-window.png"
+                     alt="ShotFactory folder setup window"
+                     class="app-shot" />
               </div>
             </div>
           </div>
@@ -300,9 +323,9 @@
                 <span class="lang-en">Go to download page</span>
               </a>
               <a class="btn" href="/pricing.html">
-  <span class="lang-bg">Виж цените</span>
-  <span class="lang-en">See pricing</span>
-</a>
+                <span class="lang-bg">Виж цените</span>
+                <span class="lang-en">See pricing</span>
+              </a>
             </div>
           </div>
         </div>
