@@ -16,9 +16,10 @@
     }
   };
 
-  const MINT       = '#a7f3d0';
-  const DARK       = '#0f172a';
-  const DARK_HOVER = '#1e293b';
+  const MINT        = '#a7f3d0';  // светло зелено — фон на хедъра и бутоните
+  const MINT_HOVER  = '#86efac';  // малко по-тъмно при hover
+  const MINT_TEXT   = '#064e3b';  // тъмнозелен текст върху mint фон
+  const GREEN_DOT   = '#22c55e';  // ярко зелено за online
 
   function getLang() {
     return document.documentElement.lang === 'bg' ? 'bg' : 'en';
@@ -28,44 +29,57 @@
     #sf-chat-btn {
       position: fixed; bottom: 28px; right: 28px; z-index: 9999;
       width: 52px; height: 52px; border-radius: 50%;
-      background: ${DARK}; border: none; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      background: ${MINT}; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(167,243,208,0.5);
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px; transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 20px; transition: transform 0.2s, box-shadow 0.2s;
+      color: ${MINT_TEXT}; font-weight: 700;
     }
-    #sf-chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.24); }
+    #sf-chat-btn:hover {
+      transform: scale(1.08);
+      background: ${MINT_HOVER};
+      box-shadow: 0 6px 28px rgba(167,243,208,0.6);
+    }
     #sf-chat-window {
       position: fixed; bottom: 92px; right: 28px; z-index: 9999;
       width: 360px; height: 480px; border-radius: 18px; overflow: hidden;
       box-shadow: 0 12px 48px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
       display: none; flex-direction: column;
-      background: #ffffff; border: 1px solid #e4e4e7;
+      background: #ffffff; border: 1px solid #d1fae5;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
     #sf-chat-window.open { display: flex; }
     #sf-chat-header {
-      padding: 14px 16px; background: ${DARK};
+      padding: 14px 16px;
+      background: ${MINT};
       display: flex; align-items: center; gap: 10px; flex-shrink: 0;
     }
     #sf-chat-header-info { flex: 1; }
-    #sf-chat-header-title { color: #ffffff; font-weight: 600; font-size: 14px; line-height: 1.2; }
-    #sf-chat-header-sub { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+    #sf-chat-header-title {
+      color: ${MINT_TEXT}; font-weight: 700; font-size: 14px; line-height: 1.2;
+    }
+    #sf-chat-header-sub {
+      display: flex; align-items: center; gap: 5px; margin-top: 3px;
+    }
     .sf-dot {
       width: 7px; height: 7px; border-radius: 50%;
-      background: ${MINT}; box-shadow: 0 0 6px ${MINT}; flex-shrink: 0;
+      background: ${GREEN_DOT}; box-shadow: 0 0 6px ${GREEN_DOT}; flex-shrink: 0;
     }
-    #sf-online-label { color: ${MINT}; font-size: 11px; font-weight: 500; }
+    #sf-online-label {
+      color: ${MINT_TEXT}; font-size: 11px; font-weight: 600; opacity: 0.8;
+    }
     #sf-chat-close {
-      background: none; border: none; color: rgba(255,255,255,0.45);
-      font-size: 19px; cursor: pointer; padding: 0; line-height: 1; transition: color 0.15s;
+      background: none; border: none; color: ${MINT_TEXT};
+      font-size: 19px; cursor: pointer; padding: 0; line-height: 1;
+      opacity: 0.6; transition: opacity 0.15s;
     }
-    #sf-chat-close:hover { color: #ffffff; }
+    #sf-chat-close:hover { opacity: 1; }
     #sf-messages {
       flex: 1; overflow-y: auto; padding: 16px;
       display: flex; flex-direction: column; gap: 10px; background: #f8fafc;
     }
     #sf-messages::-webkit-scrollbar { width: 3px; }
-    #sf-messages::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 2px; }
+    #sf-messages::-webkit-scrollbar-thumb { background: #d1fae5; border-radius: 2px; }
     .sf-msg { max-width: 84%; padding: 9px 13px; font-size: 13.5px; line-height: 1.55; }
     .sf-msg.bot {
       background: #ffffff; color: #18181b; border: 1px solid #e4e4e7;
@@ -73,29 +87,31 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     .sf-msg.user {
-      background: ${DARK}; color: #ffffff;
+      background: ${MINT}; color: ${MINT_TEXT};
       border-radius: 14px 14px 3px 14px; align-self: flex-end;
+      font-weight: 500;
     }
     #sf-input-area {
-      padding: 10px 12px; border-top: 1px solid #e4e4e7;
+      padding: 10px 12px; border-top: 1px solid #d1fae5;
       display: flex; gap: 8px; align-items: flex-end;
       background: #ffffff; flex-shrink: 0;
     }
     #sf-input {
-      flex: 1; background: #f4f4f5; border: 1px solid #e4e4e7;
+      flex: 1; background: #f0fdf4; border: 1px solid #bbf7d0;
       border-radius: 10px; padding: 9px 12px; color: #18181b;
       font-size: 13.5px; font-family: inherit; resize: none; outline: none;
       line-height: 1.4; transition: border-color 0.15s;
     }
-    #sf-input:focus { border-color: #a1a1aa; }
+    #sf-input:focus { border-color: ${MINT_HOVER}; }
     #sf-input::placeholder { color: #a1a1aa; }
     #sf-send {
       width: 36px; height: 36px; border-radius: 10px; border: none;
-      background: ${DARK}; color: ${MINT}; cursor: pointer; font-size: 16px;
+      background: ${MINT}; color: ${MINT_TEXT}; cursor: pointer; font-size: 16px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; transition: background 0.15s, opacity 0.15s;
+      font-weight: 700;
     }
-    #sf-send:hover:not(:disabled) { background: ${DARK_HOVER}; }
+    #sf-send:hover:not(:disabled) { background: ${MINT_HOVER}; }
     #sf-send:disabled { opacity: 0.35; cursor: not-allowed; }
     .sf-typing { display: flex; gap: 4px; padding: 3px 2px; }
     .sf-typing span {
@@ -147,7 +163,6 @@
 
     win.innerHTML = `
       <div id="sf-chat-header">
-        <span style="font-size:20px;line-height:1;">📸</span>
         <div id="sf-chat-header-info">
           <div id="sf-chat-header-title">ShotFactory Assistant</div>
           <div id="sf-chat-header-sub">
@@ -175,7 +190,6 @@
 
     addMessage('bot', STRINGS[getLang()].greeting);
 
-    // Закачаме се директно към langToggle бутона от сайта
     const langBtn = document.getElementById('langToggle');
     if (langBtn) {
       langBtn.addEventListener('click', function () {
