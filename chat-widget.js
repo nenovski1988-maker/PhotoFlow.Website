@@ -16,13 +16,44 @@
     }
   };
 
-  const MINT        = '#a7f3d0';  // светло зелено — фон на хедъра и бутоните
-  const MINT_HOVER  = '#86efac';  // малко по-тъмно при hover
-  const MINT_TEXT   = '#064e3b';  // тъмнозелен текст върху mint фон
-  const GREEN_DOT   = '#22c55e';  // ярко зелено за online
+  const MINT       = '#a7f3d0';
+  const MINT_HOVER = '#86efac';
+  const MINT_TEXT  = '#064e3b';
+  const GREEN_DOT  = '#22c55e';
 
   function getLang() {
     return document.documentElement.lang === 'bg' ? 'bg' : 'en';
+  }
+
+  // Прост markdown parser — bold, italic, списъци, нови редове
+  function renderMarkdown(text) {
+    // Escape HTML първо
+    text = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    // Bold **text**
+    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+    // Italic *text*
+    text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+    // Numbered list: "1. item"
+    text = text.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+    text = text.replace(/(<li>.*<\/li>)/s, '<ol>$1</ol>');
+
+    // Bullet list: "- item"
+    text = text.replace(/^[-•]\s+(.+)$/gm, '<li>$1</li>');
+
+    // Нови редове
+    text = text.replace(/\n/g, '<br>');
+
+    // Почисти <br> около list items
+    text = text.replace(/<br><li>/g, '<li>');
+    text = text.replace(/<\/li><br>/g, '</li>');
+
+    return text;
   }
 
   const styles = `
@@ -33,7 +64,6 @@
       box-shadow: 0 4px 20px rgba(167,243,208,0.5);
       display: flex; align-items: center; justify-content: center;
       font-size: 20px; transition: transform 0.2s, box-shadow 0.2s;
-      color: ${MINT_TEXT}; font-weight: 700;
     }
     #sf-chat-btn:hover {
       transform: scale(1.08);
@@ -50,24 +80,17 @@
     }
     #sf-chat-window.open { display: flex; }
     #sf-chat-header {
-      padding: 14px 16px;
-      background: ${MINT};
+      padding: 14px 16px; background: ${MINT};
       display: flex; align-items: center; gap: 10px; flex-shrink: 0;
     }
     #sf-chat-header-info { flex: 1; }
-    #sf-chat-header-title {
-      color: ${MINT_TEXT}; font-weight: 700; font-size: 14px; line-height: 1.2;
-    }
-    #sf-chat-header-sub {
-      display: flex; align-items: center; gap: 5px; margin-top: 3px;
-    }
+    #sf-chat-header-title { color: ${MINT_TEXT}; font-weight: 700; font-size: 14px; line-height: 1.2; }
+    #sf-chat-header-sub { display: flex; align-items: center; gap: 5px; margin-top: 3px; }
     .sf-dot {
       width: 7px; height: 7px; border-radius: 50%;
       background: ${GREEN_DOT}; box-shadow: 0 0 6px ${GREEN_DOT}; flex-shrink: 0;
     }
-    #sf-online-label {
-      color: ${MINT_TEXT}; font-size: 11px; font-weight: 600; opacity: 0.8;
-    }
+    #sf-online-label { color: ${MINT_TEXT}; font-size: 11px; font-weight: 600; opacity: 0.8; }
     #sf-chat-close {
       background: none; border: none; color: ${MINT_TEXT};
       font-size: 19px; cursor: pointer; padding: 0; line-height: 1;
@@ -80,16 +103,22 @@
     }
     #sf-messages::-webkit-scrollbar { width: 3px; }
     #sf-messages::-webkit-scrollbar-thumb { background: #d1fae5; border-radius: 2px; }
-    .sf-msg { max-width: 84%; padding: 9px 13px; font-size: 13.5px; line-height: 1.55; }
+    .sf-msg {
+      max-width: 84%; padding: 9px 13px; font-size: 13.5px; line-height: 1.6;
+    }
     .sf-msg.bot {
       background: #ffffff; color: #18181b; border: 1px solid #e4e4e7;
       border-radius: 14px 14px 14px 3px; align-self: flex-start;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
+    .sf-msg.bot strong { font-weight: 600; color: #111; }
+    .sf-msg.bot ol, .sf-msg.bot ul {
+      margin: 6px 0 2px 0; padding-left: 18px;
+    }
+    .sf-msg.bot li { margin-bottom: 3px; }
     .sf-msg.user {
       background: ${MINT}; color: ${MINT_TEXT};
-      border-radius: 14px 14px 3px 14px; align-self: flex-end;
-      font-weight: 500;
+      border-radius: 14px 14px 3px 14px; align-self: flex-end; font-weight: 500;
     }
     #sf-input-area {
       padding: 10px 12px; border-top: 1px solid #d1fae5;
@@ -108,8 +137,7 @@
       width: 36px; height: 36px; border-radius: 10px; border: none;
       background: ${MINT}; color: ${MINT_TEXT}; cursor: pointer; font-size: 16px;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: background 0.15s, opacity 0.15s;
-      font-weight: 700;
+      flex-shrink: 0; font-weight: 700; transition: background 0.15s, opacity 0.15s;
     }
     #sf-send:hover:not(:disabled) { background: ${MINT_HOVER}; }
     #sf-send:disabled { opacity: 0.35; cursor: not-allowed; }
@@ -218,7 +246,11 @@
     const msgs = document.getElementById('sf-messages');
     const div = document.createElement('div');
     div.className = `sf-msg ${type}`;
-    div.textContent = text;
+    if (type === 'bot') {
+      div.innerHTML = renderMarkdown(text);
+    } else {
+      div.textContent = text;
+    }
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
   }
