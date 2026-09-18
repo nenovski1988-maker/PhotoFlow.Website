@@ -41,12 +41,6 @@
     "description": "Windows desktop app for automated product photo processing — background removal, crop, centering, and batch export for e-commerce teams and catalog studios. Includes a beta mode for glass/transparent products and 360° turntable capture.",
     "operatingSystem": "Windows 10, Windows 11",
     "applicationCategory": "PhotographyApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "14-day free trial"
-    },
     "screenshot": "https://getshotfactory.com/assets/main-window-purple-shirt.png"
   }
   </script>
@@ -290,8 +284,8 @@
         <a href="#whatsnew" class="lang-bg">Новото</a>
         <a href="#whatsnew" class="lang-en">What's new</a>
 
-        <a href="/download.html" class="lang-bg">Свали</a>
-        <a href="/download.html" class="lang-en">Download</a>
+        <button type="button" class="nav-link-btn lang-bg" onclick="openLicenseModal()">Заяви копие</button>
+        <button type="button" class="nav-link-btn lang-en" onclick="openLicenseModal()">Request a copy</button>
 
         <a href="#faq" class="lang-bg">Въпроси</a>
         <a href="#faq" class="lang-en">FAQ</a>
@@ -312,8 +306,8 @@
         <div class="hero-copy">
           <div class="badge-row">
             <span class="badge">Windows desktop app</span>
-            <span class="badge lang-bg">14-дневен trial</span>
-            <span class="badge lang-en">14-day trial</span>
+            <span class="badge lang-bg">Достъпно по заявка</span>
+            <span class="badge lang-en">Available by request</span>
             <span class="badge lang-bg">Локална обработка</span>
             <span class="badge lang-en">Local processing</span>
           </div>
@@ -329,10 +323,10 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="/download.html">
-              <span class="lang-bg">Свали демо за Windows</span>
-              <span class="lang-en">Download demo for Windows</span>
-            </a>
+            <button class="btn primary" type="button" onclick="openLicenseModal()">
+              <span class="lang-bg">Заяви копие за Windows</span>
+              <span class="lang-en">Request a copy for Windows</span>
+            </button>
             <a class="btn" href="#how">
               <span class="lang-bg">Виж как работи</span>
               <span class="lang-en">See how it works</span>
@@ -558,21 +552,21 @@
       <div class="container">
         <div class="download-panel">
           <div class="card">
-            <h2 class="section-head lang-bg" style="font-size:34px; margin-bottom:16px;">Без мъгла около trial-а</h2>
-            <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:16px;">No vague trial conditions</h2>
+            <h2 class="section-head lang-bg" style="font-size:34px; margin-bottom:16px;">Как да получиш копие</h2>
+            <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:16px;">How to get a copy</h2>
 
             <ul class="info-list lang-bg">
-              <li><strong>Windows desktop app</strong> — сваля се като MSIXBUNDLE, инсталира се локално.</li>
-              <li><strong>14-дневен trial</strong> с пълна функционалност. Export-ите са с watermark.</li>
+              <li><strong>Windows desktop app</strong> — инсталира се локално, като MSIXBUNDLE.</li>
+              <li><strong>Достъпно по заявка</strong> — приложението се разработва активно, копие се предоставя индивидуално.</li>
               <li><strong>Локална обработка</strong> — снимките не се качват автоматично никъде.</li>
-              <li><strong>Install стъпките са описани ясно</strong> на download страницата, включително при Windows предупреждение.</li>
+              <li><strong>Install стъпките се обясняват директно</strong> при заявката, включително при Windows предупреждение.</li>
             </ul>
 
             <ul class="info-list lang-en">
-              <li><strong>Windows desktop app</strong> — downloaded as MSIXBUNDLE, installed locally.</li>
-              <li><strong>14-day trial</strong> with full functionality. Exports include a watermark.</li>
+              <li><strong>Windows desktop app</strong> — installed locally, as an MSIXBUNDLE.</li>
+              <li><strong>Available by request</strong> — the app is under active development; a copy is provided individually.</li>
               <li><strong>Local processing</strong> — photos are not automatically uploaded anywhere.</li>
-              <li><strong>Install steps explained clearly</strong> on the download page, including any Windows warning.</li>
+              <li><strong>Install steps explained directly</strong> when you request a copy, including any Windows warning.</li>
             </ul>
           </div>
 
@@ -580,14 +574,14 @@
             <h3 class="lang-bg">Следваща стъпка</h3>
             <h3 class="lang-en">Next step</h3>
 
-            <p class="lang-bg" style="margin-bottom:14px;">Свали демото и тествай с реални собствени снимки.</p>
-            <p class="lang-en" style="margin-bottom:14px;">Download the demo and test it with your own real product images.</p>
+            <p class="lang-bg" style="margin-bottom:14px;">Заяви копие и тествай с реални собствени снимки.</p>
+            <p class="lang-en" style="margin-bottom:14px;">Request a copy and test it with your own real product images.</p>
 
             <div class="cta-row" style="margin-bottom:0;">
-              <a class="btn primary" href="/download.html">
-                <span class="lang-bg">Към download страницата</span>
-                <span class="lang-en">Go to download page</span>
-              </a>
+              <button class="btn primary" type="button" onclick="openLicenseModal()">
+                <span class="lang-bg">Заяви копие</span>
+                <span class="lang-en">Request a copy</span>
+              </button>
               <a class="btn" href="#whatsnew">
                 <span class="lang-bg">Виж какво е новото</span>
                 <span class="lang-en">See what's new</span>
@@ -628,8 +622,8 @@
           <div class="card">
             <h3 class="lang-bg">Работи ли със стъкло и отразяващи повърхности?</h3>
             <h3 class="lang-en">Does it work with glass and reflective surfaces?</h3>
-            <p class="lang-bg">Има нов beta режим (two-background matting) точно за това — виж <a href="#whatsnew">Новото</a>. Все още се тества, така че trial-ът е най-добрият начин да провериш с твоите конкретни продукти.</p>
-            <p class="lang-en">There's a new beta mode (two-background matting) built specifically for this — see <a href="#whatsnew">What's new</a>. It's still being tested, so the trial remains the best way to verify with your specific products.</p>
+            <p class="lang-bg">Има нов beta режим (two-background matting) точно за това — виж <a href="#whatsnew">Новото</a>. Все още се тества, така че най-добрият начин да провериш с твоите конкретни продукти е да заявиш копие.</p>
+            <p class="lang-en">There's a new beta mode (two-background matting) built specifically for this — see <a href="#whatsnew">What's new</a>. It's still being tested, so the best way to verify with your specific products is to request a copy.</p>
           </div>
         </div>
       </div>
@@ -642,10 +636,10 @@
           <h2 class="section-head lang-en" style="font-size:34px; margin-bottom:10px;">Contact</h2>
 
           <p class="section-lead lang-bg" style="margin-bottom:18px;">
-            Въпроси за install, trial, licensing или дали ShotFactory пасва на твоя workflow — пиши директно.
+            Въпроси за копие, инсталация, лицензиране или дали ShotFactory пасва на твоя workflow — пиши директно.
           </p>
           <p class="section-lead lang-en" style="margin-bottom:18px;">
-            Questions about installation, trial, licensing, or whether ShotFactory fits your workflow — reach out directly.
+            Questions about getting a copy, installation, licensing, or whether ShotFactory fits your workflow — reach out directly.
           </p>
 
           <div class="contact-list">
@@ -773,22 +767,22 @@
     </div>
   </div>
 
-  <!-- LICENSE MODAL -->
+  <!-- REQUEST A COPY MODAL -->
   <div id="licenseModal" class="modal hidden" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <div>
-          <h3 class="lang-bg">Заявка за лиценз и цена</h3>
-          <h3 class="lang-en">Request pricing</h3>
+          <h3 class="lang-bg">Заяви копие</h3>
+          <h3 class="lang-en">Request a copy</h3>
         </div>
         <button class="modal-close" type="button" onclick="closeLicenseModal()" aria-label="Close">×</button>
       </div>
 
-      <p class="muted lang-bg">Опиши нуждите си. Ще върнем отговор с цена и следващи стъпки.</p>
-      <p class="muted lang-en">Describe what you need. You'll receive a reply with pricing and next steps.</p>
+      <p class="muted lang-bg">Опиши нуждите си. Ще се свържем с теб за копие на приложението, инсталация и условия.</p>
+      <p class="muted lang-en">Describe what you need. We'll get back to you with a copy of the app, install steps, and terms.</p>
 
       <form class="form" action="https://formspree.io/f/meeegvzj" method="POST">
-        <input type="hidden" name="type" value="license" />
+        <input type="hidden" name="type" value="copy_request" />
 
         <div class="form-grid-2">
           <label>
