@@ -688,3 +688,20 @@ html[lang="en"] .lang-bg{ display:none !important; }
     grid-template-columns: 1fr;
   }
 }
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.footer-brand-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.footer-brand-logo{
+  height:16px;
+  width:auto;
+  display:inline-block;
+  vertical-align:middle;
+}
